@@ -1,3 +1,4 @@
+# For deploy gitlab pages
 pages:
   image: node:latest
   stage: deploy
@@ -9,3 +10,6 @@ pages:
   artifacts:
     paths:
       - public
+  only:
+    - master
+
