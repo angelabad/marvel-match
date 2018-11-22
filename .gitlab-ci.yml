@@ -1,0 +1,15 @@
+# For deploy gitlab pages
+pages:
+  image: node:latest
+  stage: deploy
+  script:
+    - yarn
+    - yarn build
+    - mv public public-vue
+    - mv dist public
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
+
