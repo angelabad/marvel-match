@@ -2,7 +2,7 @@
     <div id="Search">
 
     <section>
-        <b-field label="Find a movie">
+        <b-field label="Find a Marvel Character">
             <b-autocomplete
                 v-model="name"
                 :data="searchResults"
@@ -61,19 +61,19 @@ export default {
   },
   methods: {
     handleSearch: debunce(function() {
-        if (!this.name.length) {
-            this.searchResults = []
-            return
-        }
-        this.ifFetching = true;
-        axios
-          .get(
-            "https://gateway.marvel.com:443/v1/public/characters?apikey=***REMOVED***&orderBy=name&nameStartsWith=" +
-              this.name
-          )
-          .then(response => (this.searchResults = response.data.data.results))
-          .finally(() => (this.isFetching = false));
-      }, 500),
+      if (!this.name.length) {
+        this.searchResults = [];
+        return;
+      }
+      this.ifFetching = true;
+      axios
+        .get(
+          "https://gateway.marvel.com:443/v1/public/characters?apikey=***REMOVED***&orderBy=name&nameStartsWith=" +
+            this.name
+        )
+        .then(response => (this.searchResults = response.data.data.results))
+        .finally(() => (this.isFetching = false));
+    }, 500),
     showHero: function(id) {
       this.searchResults = [];
       axios
