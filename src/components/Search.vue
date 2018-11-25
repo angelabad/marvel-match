@@ -1,34 +1,33 @@
 <template>
     <div id="Search">
-    <div>
-        <form @submit.prevent @submit="handleSearch()">
-            <div>
-                <input v-model="name"
-                       placeholder="Marvel Character..."
-                       type="text"
-                       required
-                        />
 
-                <button type="submit">Buscar</button>
-            </div>
+    <section>
+        <b-field label="Find a movie">
+            <b-autocomplete
+                v-model="name"
+                :data="searchResults"
+                placeholder="Start typing..."
+                field="name"
+                :loading="isFetching"
+                :keep-first=true
+                @keyup.native.down.stop.prevent="null"
+                @keyup.native.up="null"
+                @keyup.native="handleSearch"
+                @select="option => showHero(option.id)">
 
-        </form>
-    </div>
-
-    <div v-if="searchResults">
-        <table align="center">
-            <thead>
-                <td>Nombre</td>
-                <td>Id</td>
-            </thead>
-            <tbody>
-            <tr v-for="searchResult in searchResults" :key="searchResult.id" @click="showHero(searchResult.id)">
-                <td>{{ searchResult.name }}</td>
-                <td>{{ searchResult.id }}</td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+                <template slot-scope="props">
+                    <div class="media">
+                        <div class="media-left">
+                            <img v-bind:src="props.option.thumbnail.path + '.' + props.option.thumbnail.extension" width="32" />
+                        </div>
+                        <div class="media-content">
+                            {{ props.option.name }}
+                        </div>
+                    </div>
+                </template>
+            </b-autocomplete>
+        </b-field>
+    </section>
 
     <div v-if="comics">
         <div>
@@ -47,28 +46,36 @@
 
 <script>
 import axios from "axios";
+import debunce from "debounce";
 
 export default {
   name: "Search",
   data: function() {
     return {
       name: null,
-      searchResults: null,
-      comics: null
+      searchResults: [],
+      comics: null,
+      isFetching: false,
+      selected: null
     };
   },
   methods: {
-    handleSearch() {
-      (this.comics = null),
+    handleSearch: debunce(function() {
+        if (!this.name.length) {
+            this.searchResults = []
+            return
+        }
+        this.ifFetching = true;
         axios
           .get(
             "https://gateway.marvel.com:443/v1/public/characters?apikey=***REMOVED***&orderBy=name&nameStartsWith=" +
               this.name
           )
-          .then(response => (this.searchResults = response.data.data.results));
-    },
-    showHero(id) {
-      this.searchResults = null;
+          .then(response => (this.searchResults = response.data.data.results))
+          .finally(() => (this.isFetching = false));
+      }, 500),
+    showHero: function(id) {
+      this.searchResults = [];
       axios
         .get(
           "https://gateway.marvel.com:443/v1/public/comics?apikey=***REMOVED***&characters=" +
