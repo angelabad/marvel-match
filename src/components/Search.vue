@@ -29,6 +29,38 @@
         </b-field>
     </section>
 
+    <section id="superhero" v-if="hero1">
+
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-4by3">
+                    <img v-bind:src="hero1.thumbnail.path + '.' + hero1.thumbnail.extension" :alt="hero1.name" />
+                </figure>
+            </div>
+            <div class="card-content">
+                <div class="media">
+                    <!--
+                    <div class="media-left">
+                        <figure class="image is 48x48">
+                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    -->
+                    <div class="media-content">
+                        <p class="title is-4">{{ firstName }}</p>
+                        <p class="subtitle is-6">{{ subName }}</p>
+                    </div>
+                </div>
+
+                <div class="content">
+                    {{ hero1.description }}
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+<!--
     <div v-if="comics">
         <div>
             <h2>Comics</h2>
@@ -40,6 +72,7 @@
             </ul>
         </div>
     </div>
+-->
 
 </div>
 </template>
@@ -54,7 +87,7 @@ export default {
     return {
       name: null,
       searchResults: [],
-      comics: null,
+      hero1: null,
       isFetching: false,
       selected: null
     };
@@ -78,17 +111,26 @@ export default {
       this.searchResults = [];
       axios
         .get(
-          "https://gateway.marvel.com:443/v1/public/comics?apikey=***REMOVED***&characters=" +
-            id
+            "https://gateway.marvel.com:443/v1/public/characters/" + id + "?apikey=***REMOVED***"
         )
-        .then(response => (this.comics = response.data.data.results));
+        // TODO: Es raro coger el primer dato del array aqui...
+        .then(response => (this.hero1 = response.data.data.results[0]));
     },
     splitHeroName: function(name) {
         var regExp = /([a-zA-Z0-9_]+ ?[a-zA-Z0-9_]+)( ?(\(([^)]+)\)))?/
         var matches = regExp.exec(name)
-        console.log("Name: " + matches[1])
-        console.log("Subname: " + matches[4])
+        return matches
     }
+  },
+  computed: {
+      firstName: function() {
+          var firstName = this.splitHeroName(this.name)[1]
+          return firstName
+      },
+      subName: function() {
+          var firstName = this.splitHeroName(this.name)[4]
+          return firstName
+      },
   }
 };
 </script>
