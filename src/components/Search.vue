@@ -82,6 +82,12 @@ export default {
             id
         )
         .then(response => (this.comics = response.data.data.results));
+    },
+    splitHeroName: function(name) {
+        var regExp = /([a-zA-Z0-9_]+ ?[a-zA-Z0-9_]+)( ?(\(([^)]+)\)))?/
+        var matches = regExp.exec(name)
+        console.log("Name: " + matches[1])
+        console.log("Subname: " + matches[4])
     }
   }
 };
