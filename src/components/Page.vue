@@ -1,24 +1,22 @@
 <template>
     <div id="Page">
-
+        <section class="container">
         <div class="columns is-centered" v-if="visible">
             <div class="column is-one-third">
                 <Search v-on:sendHero="hero => this.hero1Id = hero" />
             </div>
-
-            <div class="column is-one-fifth is-narrow">
+            <div class="column is-one-fifth">
                 <div v-if="hero1Id && hero2Id">
                     <a class="button is-info">
                         Link
                     </a>
                 </div>
             </div>
-
             <div class="column is-one-third">
                 <Search v-on:sendHero="hero => this.hero2Id = hero" />
             </div>
         </div>
-
+        </section>
     </div>
 </template>
 

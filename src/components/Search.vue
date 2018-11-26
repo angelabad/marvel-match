@@ -1,7 +1,6 @@
 <template>
 <div id="Search">
 
-    <section class="container">
         <b-field label="Find a Marvel Character">
             <b-autocomplete
                 placeholder="Start typing..."
@@ -27,9 +26,8 @@
                 </template>
             </b-autocomplete>
         </b-field>
-    </section>
 
-    <section v-if="hero1" class="container">
+    <div v-if="hero1">
 
         <div v-if="heroLoading">Loading...</div>
 
@@ -60,7 +58,7 @@
             </div>
         </div>
 
-    </section>
+    </div>
 </div>
 </template>
 
