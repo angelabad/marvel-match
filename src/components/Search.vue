@@ -52,8 +52,8 @@
                             </div>
                             -->
                             <div class="media-content">
-                                <p class="title is-4">{{ firstName }}</p>
-                                <p class="subtitle is-6">{{ subName }}</p>
+                                <p class="title is-4">{{ hero1.name }}</p>
+                                <!-- <p class="subtitle is-6">{{ subName }}</p> -->
                             </div>
                         </div>
 
@@ -129,6 +129,7 @@ export default {
     }
   },
   computed: {
+      /*
       firstName: function() {
           var firstName = this.splitHeroName(this.name)[1]
           return firstName
@@ -137,6 +138,7 @@ export default {
           var firstName = this.splitHeroName(this.name)[4]
           return firstName
       },
+      */
   }
 };
 </script>
