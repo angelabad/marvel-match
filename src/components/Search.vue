@@ -67,20 +67,6 @@
 
     </section>
 
-<!--
-    <div v-if="comics">
-        <div>
-            <h2>Comics</h2>
-            <ul>
-                <li v-for="comic in comics" :key="comic.id">
-                    <h3>{{ comic.title }}</h3>
-                    <img v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension" height="300" :alt="comic.title" />
-                </li>
-            </ul>
-        </div>
-    </div>
--->
-
 </div>
 </template>
 
