@@ -82,9 +82,14 @@ export default {
   methods: {
     handleSearch: debunce(function() {
       this.isFetching = true
+
+      // If empty input delete all and send null to Page
       if (!this.name.length) {
+        this.$emit('sendHero', null);
         this.searchResults = [];
-        return;
+        this.hero1 = null;
+        this.isFetching = false;
+        return 0;
       }
       axios
         .get(
