@@ -1,5 +1,5 @@
 <template>
-    <div id="Search">
+    <div id="Page">
 
     <section>
         <div class="columns is-centered">
@@ -78,7 +78,7 @@ import axios from "axios";
 import debunce from "debounce";
 
 export default {
-  name: "Search",
+  name: "Page",
   data: function() {
     return {
       name: null,
