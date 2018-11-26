@@ -12,8 +12,8 @@
                         :data="searchResults"
                         :loading="isFetching"
                         :keep-first=true
-                        @keyup.native.down.stop.prevent="null"
-                        @keyup.native.up="null"
+                        @keyup.native.down.stop="null"
+                        @keyup.native.up.stop="null"
                         @keyup.native="handleSearch"
                         @select="option => showHero(option.id)">
 
