@@ -33,8 +33,11 @@
         </div>
     </section>
 
-    <section id="superhero" v-if="hero1">
-        <div class="columns is-centered">
+    <section v-if="hero1">
+
+        <div v-if="heroLoading">Loading...</div>
+
+        <div v-else class="columns is-centered">
             <div class="column is-one-third">
                 <div class="card">
                     <div class="card-image">
@@ -81,6 +84,7 @@ export default {
       name: null,
       searchResults: [],
       hero1: null,
+      heroLoading: false,
       isFetching: false
     };
   },
@@ -97,22 +101,28 @@ export default {
             this.name
         )
         .then(response => (this.searchResults = response.data.data.results))
+        .catch(error => console.log(error))
         .finally(() => (this.isFetching = false));
     }, 500),
     showHero: function(id) {
+
+      this.heroLoading = true
+
       this.searchResults = [];
       axios
         .get(
             "https://gateway.marvel.com:443/v1/public/characters/" + id + "?apikey=***REMOVED***"
         )
         // TODO: Es raro coger el primer dato del array aqui...
-        .then(response => (this.hero1 = response.data.data.results[0]));
+        .then(response => (this.hero1 = response.data.data.results[0]))
+        .catch(error => console.log(error))
+        .finally(() => this.heroLoading = false)
     },
     splitHeroName: function(name) {
         var regExp = /([a-zA-Z0-9_]+ ?[a-zA-Z0-9_]+)( ?(\(([^)]+)\)))?/
         var matches = regExp.exec(name)
         return matches
-    }
+    },
   },
   computed: {
       /*
