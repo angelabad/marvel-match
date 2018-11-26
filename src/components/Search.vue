@@ -106,6 +106,7 @@ export default {
         )
         // TODO: Es raro coger el primer dato del array aqui...
         .then(response => (this.hero1 = response.data.data.results[0]))
+        .then(this.$emit('sendHero', id))
         .catch(error => console.log(error))
         .finally(() => this.heroLoading = false)
     },
