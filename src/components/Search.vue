@@ -6,10 +6,10 @@
             <div class="column is-one-third">
                 <b-field label="Find a Marvel Character">
                     <b-autocomplete
-                        v-model="name"
-                        :data="searchResults"
                         placeholder="Start typing..."
                         field="name"
+                        v-model="name"
+                        :data="searchResults"
                         :loading="isFetching"
                         :keep-first=true
                         @keyup.native.down.stop.prevent="null"
@@ -95,17 +95,16 @@ export default {
       name: null,
       searchResults: [],
       hero1: null,
-      isFetching: false,
-      selected: null
+      isFetching: false
     };
   },
   methods: {
     handleSearch: debunce(function() {
+      this.isFetching = true
       if (!this.name.length) {
         this.searchResults = [];
         return;
       }
-      this.ifFetching = true;
       axios
         .get(
           "https://gateway.marvel.com:443/v1/public/characters?apikey=***REMOVED***&orderBy=name&nameStartsWith=" +
