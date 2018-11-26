@@ -1,6 +1,14 @@
 <template>
     <div id="Page">
-        <Search />
+        <div class="columns is-centered">
+            <div class="column is-one-third">
+                <Search />
+            </div>
+            <div class="column is-one-third">
+                <Search />
+            </div>
+        </div>
+
     </div>
 </template>
 
