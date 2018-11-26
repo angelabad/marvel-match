@@ -12,4 +12,5 @@ pages:
       - public
   only:
     - master
+    - 6-split-search-vue-in-multiple-components
 
