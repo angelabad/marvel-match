@@ -15,7 +15,7 @@
             <div class="column is-one-fifth">
                 <div v-if="hero1Id && hero2Id">
                     <a class="button is-info"  @click="showDetails(hero1Id, hero2Id)">
-                        Link
+                        Match
                     </a>
                 </div>
             </div>
