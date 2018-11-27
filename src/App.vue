@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.jpg">
-    <Search />
+    <Page />
   </div>
 </template>
 
 <script>
-import Search from './components/Search.vue'
+import Page from './components/Page.vue'
 
 export default {
   name: 'app',
   components: {
-    Search
+    Page
   }
 }
 </script>
