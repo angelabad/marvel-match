@@ -27,14 +27,14 @@
             </b-autocomplete>
         </b-field>
 
-    <div v-if="hero1">
+    <div v-if="hero">
 
         <div v-if="heroLoading">Loading...</div>
 
         <div class="card">
             <div class="card-image">
                 <figure class="image is-4by3">
-                    <img v-bind:src="hero1.thumbnail.path + '.' + hero1.thumbnail.extension" :alt="hero1.name" />
+                    <img v-bind:src="hero.thumbnail.path + '.' + hero.thumbnail.extension" :alt="hero.name" />
                 </figure>
             </div>
             <div class="card-content">
@@ -47,13 +47,13 @@
                     </div>
                     -->
                     <div class="media-content">
-                        <p class="title is-4">{{ hero1.name }}</p>
+                        <p class="title is-4">{{ hero.name }}</p>
                         <!-- <p class="subtitle is-6">{{ subName }}</p> -->
                     </div>
                 </div>
 
                 <div class="content">
-                    {{ hero1.description }}
+                    {{ hero.description }}
                 </div>
             </div>
         </div>
@@ -72,7 +72,7 @@ export default {
     return {
       name: null,
       searchResults: [],
-      hero1: null,
+      hero: null,
       heroLoading: false,
       isFetching: false
     };
@@ -85,7 +85,7 @@ export default {
       if (!this.name.length) {
         this.$emit('sendHero', null);
         this.searchResults = [];
-        this.hero1 = null;
+        this.hero = null;
         this.isFetching = false;
         return 0;
       }
@@ -108,9 +108,18 @@ export default {
             "https://gateway.marvel.com:443/v1/public/characters/" + id + "?apikey=***REMOVED***"
         )
         // TODO: Es raro coger el primer dato del array aqui...
-        .then(response => (this.hero1 = response.data.data.results[0]))
-        .then(this.$emit('sendHero', id))
-        .catch(error => console.log(error))
+        //(this.hero = response.data.data.results[0])
+        .then(response =>  {
+            this.hero = {
+                id: response.data.data.results[0].id,
+                name: response.data.data.results[0].name,
+                description: response.data.data.results[0].description,
+                thumbnail: response.data.data.results[0].thumbnail,
+                comicsAvailable: response.data.data.results[0].comics.available
+            }
+        })
+        .then(() => (this.$emit('sendHero', this.hero)))
+        .catch(() => error => console.log(error))
         .finally(() => this.heroLoading = false)
     },
     splitHeroName: function(name) {
