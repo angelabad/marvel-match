@@ -31,57 +31,48 @@ export default {
     }
   },
   mounted: function() {
-    let offset = 100
 
-    let url1Array = []
-    let i = 0
-    for (i = 0; i <= this.hero1.comicsAvailable; i += offset ) {
-        url1Array.push("https://gateway.marvel.com:443/v1/public/characters/" + this.hero1.id + "/comics?limit=100&offset=" + i + "&apikey=***REMOVED***")
+   Promise.all([
+     this.getComics(this.hero1),
+     this.getComics(this.hero2)
+   ]).then(values => {
+     this.comics = values[0].filter(obj => values[1].find(o => o.id === obj.id))
+   })
+   
+  },
+  methods: {
+    getComics: function(hero) {
+      // TODO: Mejorar control de errores
+      return new Promise((resolve, reject) => {
+          let offset = 100
+
+          let urlArray = []
+          let i = 0
+          for (i = 0; i <= hero.comicsAvailable; i += offset ) {
+            urlArray.push("https://gateway.marvel.com:443/v1/public/characters/" + hero.id + "/comics?limit=100&offset=" + i + "&apikey=***REMOVED***")
+          }
+
+          this.total += urlArray.length
+
+          let comicsArray = [];
+          // TODO: No se si esto es concurrente
+          let promiseArray = urlArray.map(url =>
+            axios.get(url).then(results => {
+              this.progress += 1;
+              results.data.data.results.forEach(element => {
+                comicsArray.push(element);
+              });
+            })
+            .catch (() => {
+              return reject("An error happens!")
+            })
+            .finally (() => {
+              return resolve(comicsArray)
+            })
+          );
+        }
+      )
     }
-
-    console.log("HERO1COMICS: " + this.hero1.comicsAvailable + " ID " + this.hero1.id)
-    console.log("ARRAY1: " + url1Array)
-
-    let url2Array = []
-    let j = 0
-    for (j = 0; j <= this.hero2.comicsAvailable; j += offset ) {
-        url2Array.push("https://gateway.marvel.com:443/v1/public/characters/" + this.hero2.id + "/comics?limit=100&offset=" + j + "&apikey=***REMOVED***")
-    }
-
-    console.log("HERO2COMICS: " + this.hero2.comicsAvailable + " ID " + this.hero2.id)
-    console.log("ARRAY2: " + url2Array)
-
-    this.total = url1Array.length + url2Array.length;
-    
-    let newComics1Array = [];
-    // TODO: No se si esto es concurrente
-    let promise1Array = url1Array.map(url =>
-      axios.get(url).then(results => {
-        this.progress += 1;
-        results.data.data.results.forEach(element => {
-          console.log("HERO1")
-          newComics1Array.push(element);
-        });
-      })
-    );
-
-    let newComics2Array = [];
-    // TODO: No se si esto es concurrente
-    let promise2Array = url2Array.map(url =>
-      axios.get(url).then(results => {
-        this.progress += 1;
-        results.data.data.results.forEach(element => {
-          console.log("HERO2")
-          newComics2Array.push(element);
-        });
-      })
-    );
-     
-     axios.all(promise1Array)
-     .then(() => axios.all(promise2Array))
-     .then(() => {
-       this.comics = newComics1Array.filter(obj => newComics2Array.find(o => o.id === obj.id))
-     })
   }
 };
 </script>
