@@ -43,7 +43,7 @@ export default {
     };
   },
   methods: {
-    showDetails: function(arg1, arg2) {
+    showDetails: function() {
       this.visible = false;
       this.detailsVisible = true;
     }

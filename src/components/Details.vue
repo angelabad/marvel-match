@@ -56,7 +56,7 @@ export default {
 
         let comicsArray = [];
         // TODO: No se si esto es concurrente
-        let promiseArray = urlArray.map(url =>
+        urlArray.map(url =>
           axios
             .get(url)
             .then(results => {
