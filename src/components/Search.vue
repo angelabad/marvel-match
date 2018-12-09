@@ -127,18 +127,6 @@ export default {
         var matches = regExp.exec(name)
         return matches
     },
-  },
-  computed: {
-      /*
-      firstName: function() {
-          var firstName = this.splitHeroName(this.name)[1]
-          return firstName
-      },
-      subName: function() {
-          var firstName = this.splitHeroName(this.name)[4]
-          return firstName
-      },
-      */
   }
 };
 </script>
