@@ -29,6 +29,10 @@
 
               <div class="content">{{ comic.description }}</div>
             </div>
+            <footer class="card-footer">
+              <a href="#" class="card-footer-item">Details</a>
+              <a :href="getMarvelUrl(comic)" class="card-footer-item" target="_blank">Marvel</a>
+            </footer>
           </div>
         </div>
       </div>
@@ -71,7 +75,7 @@ export default {
           values[1].find(o => o.id === obj.id)
         );
       }
-    );
+    )
   },
   methods: {
     getComics: function(hero) {
@@ -112,6 +116,10 @@ export default {
             })
         );
       });
+    },
+    getMarvelUrl: function(comic) {
+      const result = comic.urls.find( comicUrl => comicUrl.type === 'detail')
+      return result.url
     }
   }
 };
