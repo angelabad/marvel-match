@@ -3,7 +3,7 @@
     <div v-if="comics" class="container">
       <div class="columns is-multiline">
         <div v-for="comic in comics" :key="comic.id" class="column is-third">
-          <div class="card">
+          <div class="card aa--card-equal-height">
             <div class="card-image">
               <figure class="image is-4by3">
                 <img
@@ -39,6 +39,17 @@
     </div>
   </div>
 </template>
+
+<style>
+.aa--card-equal-height {
+   display: flex;
+   flex-direction: column;
+   height: 100%;
+}
+.aa--card-equal-height .card-footer {
+   margin-top: auto;
+}
+</style>
 
 <script>
 import axios from "axios";
