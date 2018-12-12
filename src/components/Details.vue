@@ -1,8 +1,36 @@
 <template>
   <div id="Details">
     <div v-if="comics" class="container">
-      <div v-for="comic in comics" :key="comic.id">
-        <p>{{ comic.title }}</p>
+      <div class="columns is-multiline">
+        <div v-for="comic in comics" :key="comic.id" class="column is-third">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img
+                  v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+                  :alt="comic.title"
+                >
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <!--
+                    <div class="media-left">
+                        <figure class="image is 48x48">
+                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+                        </figure>
+                    </div>
+                -->
+                <div class="media-content">
+                  <p class="title is-4">{{ comic.title }}</p>
+                  <!-- <p class="subtitle is-6">{{ subName }}</p> -->
+                </div>
+              </div>
+
+              <div class="content">{{ comic.description }}</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
