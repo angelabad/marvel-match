@@ -1,6 +1,8 @@
 {
-  "name": "marvel-angel",
+  "name": "marvel-match",
   "version": "0.1.0",
+  "description": "Marvel Match",
+  "author": "Angel Abad <angelabad@gmail.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
