@@ -1,6 +1,11 @@
-# marvel-angel
+# marvel
 
 ## Project setup
+
+### Configure Visual Code editor for eslint
+
+- https://alligator.io/vuejs/eslint-vue-vetur/
+
 ```
 yarn install
 ```

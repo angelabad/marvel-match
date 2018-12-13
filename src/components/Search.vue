@@ -33,7 +33,10 @@
       <div class="card">
         <div class="card-image">
           <figure class="image is-4by3">
-            <img v-bind:src="hero.thumbnail.path + '.' + hero.thumbnail.extension" :alt="hero.name">
+            <img
+              v-bind:src="hero.thumbnail.path + '.' + hero.thumbnail.extension"
+              :alt="hero.name"
+            >
           </figure>
         </div>
         <div class="card-content">
@@ -59,53 +62,53 @@
 </template>
 
 <script>
-import axios from "axios";
-import debunce from "debounce";
+import axios from 'axios'
+import debunce from 'debounce'
 
 export default {
-  name: "Search",
-  data: function() {
+  name: 'Search',
+  data: function () {
     return {
       name: null,
       searchResults: [],
       hero: null,
       heroLoading: false,
       isFetching: false
-    };
+    }
   },
   methods: {
-    handleSearch: debunce(function() {
-      this.isFetching = true;
+    handleSearch: debunce(function () {
+      this.isFetching = true
 
       // If empty input delete all and send null to Page
       if (!this.name.length) {
-        this.$emit("sendHero", null);
-        this.searchResults = [];
-        this.hero = null;
-        this.isFetching = false;
-        return 0;
+        this.$emit('sendHero', null)
+        this.searchResults = []
+        this.hero = null
+        this.isFetching = false
+        return 0
       }
       axios
         .get(
-          "https://gateway.marvel.com:443/v1/public/characters?apikey=***REMOVED***&orderBy=name&nameStartsWith=" +
-            this.name
+          'https://gateway.marvel.com:443/v1/public/characters?apikey=***REMOVED***&orderBy=name&nameStartsWith=' +
+          this.name
         )
         .then(response => (this.searchResults = response.data.data.results))
         .catch(error => console.log(error))
-        .finally(() => (this.isFetching = false));
+        .finally(() => (this.isFetching = false))
     }, 500),
-    showHero: function(id) {
-      this.heroLoading = true;
+    showHero: function (id) {
+      this.heroLoading = true
 
-      this.searchResults = [];
+      this.searchResults = []
       axios
         .get(
-          "https://gateway.marvel.com:443/v1/public/characters/" +
-            id +
-            "?apikey=***REMOVED***"
+          'https://gateway.marvel.com:443/v1/public/characters/' +
+          id +
+          '?apikey=***REMOVED***'
         )
         // TODO: Es raro coger el primer dato del array aqui...
-        //(this.hero = response.data.data.results[0])
+        // (this.hero = response.data.data.results[0])
         .then(response => {
           this.hero = {
             id: response.data.data.results[0].id,
@@ -113,17 +116,17 @@ export default {
             description: response.data.data.results[0].description,
             thumbnail: response.data.data.results[0].thumbnail,
             comicsAvailable: response.data.data.results[0].comics.available
-          };
+          }
         })
-        .then(() => this.$emit("sendHero", this.hero))
+        .then(() => this.$emit('sendHero', this.hero))
         .catch(() => error => console.log(error))
-        .finally(() => (this.heroLoading = false));
+        .finally(() => (this.heroLoading = false))
     },
-    splitHeroName: function(name) {
-      var regExp = /([a-zA-Z0-9_]+ ?[a-zA-Z0-9_]+)( ?(\(([^)]+)\)))?/;
-      var matches = regExp.exec(name);
-      return matches;
+    splitHeroName: function (name) {
+      var regExp = /([a-zA-Z0-9_]+ ?[a-zA-Z0-9_]+)( ?(\(([^)]+)\)))?/
+      var matches = regExp.exec(name)
+      return matches
     }
   }
-};
+}
 </script>
