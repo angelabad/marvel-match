@@ -14,7 +14,7 @@
             <div class="card-image">
               <figure class="image is-4by3">
                 <img
-                  v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension"
+                  v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
                   :alt="comic.title"
                 >
               </figure>

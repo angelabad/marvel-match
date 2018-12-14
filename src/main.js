@@ -10,6 +10,13 @@ Vue.use(Buefy, {
 
 Vue.config.productionTip = false
 
+Vue.filter('convertToHttps', function (value) {
+  if (!value) return ''
+  let url = new URL(value)
+  url.protocol = 'https:'
+  return url.href
+})
+
 new Vue({
   render: h => h(App)
 }).$mount('#app')
