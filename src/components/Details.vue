@@ -8,8 +8,7 @@
         <div
           v-for="comic in comics"
           :key="comic.id"
-          class="column is-third"
-        >
+          class="column is-one-third">
           <div class="card aa--card-equal-height">
             <div class="card-image">
               <figure class="image is-4by3">
