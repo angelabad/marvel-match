@@ -105,9 +105,12 @@ export default {
   mounted: function () {
     Promise.all([this.getComics(this.hero1), this.getComics(this.hero2)]).then(
       values => {
+        console.log('hero1 ' + values[0].length)
+        console.log('hero2 ' + values[1].length)
         this.comics = values[0].filter(obj =>
           values[1].find(o => o.id === obj.id)
         )
+        console.log('union ' + this.comics.length)
       }
     )
   },
@@ -132,23 +135,27 @@ export default {
         this.total += urlArray.length
 
         let comicsArray = []
-        // TODO: No se si esto es concurrente
-        urlArray.map(url =>
-          axios
-            .get(url)
-            .then(results => {
-              this.progress += 1
-              results.data.data.results.forEach(element => {
-                comicsArray.push(element)
-              })
+
+        var getUrls = () => urlArray.map(url => axios.get(url)
+          .then(results => {
+            // console.log('entra')
+            this.progress += 1
+            results.data.data.results.forEach(element => {
+              comicsArray.push(element)
             })
-            .catch(() => {
-              return reject(new Error('An error happens!'))
-            })
-            .finally(() => {
-              return resolve(comicsArray)
-            })
+          })
+          .catch(error => {
+            return reject(new Error('An error happens! ' + error))
+          })
         )
+
+        axios.all(getUrls())
+          .then(result => {
+            return resolve(comicsArray)
+          })
+          .catch(error => {
+            return reject(new Error('An error happens! ' + error))
+          })
       })
     },
     getMarvelUrl: function (comic) {
