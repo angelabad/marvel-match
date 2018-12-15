@@ -17,6 +17,16 @@ Vue.filter('convertToHttps', function (value) {
   return url.href
 })
 
+Vue.filter('readMore', function (value) {
+  let chars = 300
+  if (!value) return ''
+  if (value.length <= chars) {
+    return value
+  } else {
+    return value.substring(0, chars) + ' ...'
+  }
+})
+
 new Vue({
   render: h => h(App)
 }).$mount('#app')

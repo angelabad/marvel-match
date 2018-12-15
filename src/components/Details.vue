@@ -33,7 +33,7 @@
                 </div>
               </div>
 
-              <div class="content">{{ comic.description }}</div>
+              <div class="content">{{ comic.description | readMore }}</div>
             </div>
             <footer class="card-footer">
               <a

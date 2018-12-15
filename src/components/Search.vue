@@ -54,7 +54,7 @@
             </div>
           </div>
 
-          <div class="content">{{ hero.description }}</div>
+          <div class="content">{{ hero.description | readMore }}</div>
         </div>
       </div>
     </div>
