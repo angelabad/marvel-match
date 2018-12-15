@@ -8,7 +8,8 @@
         <div
           v-for="comic in comics"
           :key="comic.id"
-          class="column is-one-third">
+          class="column is-one-third"
+        >
           <div class="card aa--card-equal-height">
             <div class="card-image">
               <figure class="image is-4by3">
@@ -55,11 +56,24 @@
       v-else
       class="container"
     >
-      <progress
-        class="progress"
-        :value="progress"
-        :max="total"
-      />
+      <div class="modal is-active">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+          <header class="modal-card-head">
+            <p class="modal-card-title">Searching your superheroes!</p>
+          </header>
+          <section class="modal-card-body">
+            <progress
+              class="progress"
+              :value="progress"
+              :max="total"
+            />
+          </section>
+          <footer class="modal-card-foot">
+            <p>Please be patient...</p>
+          </footer>
+        </div>
+      </div>
     </div>
   </div>
 </template>
