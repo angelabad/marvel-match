@@ -38,13 +38,14 @@
             </div>
             <footer class="card-footer">
               <a
-                href="#"
-                class="card-footer-item"
-              >Details</a>
-              <a
+                class="is-primary is-medium card-footer-item"
+                @click="detailsModal(comic)"
+              >
+                Details
+              </a>
+               <a
+                class="is-primary is-medium card-footer-item" target="_blank"
                 :href="getMarvelUrl(comic)"
-                class="card-footer-item"
-                target="_blank"
               >Marvel</a>
             </footer>
           </div>
@@ -80,6 +81,7 @@
 
 <script>
 import axios from 'axios'
+import Modal from './Modal'
 
 export default {
   name: 'Details',
@@ -151,6 +153,17 @@ export default {
     getMarvelUrl: function (comic) {
       const result = comic.urls.find(comicUrl => comicUrl.type === 'detail')
       return result.url
+    },
+    detailsModal: function (comic) {
+      this.$modal.open({
+        props: {
+          comic: comic
+        },
+        parent: this,
+        component: Modal,
+        hasModalCard: true,
+        scroll: 'keep'
+      })
     }
   }
 }
