@@ -61,6 +61,15 @@
   </div>
 </template>
 
+<style scoped>
+#Search {
+  background-color: white;
+  padding: 20px;
+  margin-top: 37vh;
+  border-radius: 5px;
+}
+</style>
+
 <script>
 import axios from 'axios'
 import debunce from 'debounce'
