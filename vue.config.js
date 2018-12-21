@@ -4,7 +4,7 @@
 
 module.exports = {
     baseUrl: process.env.NODE_ENV === 'production'
-      ? '/marvel-tests/'
+      ? '/marvel-match/'
       : '/',
     configureWebpack: {
       devtool: 'source-map'
