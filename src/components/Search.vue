@@ -66,6 +66,7 @@
   margin-top: 37vh;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  min-height: 20vh;
 }
 </style>
 

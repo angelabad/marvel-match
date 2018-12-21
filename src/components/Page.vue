@@ -43,14 +43,18 @@
   background-size: cover;
   background-position: center;
   height: 50vh;
+  margin-top: 0px;
 }
 </style>
 
 <style scoped>
 .column.has-vertically-aligned-content {
+  /*
   display: flex;
   flex-direction: column;
   justify-content: center;
+  */
+  margin-top: 60vh;
 }
 .aa--marvel-button {
   height: 44px;
