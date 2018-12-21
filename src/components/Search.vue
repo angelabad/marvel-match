@@ -66,7 +66,8 @@
   background-color: white;
   padding: 20px;
   margin-top: 37vh;
-  border-radius: 5px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 </style>
 
