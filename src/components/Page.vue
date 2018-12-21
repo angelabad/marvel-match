@@ -36,6 +36,16 @@
   </div>
 </template>
 
+<style>
+.body-background {
+  background-image: url("../assets/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 50vh;
+}
+</style>
+
 <style scoped>
 .column.has-vertically-aligned-content {
   display: flex;
@@ -104,6 +114,12 @@ export default {
       hero1Id: null,
       hero2Id: null
     }
+  },
+  mounted: function () {
+    // TODO: Añadir la clase con el background solo para esta pagian
+    // TODO: Mejorar la forma de hacer esto
+    const el = document.body
+    el.classList.add('body-background')
   },
   methods: {
     showDetails: function () {
