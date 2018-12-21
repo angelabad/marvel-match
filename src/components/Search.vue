@@ -1,6 +1,6 @@
 <template>
   <div id="Search">
-    <b-field label="Find a Marvel Character">
+    <b-field>
       <b-autocomplete
         placeholder="Start typing..."
         field="name"
@@ -49,12 +49,12 @@
                     </div>
             -->
             <div class="media-content">
-              <p class="title is-4">{{ hero.name }}</p>
+              <p class="title is-4 aa--marvel-title-red">{{ hero.name }}</p>
               <!-- <p class="subtitle is-6">{{ subName }}</p> -->
             </div>
           </div>
 
-          <div class="content">{{ hero.description | readMore }}</div>
+          <p class="content aa--marvel-content-black">{{ hero.description | readMore }}</p>
         </div>
       </div>
     </div>
