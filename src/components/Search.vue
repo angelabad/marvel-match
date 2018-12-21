@@ -28,8 +28,6 @@
     </b-field>
 
     <div v-if="hero">
-      <div v-if="heroLoading">Loading...</div>
-
       <div class="card">
         <div class="card-image">
           <figure class="image is-4by3">
@@ -82,7 +80,6 @@ export default {
       name: null,
       searchResults: [],
       hero: null,
-      heroLoading: false,
       isFetching: false
     }
   },
@@ -108,8 +105,6 @@ export default {
         .finally(() => (this.isFetching = false))
     }, 500),
     showHero: function (id) {
-      this.heroLoading = true
-
       this.searchResults = []
       axios
         .get(
@@ -130,7 +125,6 @@ export default {
         })
         .then(() => this.$emit('sendHero', this.hero))
         .catch(() => error => console.log(error))
-        .finally(() => (this.heroLoading = false))
     },
     splitHeroName: function (name) {
       var regExp = /([a-zA-Z0-9_]+ ?[a-zA-Z0-9_]+)( ?(\(([^)]+)\)))?/
