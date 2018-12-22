@@ -124,7 +124,6 @@ export default {
     // TODO: Mejorar la forma de hacer esto
     // const el = document.body
     const el = document.getElementById('app')
-    console.log(el)
     el.classList.add('body-background')
   },
   methods: {
