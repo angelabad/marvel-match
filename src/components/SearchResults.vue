@@ -1,5 +1,5 @@
 <template>
-  <div id="Details">
+  <div id="SearchResults">
     <div
       v-if="comics"
       class="container"

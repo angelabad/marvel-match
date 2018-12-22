@@ -1,11 +1,11 @@
 <template>
-  <div id="Page">
+  <div id="Index">
     <section class="container">
       <div
         class="container"
-        v-if="detailsVisible"
+        v-if="searchResultsVisible"
       >
-        <Details
+        <SearchResults
           :hero1="hero1Id"
           :hero2="hero2Id"
         />
@@ -15,21 +15,21 @@
     <section class="container">
       <div
         class="columns is-centered"
-        v-if="visible"
+        v-if="searchFormVisible"
       >
         <div class="column is-one-third">
-          <Search v-on:sendHero="hero => this.hero1Id = hero" />
+          <SearchForm v-on:sendHero="hero => this.hero1Id = hero" />
         </div>
         <div class="column is-one-fifth has-vertically-aligned-content">
           <div v-if="hero1Id && hero2Id">
             <a
               class="button aa--marvel-button"
-              @click="showDetails(hero1Id, hero2Id)"
+              @click="callMatch(hero1Id, hero2Id)"
             >Match</a>
           </div>
         </div>
         <div class="column is-one-third">
-          <Search v-on:sendHero="hero => this.hero2Id = hero" />
+          <SearchForm v-on:sendHero="hero => this.hero2Id = hero" />
         </div>
       </div>
     </section>
@@ -102,19 +102,19 @@
 </style>
 
 <script>
-import Search from './Search.vue'
-import Details from './Details.vue'
+import SearchForm from './SearchForm.vue'
+import SearchResults from './SearchResults.vue'
 
 export default {
-  name: 'Page',
+  name: 'Index',
   components: {
-    Search,
-    Details
+    SearchForm,
+    SearchResults
   },
   data: function () {
     return {
-      detailsVisible: false,
-      visible: true,
+      searchResultsVisible: false,
+      searchFormVisible: true,
       hero1Id: null,
       hero2Id: null
     }
@@ -126,9 +126,9 @@ export default {
     el.classList.add('body-background')
   },
   methods: {
-    showDetails: function () {
-      this.visible = false
-      this.detailsVisible = true
+    callMatch: function () {
+      this.searchFormVisible = false
+      this.searchResultsVisible = true
     }
   }
 }

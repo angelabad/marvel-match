@@ -1,5 +1,5 @@
 <template>
-  <div id="Search">
+  <div id="SearchForm">
     <b-field>
       <b-autocomplete
         placeholder="Start typing..."
@@ -60,7 +60,7 @@
 </template>
 
 <style scoped>
-#Search {
+#SearchForm {
   background-color: white;
   padding: 20px;
   margin-top: 37vh;
@@ -75,7 +75,7 @@ import axios from 'axios'
 import debunce from 'debounce'
 
 export default {
-  name: 'Search',
+  name: 'SearchForm',
   data: function () {
     return {
       name: null,
@@ -88,7 +88,7 @@ export default {
     handleSearch: debunce(function () {
       this.isFetching = true
 
-      // If empty input delete all and send null to Page
+      // If empty input delete all and send null to Index
       if (!this.name.length) {
         this.$emit('sendHero', null)
         this.searchResults = []
