@@ -88,7 +88,7 @@ export default {
     handleSearch: debunce(function () {
       this.isFetching = true
 
-      // If empty input delete all and send null to Page
+      // If empty input delete all and send null to Index
       if (!this.name.length) {
         this.$emit('sendHero', null)
         this.searchResults = []

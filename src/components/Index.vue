@@ -1,5 +1,5 @@
 <template>
-  <div id="Page">
+  <div id="Index">
     <section class="container">
       <div
         class="container"
@@ -106,7 +106,7 @@ import Search from './Search.vue'
 import Details from './Details.vue'
 
 export default {
-  name: 'Page',
+  name: 'Index',
   components: {
     Search,
     Details
