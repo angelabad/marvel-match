@@ -105,18 +105,14 @@ export default {
   mounted: function () {
     // TODO: Remove body-background specific style for backgrounds
     // TODO: Mejorar los diferentes estilos en paginas distintas
-    console.log(this.$el.document)
     const el = document.body
     el.classList.remove('body-background')
 
     Promise.all([this.getComics(this.hero1), this.getComics(this.hero2)]).then(
       values => {
-        console.log('hero1 ' + values[0].length)
-        console.log('hero2 ' + values[1].length)
         this.comics = values[0].filter(obj =>
           values[1].find(o => o.id === obj.id)
         )
-        console.log('union ' + this.comics.length)
       }
     )
   },
@@ -144,7 +140,6 @@ export default {
 
         var getUrls = () => urlArray.map(url => axios.get(url)
           .then(results => {
-            // console.log('entra')
             this.progress += 1
             results.data.data.results.forEach(element => {
               comicsArray.push(element)
