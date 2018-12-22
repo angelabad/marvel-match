@@ -105,7 +105,7 @@ export default {
   mounted: function () {
     // TODO: Remove body-background specific style for backgrounds
     // TODO: Mejorar los diferentes estilos en paginas distintas
-    const el = document.body
+    const el = document.getElementById('app')
     el.classList.remove('body-background')
 
     Promise.all([this.getComics(this.hero1), this.getComics(this.hero2)]).then(
