@@ -1,5 +1,5 @@
 <template>
-  <div id="Modal">
+  <div id="ComicDetails">
 
          <div class="card is-horizontal">
           <div class="card-image">
@@ -129,7 +129,7 @@
 
 <script>
 export default {
-  name: 'Modal',
+  name: 'ComicDetails',
   props: ['comic'],
   filters: {
     getReleaseDate: function (value) {
