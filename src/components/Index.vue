@@ -3,7 +3,7 @@
     <section class="container">
       <div
         class="container"
-        v-if="detailsVisible"
+        v-if="searchResultsVisible"
       >
         <SearchResults
           :hero1="hero1Id"
@@ -15,7 +15,7 @@
     <section class="container">
       <div
         class="columns is-centered"
-        v-if="visible"
+        v-if="searchFormVisible"
       >
         <div class="column is-one-third">
           <SearchForm v-on:sendHero="hero => this.hero1Id = hero" />
@@ -113,8 +113,8 @@ export default {
   },
   data: function () {
     return {
-      detailsVisible: false,
-      visible: true,
+      searchResultsVisible: false,
+      searchFormVisible: true,
       hero1Id: null,
       hero2Id: null
     }
@@ -127,8 +127,8 @@ export default {
   },
   methods: {
     callMatch: function () {
-      this.visible = false
-      this.detailsVisible = true
+      this.searchFormVisible = false
+      this.searchResultsVisible = true
     }
   }
 }
