@@ -24,7 +24,7 @@
           <div v-if="hero1Id && hero2Id">
             <a
               class="button aa--marvel-button"
-              @click="showDetails(hero1Id, hero2Id)"
+              @click="callMatch(hero1Id, hero2Id)"
             >Match</a>
           </div>
         </div>
@@ -126,7 +126,7 @@ export default {
     el.classList.add('body-background')
   },
   methods: {
-    showDetails: function () {
+    callMatch: function () {
       this.visible = false
       this.detailsVisible = true
     }
