@@ -18,7 +18,7 @@
         v-if="visible"
       >
         <div class="column is-one-third">
-          <Search v-on:sendHero="hero => this.hero1Id = hero" />
+          <SearchForm v-on:sendHero="hero => this.hero1Id = hero" />
         </div>
         <div class="column is-one-fifth has-vertically-aligned-content">
           <div v-if="hero1Id && hero2Id">
@@ -29,7 +29,7 @@
           </div>
         </div>
         <div class="column is-one-third">
-          <Search v-on:sendHero="hero => this.hero2Id = hero" />
+          <SearchForm v-on:sendHero="hero => this.hero2Id = hero" />
         </div>
       </div>
     </section>
@@ -102,13 +102,13 @@
 </style>
 
 <script>
-import Search from './Search.vue'
+import SearchForm from './SearchForm.vue'
 import Details from './Details.vue'
 
 export default {
   name: 'Index',
   components: {
-    Search,
+    SearchForm,
     Details
   },
   data: function () {
