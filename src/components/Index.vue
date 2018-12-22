@@ -5,7 +5,7 @@
         class="container"
         v-if="detailsVisible"
       >
-        <Details
+        <SearchResults
           :hero1="hero1Id"
           :hero2="hero2Id"
         />
@@ -103,13 +103,13 @@
 
 <script>
 import SearchForm from './SearchForm.vue'
-import Details from './Details.vue'
+import SearchResults from './SearchResults.vue'
 
 export default {
   name: 'Index',
   components: {
     SearchForm,
-    Details
+    SearchResults
   },
   data: function () {
     return {
