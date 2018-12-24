@@ -32,7 +32,14 @@
           <SearchForm v-on:sendHero="hero => this.hero2Id = hero" />
         </div>
       </div>
+      <div class="container" v-show="descriptionVisible">
+        <div class="notification is-size-3 has-text-danger has-text-weight-bold" >
+          See all the places your favorite Marvel Superheroes appear together.
+          <!-- Enter two Superheroes to see everywhere they appear together. -->
+        </div>
+      </div>
     </section>
+
   </div>
 </template>
 
@@ -115,6 +122,8 @@ export default {
     return {
       searchResultsVisible: false,
       searchFormVisible: true,
+      // This is modified in SearchForm
+      descriptionVisible: true,
       hero1Id: null,
       hero2Id: null
     }

@@ -95,6 +95,9 @@ export default {
         this.hero = null
         this.isFetching = false
         return 0
+      } else {
+        // TODO: El mensaje se elimina cuando tecleas por primera vez, si vuelves a vaciar los inputs no aparece otra vez
+        this.$parent.descriptionVisible = false
       }
       axios
         .get(
