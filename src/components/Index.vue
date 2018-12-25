@@ -22,11 +22,11 @@
         </div>
         <div class="column is-one-fifth has-vertically-aligned-content">
           <div v-if="hero1Id && hero2Id">
-            <a
+            <button
               autofocus
               class="button aa--marvel-button"
               @click="callMatch(hero1Id, hero2Id)"
-            >Match</a>
+            >Match</button>
           </div>
         </div>
         <div class="column is-one-third">
