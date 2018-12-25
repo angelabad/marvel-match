@@ -18,18 +18,19 @@
         v-if="searchFormVisible"
       >
         <div class="column is-one-third">
-          <SearchForm v-on:sendHero="hero => this.hero1Id = hero" />
+          <SearchForm ref="form1" v-on:sendHero="hero => {this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus()}" />
         </div>
         <div class="column is-one-fifth has-vertically-aligned-content">
           <div v-if="hero1Id && hero2Id">
             <a
+              autofocus
               class="button aa--marvel-button"
               @click="callMatch(hero1Id, hero2Id)"
             >Match</a>
           </div>
         </div>
         <div class="column is-one-third">
-          <SearchForm v-on:sendHero="hero => this.hero2Id = hero" />
+          <SearchForm ref="form2" v-on:sendHero="hero => this.hero2Id = hero" />
         </div>
       </div>
       <div class="container" v-show="descriptionVisible">
@@ -134,6 +135,7 @@ export default {
     // const el = document.body
     const el = document.getElementById('app')
     el.classList.add('body-background')
+    this.$refs.form1.$refs.autocomplete.focus()
   },
   methods: {
     callMatch: function () {

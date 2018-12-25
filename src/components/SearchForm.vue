@@ -1,7 +1,7 @@
 <template>
   <div id="SearchForm">
     <b-field>
-      <b-autocomplete
+      <b-autocomplete ref="autocomplete"
         placeholder="Start typing..."
         field="name"
         v-model="name"
