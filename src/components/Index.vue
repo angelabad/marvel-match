@@ -44,6 +44,43 @@
   </div>
 </template>
 
+<script>
+import SearchForm from './SearchForm.vue'
+import SearchResults from './SearchResults.vue'
+
+export default {
+  name: 'Index',
+  components: {
+    SearchForm,
+    SearchResults
+  },
+  data: function () {
+    return {
+      searchResultsVisible: false,
+      searchFormVisible: true,
+      // This is modified in SearchForm
+      descriptionVisible: true,
+      hero1Id: null,
+      hero2Id: null
+    }
+  },
+  mounted: function () {
+    // TODO: Añadir la clase con el background solo para esta pagian
+    // TODO: Mejorar la forma de hacer esto
+    // const el = document.body
+    const el = document.getElementById('app')
+    el.classList.add('body-background')
+    this.$refs.form1.$refs.autocomplete.focus()
+  },
+  methods: {
+    callMatch: function () {
+      this.searchFormVisible = false
+      this.searchResultsVisible = true
+    }
+  }
+}
+</script>
+
 <style>
 .body-background {
   background-image: url("../assets/background.jpg");
@@ -108,40 +145,3 @@
   width: 0;
 }
 </style>
-
-<script>
-import SearchForm from './SearchForm.vue'
-import SearchResults from './SearchResults.vue'
-
-export default {
-  name: 'Index',
-  components: {
-    SearchForm,
-    SearchResults
-  },
-  data: function () {
-    return {
-      searchResultsVisible: false,
-      searchFormVisible: true,
-      // This is modified in SearchForm
-      descriptionVisible: true,
-      hero1Id: null,
-      hero2Id: null
-    }
-  },
-  mounted: function () {
-    // TODO: Añadir la clase con el background solo para esta pagian
-    // TODO: Mejorar la forma de hacer esto
-    // const el = document.body
-    const el = document.getElementById('app')
-    el.classList.add('body-background')
-    this.$refs.form1.$refs.autocomplete.focus()
-  },
-  methods: {
-    callMatch: function () {
-      this.searchFormVisible = false
-      this.searchResultsVisible = true
-    }
-  }
-}
-</script>

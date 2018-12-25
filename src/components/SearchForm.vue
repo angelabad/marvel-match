@@ -59,17 +59,6 @@
   </div>
 </template>
 
-<style scoped>
-#SearchForm {
-  background-color: white;
-  padding: 20px;
-  margin-top: 37vh;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  min-height: 20vh;
-}
-</style>
-
 <script>
 import axios from 'axios'
 import debunce from 'debounce'
@@ -138,3 +127,14 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+#SearchForm {
+  background-color: white;
+  padding: 20px;
+  margin-top: 37vh;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  min-height: 20vh;
+}
+</style>

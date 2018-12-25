@@ -78,17 +78,6 @@
   </div>
 </template>
 
-<style>
-.aa--card-equal-height {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.aa--card-equal-height .card-footer {
-  margin-top: auto;
-}
-</style>
-
 <script>
 import axios from 'axios'
 
@@ -166,3 +155,14 @@ export default {
   }
 }
 </script>
+
+<style>
+.aa--card-equal-height {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.aa--card-equal-height .card-footer {
+  margin-top: auto;
+}
+</style>
