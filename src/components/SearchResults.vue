@@ -99,13 +99,33 @@ export default {
     const el = document.getElementById('app')
     el.classList.remove('body-background')
 
+    let rawcomics
+
     Promise.all([this.getComics(this.hero1), this.getComics(this.hero2)]).then(
       values => {
-        this.comics = values[0].filter(obj =>
+        rawcomics = values[0].filter(obj =>
           values[1].find(o => o.id === obj.id)
         )
       }
-    )
+    ).then(() => {
+      this.comics = rawcomics.map(rawcomic => {
+        var comic = {
+          id: rawcomic.id,
+          title: rawcomic.title,
+          description: rawcomic.description,
+          urls: rawcomic.urls,
+          thumbnail: rawcomic.thumbnail,
+          creators: rawcomic.creators,
+          characters: rawcomic.characters,
+          dates: rawcomic.dates,
+          issueNumber: rawcomic.issueNumber,
+          pageCount: rawcomic.pageCount,
+          series: rawcomic.series
+        }
+
+        return comic
+      })
+    })
   },
   methods: {
     getComics: function (hero) {
