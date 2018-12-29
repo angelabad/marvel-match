@@ -14,6 +14,7 @@
             <div class="card-image">
               <figure class="image is-4by3">
                 <img
+                  @click="showComicDetails(comic)"
                   v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
                   :alt="comic.title"
                 >
@@ -29,7 +30,10 @@
                     </div>
                 -->
                 <div class="media-content">
-                  <p class="title is-4">{{ comic.title }}</p>
+                  <a
+                    @click="showComicDetails(comic)"
+                    class="title is-4"
+                  >{{ comic.title }}</a>
                   <!-- <p class="subtitle is-6">{{ subName }}</p> -->
                 </div>
               </div>
@@ -43,8 +47,9 @@
               >
                 Details
               </a>
-               <a
-                class="is-primary is-medium card-footer-item" target="_blank"
+              <a
+                class="is-primary is-medium card-footer-item"
+                target="_blank"
                 :href="getMarvelUrl(comic)"
               >Marvel</a>
             </footer>

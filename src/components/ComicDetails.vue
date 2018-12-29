@@ -17,7 +17,8 @@
               <div class="media-content">
                 <h1 class="title is-spaced">{{comic.title}}</h1>
                 <h2 class="subtitle">Published: {{ comic.dates | getReleaseDate }}</h2>
-                <p class="is-3">Writer {{ comic.creators.items[0].name }}</p>
+                <p v-if="getWriterNames" class="is-3">Writers: {{ getWriterNames }}</p>
+                <p class="is-3">Colorists: {{ getColoristNames }}</p>
               </div>
             </div>
 
@@ -60,6 +61,45 @@
   </div>
 
 </template>
+
+<script>
+export default {
+  name: 'ComicDetails',
+  props: ['comic'],
+  methods: {
+    getCreatorNames: function (role) {
+      var writers = this.comic.creators.items.filter(creator => creator.role === role)
+      if (writers.length === 0) return ''
+
+      let names = []
+      writers.forEach(writer => {
+        names.push(writer.name)
+      })
+      return names.join(', ')
+    }
+  },
+  computed: {
+    getWriterNames: function () {
+      return this.getCreatorNames('writer')
+    },
+    getColoristNames: function () {
+      return this.getCreatorNames('colorist')
+    }
+  },
+  filters: {
+    getReleaseDate: function (value) {
+      if (!value) return ''
+      const result = value.find(date => date.type === 'onsaleDate')
+      let newDate = new Date(Date.parse(result.date))
+      var formatDate = newDate.getFullYear() + '-' + newDate.getMonth() + '-' + newDate.getDay()
+      return formatDate
+    }
+  },
+  mounted: function () {
+    console.log(this.comic)
+  }
+}
+</script>
 
 <style scoped>
 /* angel */
@@ -126,22 +166,3 @@
   flex: 3;
 }
 </style>
-
-<script>
-export default {
-  name: 'ComicDetails',
-  props: ['comic'],
-  filters: {
-    getReleaseDate: function (value) {
-      if (!value) return ''
-      const result = value.find(date => date.type === 'onsaleDate')
-      let newDate = new Date(Date.parse(result.date))
-      var formatDate = newDate.getFullYear() + '-' + newDate.getMonth() + '-' + newDate.getDay()
-      return formatDate
-    }
-  },
-  mounted: function () {
-    console.log(this.comic)
-  }
-}
-</script>
