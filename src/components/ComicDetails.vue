@@ -17,11 +17,20 @@
           <div class="media-content">
             <h1 class="title is-spaced">{{comic.title}}</h1>
             <h2 class="subtitle">Published: {{ getReleaseDate }}</h2>
+            <p class="is-3">Issue Number: {{ comic.issueNumber }}</p>
+            <p class="is-3">Pages: {{ comic.pageCount }}</p>
             <p
               v-if="getWriterNames"
               class="is-3"
             >Writers: {{ getWriterNames }}</p>
-            <p class="is-3">Colorists: {{ getColoristNames }}</p>
+            <p
+              v-if="getColoristNames"
+              class="is-3"
+            >Colorists: {{ getColoristNames }}</p>
+            <p
+              v-if="getCharacters"
+              class="is-3"
+            >Characters: {{ getCharacters }}</p>
           </div>
         </div>
 
@@ -94,6 +103,12 @@ export default {
       let newDate = new Date(Date.parse(result.date))
       var formatDate = newDate.getFullYear() + '-' + newDate.getMonth() + '-' + newDate.getDay()
       return formatDate
+    },
+    getCharacters: function () {
+      let names = []
+      this.comic.characters.items.forEach(character => names.push(character.name))
+
+      return names.join(', ')
     }
   },
   mounted: function () {
