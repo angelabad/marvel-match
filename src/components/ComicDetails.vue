@@ -1,33 +1,36 @@
 <template>
   <div id="ComicDetails">
 
-         <div class="card is-horizontal">
-          <div class="card-image">
+    <div class="card is-horizontal">
+      <div class="card-image">
 
-            <figure class="image has-background-black-ter">
-              <img
-                v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
-                :alt="comic.title"
-                style="width: 100%; height: 600px; object-fit: contain;"
-              >
-            </figure>
+        <figure class="image has-background-black-ter">
+          <img
+            v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
+            :alt="comic.title"
+            style="width: 100%; height: 600px; object-fit: contain;"
+          >
+        </figure>
+      </div>
+      <div class="card-content has-background-black-ter">
+        <div class="media">
+          <div class="media-content">
+            <h1 class="title is-spaced">{{comic.title}}</h1>
+            <h2 class="subtitle">Published: {{ getReleaseDate }}</h2>
+            <p
+              v-if="getWriterNames"
+              class="is-3"
+            >Writers: {{ getWriterNames }}</p>
+            <p class="is-3">Colorists: {{ getColoristNames }}</p>
           </div>
-          <div class="card-content has-background-black-ter">
-            <div class="media">
-              <div class="media-content">
-                <h1 class="title is-spaced">{{comic.title}}</h1>
-                <h2 class="subtitle">Published: {{ comic.dates | getReleaseDate }}</h2>
-                <p v-if="getWriterNames" class="is-3">Writers: {{ getWriterNames }}</p>
-                <p class="is-3">Colorists: {{ getColoristNames }}</p>
-              </div>
-            </div>
+        </div>
 
-            <div class="content">
-              <p class="has-text-justified">
-                <span v-html="comic.description"></span>
-              </p>
+        <div class="content">
+          <p class="has-text-justified">
+            <span v-html="comic.description"></span>
+          </p>
 
-              <!--
+          <!--
               <span class="tag is-link">blackbird was a sailor</span>
               <span class="tag is-info">that's what you do</span>
 
@@ -54,9 +57,9 @@
                 </div>
               </div>
               -->
-            </div>
-          </div>
         </div>
+      </div>
+    </div>
 
   </div>
 
@@ -84,12 +87,10 @@ export default {
     },
     getColoristNames: function () {
       return this.getCreatorNames('colorist')
-    }
-  },
-  filters: {
-    getReleaseDate: function (value) {
-      if (!value) return ''
-      const result = value.find(date => date.type === 'onsaleDate')
+    },
+    getReleaseDate: function () {
+      if (!this.comic.dates) return ''
+      const result = this.comic.dates.find(date => date.type === 'onsaleDate')
       let newDate = new Date(Date.parse(result.date))
       var formatDate = newDate.getFullYear() + '-' + newDate.getMonth() + '-' + newDate.getDay()
       return formatDate
