@@ -14,6 +14,7 @@
             <div class="card-image">
               <figure class="image is-4by3">
                 <img
+                  @click="showComicDetails(comic)"
                   v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
                   :alt="comic.title"
                 >
@@ -29,7 +30,10 @@
                     </div>
                 -->
                 <div class="media-content">
-                  <p class="title is-4">{{ comic.title }}</p>
+                  <a
+                    @click="showComicDetails(comic)"
+                    class="title is-4"
+                  >{{ comic.title }}</a>
                   <!-- <p class="subtitle is-6">{{ subName }}</p> -->
                 </div>
               </div>
@@ -38,13 +42,15 @@
             </div>
             <footer class="card-footer">
               <a
-                href="#"
-                class="card-footer-item"
-              >Details</a>
+                class="is-primary is-medium card-footer-item"
+                @click="showComicDetails(comic)"
+              >
+                Details
+              </a>
               <a
-                :href="getMarvelUrl(comic)"
-                class="card-footer-item"
+                class="is-primary is-medium card-footer-item"
                 target="_blank"
+                :href="getMarvelUrl(comic)"
               >Marvel</a>
             </footer>
           </div>
@@ -80,6 +86,7 @@
 
 <script>
 import axios from 'axios'
+import ComicDetails from './ComicDetails'
 
 export default {
   name: 'Details',
@@ -97,13 +104,33 @@ export default {
     const el = document.getElementById('app')
     el.classList.remove('body-background')
 
+    let rawcomics
+
     Promise.all([this.getComics(this.hero1), this.getComics(this.hero2)]).then(
       values => {
-        this.comics = values[0].filter(obj =>
+        rawcomics = values[0].filter(obj =>
           values[1].find(o => o.id === obj.id)
         )
       }
-    )
+    ).then(() => {
+      this.comics = rawcomics.map(rawcomic => {
+        var comic = {
+          id: rawcomic.id,
+          title: rawcomic.title,
+          description: rawcomic.description,
+          urls: rawcomic.urls,
+          thumbnail: rawcomic.thumbnail,
+          creators: rawcomic.creators,
+          characters: rawcomic.characters,
+          dates: rawcomic.dates,
+          issueNumber: rawcomic.issueNumber,
+          pageCount: rawcomic.pageCount,
+          series: rawcomic.series
+        }
+
+        return comic
+      })
+    })
   },
   methods: {
     getComics: function (hero) {
@@ -151,6 +178,17 @@ export default {
     getMarvelUrl: function (comic) {
       const result = comic.urls.find(comicUrl => comicUrl.type === 'detail')
       return result.url
+    },
+    showComicDetails: function (comic) {
+      this.$modal.open({
+        props: {
+          comic: comic
+        },
+        parent: this,
+        component: ComicDetails,
+        hasModalCard: true,
+        scroll: 'keep'
+      })
     }
   }
 }
