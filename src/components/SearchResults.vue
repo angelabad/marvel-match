@@ -25,7 +25,7 @@
                 <div class="media-content">
                   <a
                     @click="showComicDetails(comic)"
-                    class="title is-4"
+                    class="title is-4 aa-card-title"
                   >{{ comic.title }}</a>
                 </div>
               </div>
@@ -185,5 +185,13 @@ export default {
   -o-transform: translate(0, -6px);
   -webkit-transform: translate(0, -6px);
   transform: translate(0, -6px);
+}
+.aa-card-title {
+  font-family: "DIN Next W01 Regular" !important;
+  font-weight: bold !important;
+  font-size: 18px !important;
+}
+.aa-card-title:hover {
+  color: #eb2328;
 }
 </style>
