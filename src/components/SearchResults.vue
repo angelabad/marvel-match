@@ -10,7 +10,7 @@
           :key="comic.id"
           class="column is-one-third"
         >
-          <div class="card aa--card-equal-height">
+          <div class="card">
             <div class="card-image">
               <figure class="image is-2by3 aa-card-image">
                 <img
@@ -172,14 +172,6 @@ export default {
 </script>
 
 <style>
-.aa--card-equal-height {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-.aa--card-equal-height .card-footer {
-  margin-top: auto;
-}
 .aa-card-image {
   border: none !important;
   -webkit-transition: none;
