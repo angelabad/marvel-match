@@ -12,7 +12,7 @@
         >
           <div class="card aa--card-equal-height">
             <div class="card-image">
-              <figure class="image is-4by3">
+              <figure class="image is-2by3">
                 <img
                   @click="showComicDetails(comic)"
                   v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
