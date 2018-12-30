@@ -40,19 +40,6 @@
 
               <div class="content">{{ comic.description | readMore }}</div>
             </div>
-            <footer class="card-footer">
-              <a
-                class="is-primary is-medium card-footer-item"
-                @click="showComicDetails(comic)"
-              >
-                Details
-              </a>
-              <a
-                class="is-primary is-medium card-footer-item"
-                target="_blank"
-                :href="getMarvelUrl(comic)"
-              >Marvel</a>
-            </footer>
           </div>
         </div>
       </div>
