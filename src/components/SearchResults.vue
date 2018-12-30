@@ -12,7 +12,7 @@
         >
           <div class="card aa--card-equal-height">
             <div class="card-image">
-              <figure class="image is-2by3">
+              <figure class="image is-2by3 aa-card-image">
                 <img
                   @click="showComicDetails(comic)"
                   v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
@@ -179,5 +179,19 @@ export default {
 }
 .aa--card-equal-height .card-footer {
   margin-top: auto;
+}
+.aa-card-image {
+  border: none !important;
+  -webkit-transition: none;
+  transition: none;
+  box-shadow: 0 26px 24px -16px rgba(0, 0, 0, 0.4) !important;
+  cursor: pointer;
+}
+.aa-card-image:hover {
+  -moz-transform: translate(0, -6px);
+  -ms-transform: translate(0, -6px);
+  -o-transform: translate(0, -6px);
+  -webkit-transform: translate(0, -6px);
+  transform: translate(0, -6px);
 }
 </style>
