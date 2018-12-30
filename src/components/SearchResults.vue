@@ -29,7 +29,6 @@
                   >{{ comic.title }}</a>
                 </div>
               </div>
-              <div class="content">{{ comic.description | readMore }}</div>
             </div>
           </div>
         </div>
