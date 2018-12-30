@@ -22,22 +22,13 @@
             </div>
             <div class="card-content">
               <div class="media">
-                <!--
-                    <div class="media-left">
-                        <figure class="image is 48x48">
-                            <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-                        </figure>
-                    </div>
-                -->
                 <div class="media-content">
                   <a
                     @click="showComicDetails(comic)"
                     class="title is-4"
                   >{{ comic.title }}</a>
-                  <!-- <p class="subtitle is-6">{{ subName }}</p> -->
                 </div>
               </div>
-
               <div class="content">{{ comic.description | readMore }}</div>
             </div>
           </div>
