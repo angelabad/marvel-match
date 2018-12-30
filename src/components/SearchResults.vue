@@ -10,7 +10,7 @@
           :key="comic.id"
           class="column is-one-third"
         >
-          <div class="card">
+          <div class="card is-shadowless">
             <div class="card-image">
               <figure class="image is-2by3 aa-card-image">
                 <img
