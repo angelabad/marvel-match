@@ -1,22 +1,7 @@
 <template>
   <div id="Index">
     <section class="container">
-      <div
-        class="container"
-        v-if="searchResultsVisible"
-      >
-        <SearchResults
-          :hero1="hero1Id"
-          :hero2="hero2Id"
-        />
-      </div>
-    </section>
-
-    <section class="container">
-      <div
-        class="columns is-centered"
-        v-if="searchFormVisible"
-      >
+      <div class="columns is-centered">
         <div class="column is-one-third">
           <SearchForm ref="form1" v-on:sendHero="hero => {this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus()}" />
         </div>
@@ -46,18 +31,15 @@
 
 <script>
 import SearchForm from './SearchForm.vue'
-import SearchResults from './SearchResults.vue'
 
 export default {
   name: 'Index',
   components: {
-    SearchForm,
-    SearchResults
+    SearchForm
   },
   data: function () {
     return {
       searchResultsVisible: false,
-      searchFormVisible: true,
       // This is modified in SearchForm
       descriptionVisible: true,
       hero1Id: null,
@@ -74,8 +56,13 @@ export default {
   },
   methods: {
     callMatch: function () {
-      this.searchFormVisible = false
-      this.searchResultsVisible = true
+      this.$router.push({
+        name: 'results',
+        params: {
+          hero1: this.hero1Id,
+          hero2: this.hero2Id
+        }
+      })
     }
   }
 }

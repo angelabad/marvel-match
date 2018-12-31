@@ -66,14 +66,20 @@ import axios from 'axios'
 import ComicDetails from './ComicDetails'
 
 export default {
-  name: 'Details',
-  props: ['hero1', 'hero2'],
+  name: 'SearchResults',
+  // props: ['hero1', 'hero2'],
   data: function () {
     return {
+      hero1: null,
+      hero2: null,
       total: 0,
       progress: 0,
       comics: null
     }
+  },
+  created: function () {
+    this.hero1 = this.$route.params.hero1
+    this.hero2 = this.$route.params.hero2
   },
   mounted: function () {
     // TODO: Remove body-background specific style for backgrounds
