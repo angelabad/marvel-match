@@ -8,7 +8,7 @@ Vue.use(Router)
 
 const routes = [
   { path: '/', component: Index },
-  { path: '/results', name: 'results', component: SearchResults }
+  { path: '/results', name: 'results', component: SearchResults, props: true }
 ]
 
 const router = new Router({
