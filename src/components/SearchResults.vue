@@ -66,13 +66,27 @@ import axios from 'axios'
 import ComicDetails from './ComicDetails'
 
 export default {
-  name: 'Details',
-  props: ['hero1', 'hero2'],
+  name: 'SearchResults',
+  props: {
+    hero1: {
+      type: Object,
+      required: true
+    },
+    hero2: {
+      type: Object,
+      required: true
+    }
+  },
   data: function () {
     return {
       total: 0,
       progress: 0,
       comics: null
+    }
+  },
+  beforeCreate: function () {
+    if (!this.$route.params.hero1 || !this.$route.params.hero2) {
+      this.$router.replace({ name: 'index' })
     }
   },
   mounted: function () {
