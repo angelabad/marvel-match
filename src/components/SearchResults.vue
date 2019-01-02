@@ -84,6 +84,11 @@ export default {
       comics: null
     }
   },
+  beforeCreate: function () {
+    if (!this.$route.params.hero1 || !this.$route.params.hero2) {
+      this.$router.replace({ name: 'index' })
+    }
+  },
   mounted: function () {
     // TODO: Remove body-background specific style for backgrounds
     // TODO: Mejorar los diferentes estilos en paginas distintas
