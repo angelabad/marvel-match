@@ -67,7 +67,16 @@ import ComicDetails from './ComicDetails'
 
 export default {
   name: 'SearchResults',
-  props: ['hero1', 'hero2'],
+  props: {
+    hero1: {
+      type: Object,
+      required: true
+    },
+    hero2: {
+      type: Object,
+      required: true
+    }
+  },
   data: function () {
     return {
       total: 0,
