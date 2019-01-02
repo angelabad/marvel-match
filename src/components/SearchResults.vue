@@ -8,7 +8,7 @@
         <div
           v-for="comic in comics"
           :key="comic.id"
-          class="column is-one-third"
+          class="column is-one-quarter"
         >
           <div class="card is-shadowless">
             <div class="card-image">
