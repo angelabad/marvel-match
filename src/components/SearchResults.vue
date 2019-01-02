@@ -121,6 +121,11 @@ export default {
 
         return comic
       })
+    }).finally(() => {
+      // It no matches found return to Index with a message
+      if (this.comics.length === 0) {
+        console.log('ESTA VACIO')
+      }
     })
   },
   methods: {
