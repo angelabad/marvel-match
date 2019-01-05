@@ -1,42 +1,7 @@
 <template>
   <div id="SearchResults">
     <div
-      v-if="comics"
-      class="container"
-    >
-      <div class="columns is-multiline">
-        <div
-          v-for="comic in comics"
-          :key="comic.id"
-          class="column is-one-quarter"
-        >
-          <div class="card is-shadowless">
-            <div class="card-image">
-              <figure class="image is-2by3 aa-card-image">
-                <img
-                  @click="showComicDetails(comic)"
-                  v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
-                  :alt="comic.title"
-                >
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="media">
-                <div class="media-content">
-                  <a
-                    @click="showComicDetails(comic)"
-                    class="title is-4 aa-card-title"
-                  >{{ comic.title }}</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div
-      v-else
+      v-if="loading"
       class="container"
     >
       <div class="modal is-active">
@@ -56,6 +21,49 @@
             <p>Please be patient...</p>
           </footer>
         </div>
+      </div>
+    </div>
+
+    <div v-else>
+      <div
+        v-if="comics.length > 0"
+        class="container"
+      >
+        <div class="columns is-multiline">
+          <div
+            v-for="comic in comics"
+            :key="comic.id"
+            class="column is-one-quarter"
+          >
+            <div class="card is-shadowless">
+              <div class="card-image">
+                <figure class="image is-2by3 aa-card-image">
+                  <img
+                    @click="showComicDetails(comic)"
+                    v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
+                    :alt="comic.title"
+                  >
+                </figure>
+              </div>
+              <div class="card-content">
+                <div class="media">
+                  <div class="media-content">
+                    <a
+                      @click="showComicDetails(comic)"
+                      class="title is-4 aa-card-title"
+                    >{{ comic.title }}</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        v-else
+        class="container"
+      >
+        <p>No hay comics</p>
       </div>
     </div>
   </div>
@@ -79,6 +87,7 @@ export default {
   },
   data: function () {
     return {
+      loading: false,
       total: 0,
       progress: 0,
       comics: null
@@ -90,6 +99,7 @@ export default {
     }
   },
   mounted: function () {
+    this.loading = true
     // TODO: Remove body-background specific style for backgrounds
     // TODO: Mejorar los diferentes estilos en paginas distintas
     const el = document.getElementById('app')
@@ -122,6 +132,7 @@ export default {
         return comic
       })
     }).finally(() => {
+      this.loading = false
       // It no matches found return to Index with a message
       if (this.comics.length === 0) {
         console.log('ESTA VACIO')
