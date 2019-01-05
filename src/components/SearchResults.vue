@@ -59,11 +59,16 @@
           </div>
         </div>
       </div>
-      <div
-        v-else
-        class="container"
-      >
-        <p>No hay comics</p>
+      <div v-else>
+        <section class="hero is-danger is-medium is-bold">
+          <div class="hero-body">
+            <div class="container">
+              <h1 class="title has-text-black">
+                No results found
+              </h1>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   </div>
