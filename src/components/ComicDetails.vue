@@ -100,8 +100,9 @@ export default {
       if (!this.comic.dates) return ''
       const result = this.comic.dates.find(date => date.type === 'onsaleDate')
       let newDate = new Date(Date.parse(result.date))
-      var formatDate = newDate.getFullYear() + '-' + newDate.getMonth() + '-' + newDate.getDay()
-      return formatDate
+      var options = { month: 'long', day: 'numeric', year: 'numeric' }
+
+      return newDate.toLocaleDateString('en-US', options)
     },
     getCharacters: function () {
       let names = []
