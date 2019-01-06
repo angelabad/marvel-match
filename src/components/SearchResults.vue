@@ -95,7 +95,7 @@ export default {
       loading: false,
       total: 0,
       progress: 0,
-      comics: null
+      comics: []
     }
   },
   beforeCreate: function () {
