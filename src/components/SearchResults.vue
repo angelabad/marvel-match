@@ -136,6 +136,13 @@ export default {
 
         return comic
       })
+      this.comics.sort(function (a, b) {
+        // Get comics onsaleDate and convert to Date type
+        var dateA = new Date(a.dates.find(date => date.type === 'onsaleDate').date)
+        var dateB = new Date(b.dates.find(date => date.type === 'onsaleDate').date)
+
+        return dateA - dateB
+      })
     }).finally(() => {
       this.loading = false
     })
