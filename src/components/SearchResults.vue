@@ -31,7 +31,7 @@
       >
         <div class="columns is-multiline">
           <div
-            v-for="comic in comics"
+            v-for="comic in limitedComics"
             :key="comic.id"
             class="column is-one-quarter"
           >
@@ -95,13 +95,25 @@ export default {
       loading: false,
       total: 0,
       progress: 0,
-      comics: []
+      comics: [],
+      limitNumber: 12,
+      bottom: false
+    }
+  },
+  computed: {
+    limitedComics: function () {
+      return this.comics.slice(0, this.limitNumber)
     }
   },
   beforeCreate: function () {
     if (!this.$route.params.hero1 || !this.$route.params.hero2) {
       this.$router.replace({ name: 'index' })
     }
+  },
+  created: function () {
+    window.addEventListener('scroll', () => {
+      this.bottom = this.bottomVisible()
+    })
   },
   mounted: function () {
     this.loading = true
@@ -147,7 +159,21 @@ export default {
       this.loading = false
     })
   },
+  watch: {
+    bottom: function (bottom) {
+      if (bottom) {
+        this.limitNumber += 4
+      }
+    }
+  },
   methods: {
+    bottomVisible () {
+      const scrollY = window.scrollY
+      const visible = document.documentElement.clientHeight
+      const pageHeight = document.documentElement.scrollHeight
+      const bottomOfPage = visible + scrollY >= pageHeight
+      return bottomOfPage || pageHeight < visible
+    },
     getComics: function (hero) {
       // TODO: Mejorar control de errores
       return new Promise((resolve, reject) => {
