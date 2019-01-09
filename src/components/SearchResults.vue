@@ -29,6 +29,21 @@
         v-if="comics.length > 0"
         class="container"
       >
+        <div class="section">
+          <div class="level-right">
+            <div class="level-item">
+              <a
+                class="button"
+                @click="reverseOrder"
+              >
+                <span class="icon">
+                  <i class="fas fa-sort"></i>
+                </span>
+                <span>Order</span>
+              </a>
+            </div>
+          </div>
+        </div>
         <div class="columns is-multiline">
           <div
             v-for="comic in limitedComics"
@@ -167,7 +182,10 @@ export default {
     }
   },
   methods: {
-    bottomVisible () {
+    reverseOrder: function () {
+      this.comics = this.comics.reverse()
+    },
+    bottomVisible: function () {
       const scrollY = window.scrollY
       const visible = document.documentElement.clientHeight
       const pageHeight = document.documentElement.scrollHeight
