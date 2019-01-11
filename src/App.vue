@@ -7,7 +7,7 @@
 <style>
 #app {
   /* font-family: "Avenir", Helvetica, Arial, sans-serif; */
-  margin-top: 60px;
+  /* margin-top: 60px; */
   font: DINNextW01-CondensedMed, Trebuchet MS, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
