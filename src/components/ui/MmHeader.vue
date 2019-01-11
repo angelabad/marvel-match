@@ -1,6 +1,6 @@
 <template>
   <header class="has-text-left aa-header">
-    <a href="#">
+    <router-link to="/">
       <svg
         width="130"
         height="52"
@@ -24,7 +24,7 @@
           d="M31.5 48V4H21.291l-3.64 22.735L14.102 4H4v44h8V26.792L15.577 48h4.229l3.568-21.208V48z"
         ></path>
       </svg>
-    </a>
+    </router-link>
   </header>
 </template>
 
