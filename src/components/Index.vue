@@ -1,5 +1,8 @@
 <template>
   <div id="Index">
+
+    <mm-header />
+
     <section class="container">
       <div class="columns is-centered">
         <div class="column is-one-third">
@@ -31,11 +34,13 @@
 
 <script>
 import SearchForm from './SearchForm.vue'
+import MmHeader from './ui/MmHeader.vue'
 
 export default {
   name: 'Index',
   components: {
-    SearchForm
+    SearchForm,
+    MmHeader
   },
   data: function () {
     return {

@@ -1,5 +1,8 @@
 <template>
   <div id="SearchResults">
+
+    <mm-header />
+
     <div
       v-if="loading"
       class="container"
@@ -91,10 +94,14 @@
 
 <script>
 import axios from 'axios'
-import ComicDetails from './ComicDetails'
+import ComicDetails from './ComicDetails.vue'
+import MmHeader from './ui/MmHeader.vue'
 
 export default {
   name: 'SearchResults',
+  components: {
+    MmHeader
+  },
   props: {
     hero1: {
       type: Object,
