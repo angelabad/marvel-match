@@ -6,7 +6,10 @@
     <section class="container">
       <div class="columns is-centered">
         <div class="column is-one-third">
-          <SearchForm ref="form1" v-on:sendHero="hero => {this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus()}" />
+          <SearchForm
+            ref="form1"
+            v-on:sendHero="hero => {this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus()}"
+          />
         </div>
         <div class="column is-one-fifth has-vertically-aligned-content">
           <div v-if="hero1Id && hero2Id">
@@ -18,11 +21,17 @@
           </div>
         </div>
         <div class="column is-one-third">
-          <SearchForm ref="form2" v-on:sendHero="hero => this.hero2Id = hero" />
+          <SearchForm
+            ref="form2"
+            v-on:sendHero="hero => this.hero2Id = hero"
+          />
         </div>
       </div>
-      <div class="container" v-show="descriptionVisible">
-        <div class="notification is-size-3 has-text-danger has-text-weight-bold" >
+      <div
+        class="container"
+        v-show="descriptionVisible"
+      >
+        <div class="notification is-size-3 has-text-danger has-text-weight-bold">
           See all the places your favorite Marvel Superheroes appear together.
           <!-- Enter two Superheroes to see everywhere they appear together. -->
         </div>
