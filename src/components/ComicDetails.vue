@@ -14,41 +14,69 @@
       </div>
       <div class="card-content has-background-black-ter">
         <div class="media">
-          <div class="media-content">
+          <div class="media-content has-text-white">
             <h1 class="title is-spaced">{{comic.title}}</h1>
-            <h2 class="subtitle">Published: {{ getReleaseDate }}</h2>
-            <p class="is-3 has-text-white">Issue Number: {{ comic.issueNumber }}</p>
-            <p class="is-3 has-text-grey-light">Pages: {{ comic.pageCount }}</p>
-            <p class="is-3 has-text-white">Series: {{ comic.series.name }}</p>
-            <p
-              v-if="getWriterNames"
-              class="is-3 has-text-grey-light"
-            >Writers: {{ getWriterNames }}</p>
-            <p
-              v-if="getColoristNames"
-              class="is-3 has-text-white"
-            >Colorists: {{ getColoristNames }}</p>
-            <p
-              v-if="getLettererNames"
-              class="is-3 has-text-grey-light"
-            >Letterers: {{ getLettererNames }}</p>
-            <p
-              v-if="getCoverArtistNames"
-              class="is-3 has-text-white"
-            >Cover Artist: {{ getCoverArtistNames }}</p>
-            <p
-              v-if="getEditorNames"
-              class="is-3 has-text-grey-light"
-            >Editors: {{ getEditorNames }}</p>
-            <p
-              v-if="getCharacters"
-              class="is-3 has-text-white"
-            >Characters: {{ getCharacters }}</p>
-            <a
-              class="is-3"
-              :href="getMarvelUrl"
-              target="_blank"
-            >Go to Marvel</a>
+
+            <div class="columns">
+              <div
+                v-if="getReleaseDate"
+                class="column is-half"
+              >
+                <p><span class="has-text-weight-bold">Published:</span><br />{{ getReleaseDate }}</p>
+              </div>
+              <div class="column is-half">
+                <a
+                  class="button is-medium is-black"
+                  :href="getMarvelUrl"
+                  target="_blank"
+                >Show in Marvel</a>
+              </div>
+            </div>
+
+            <div class="columns is-multiline">
+
+              <div class="column is-half">
+                <p><span class="has-text-weight-bold">Issue Number:</span> {{ comic.issueNumber }}</p>
+              </div>
+              <div class="column is-half">
+                <p><span class="has-text-weight-bold">Pages:</span> {{ comic.pageCount }}</p>
+              </div>
+
+              <div
+                v-if="getWriterNames"
+                class="column is-half"
+              >
+                <p><span class="has-text-weight-bold">Writers:</span><br />{{ getWriterNames }}</p>
+              </div>
+              <div
+                v-if="getPencillerNames"
+                class="column is-half"
+              >
+                <p><span class="has-text-weight-bold">Pencillers:</span><br />{{ getPencillerNames }}</p>
+              </div>
+
+              <div
+                v-if="getCoverArtistNames"
+                class="column is-half"
+              >
+                <p><span class="has-text-weight-bold">Cover Artist:</span><br />{{ getCoverArtistNames }}</p>
+              </div>
+              <div
+                v-if="getColoristNames"
+                class="column is-half"
+              >
+                <p><span class="has-text-weight-bold">Colorists:</span><br />{{ getColoristNames }}</p>
+              </div>
+
+              <div
+                v-if="getCharacters"
+                class="column is-full"
+              >
+                <p><span class="has-text-weight-bold">Characters:</span><br />{{ getCharacters }}</p>
+              </div>
+
+            </div>
+
           </div>
         </div>
 
@@ -58,6 +86,7 @@
           </p>
         </div>
       </div>
+
     </div>
 
   </div>
@@ -87,14 +116,11 @@ export default {
     getColoristNames: function () {
       return this.getCreatorNames('colorist')
     },
-    getLettererNames: function () {
-      return this.getCreatorNames('letterer')
+    getPencillerNames: function () {
+      return this.getCreatorNames('penciller')
     },
     getCoverArtistNames: function () {
       return this.getCreatorNames('penciller (cover)')
-    },
-    getEditorNames: function () {
-      return this.getCreatorNames('editor')
     },
     getReleaseDate: function () {
       if (!this.comic.dates) return ''
@@ -133,6 +159,12 @@ export default {
 .subtitle {
   font-family: "DINNextW01-CondensedMed";
   font-size: 20px;
+  color: white;
+}
+
+p {
+  font-family: "DINNextW01-CondensedMed";
+  font-size: 16px;
   color: white;
 }
 
