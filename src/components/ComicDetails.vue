@@ -17,43 +17,64 @@
           <div class="media-content has-text-white is-size-6">
             <h1 class="title is-spaced">{{comic.title}}</h1>
 
-            <div class="level">
-              <p>Published:<br />{{ getReleaseDate }}</p>
-            </div>
-
-            <div class="level">
-              <div class="level-left">
-                <p class="level-item">Issue Number: {{ comic.issueNumber }}</p>
+            <div class="columns">
+              <div
+                v-if="getReleaseDate"
+                class="column is-half"
+              >
+                <p>Published:<br />{{ getReleaseDate }}</p>
               </div>
-              <div class="level-right">
-                <div class="level-item">
-                  <p class="level-item">Pages: {{ comic.pageCount }}</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="level">
-              <div class="level-left">
-                <p v-if="getWriterNames" class="level-item">Writers:<br />{{ getWriterNames }}</p>
-              </div>
-              <div clasS="level-right">
-                <p v-if="getPencillerNames" class="level-item">Pencillers:<br />{{ getPencillerNames }}</p>
+              <div class="column is-half">
+                <a
+                  class="button is-medium is-black"
+                  :href="getMarvelUrl"
+                  target="_blank"
+                >Show in Marvel</a>
               </div>
             </div>
 
-            <div class="level">
-              <div class="level-left">
-                 <p v-if="getCoverArtistNames" class="level-item">Cover Artist:<br />{{ getCoverArtistNames }}</p>
-              </div>
-              <div clasS="level-right">
-                <p v-if="getColoristNames" class="level-item">Colorists:<br />{{ getColoristNames }}</p>
-              </div>
-            </div>
+            <div class="columns is-multiline">
 
-            <p v-if="getCharacters" class="has-text-white">Characters:<br />{{ getCharacters }}</p>
+              <div class="column is-half">
+                <p>Issue Number: {{ comic.issueNumber }}</p>
+              </div>
+              <div class="column is-half">
+                <p>Pages: {{ comic.pageCount }}</p>
+              </div>
 
-            <div class="section has-text-centered">
-              <a class="button is-medium is-black" :href="getMarvelUrl" target="_blank">Marvel Site</a>
+              <div
+                v-if="getWriterNames"
+                class="column is-half"
+              >
+                <p>Writers:<br />{{ getWriterNames }}</p>
+              </div>
+              <div
+                v-if="getPencillerNames"
+                class="column is-half"
+              >
+                <p>Pencillers:<br />{{ getPencillerNames }}</p>
+              </div>
+
+              <div
+                v-if="getCoverArtistNames"
+                class="column is-half"
+              >
+                <p>Cover Artist:<br />{{ getCoverArtistNames }}</p>
+              </div>
+              <div
+                v-if="getColoristNames"
+                class="column is-half"
+              >
+                <p>Colorists:<br />{{ getColoristNames }}</p>
+              </div>
+
+              <div
+                v-if="getCharacters"
+                class="column is-full"
+              >
+                <p>Characters:<br />{{ getCharacters }}</p>
+              </div>
+
             </div>
 
           </div>
@@ -138,6 +159,12 @@ export default {
 .subtitle {
   font-family: "DINNextW01-CondensedMed";
   font-size: 20px;
+  color: white;
+}
+
+p {
+  font-family: "DINNextW01-CondensedMed";
+  font-size: 16px;
   color: white;
 }
 
