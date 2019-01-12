@@ -14,7 +14,7 @@
       </div>
       <div class="card-content has-background-black-ter">
         <div class="media">
-          <div class="media-content has-text-white is-size-6">
+          <div class="media-content has-text-white">
             <h1 class="title is-spaced">{{comic.title}}</h1>
 
             <div class="columns">
@@ -22,7 +22,7 @@
                 v-if="getReleaseDate"
                 class="column is-half"
               >
-                <p>Published:<br />{{ getReleaseDate }}</p>
+                <p><span class="has-text-weight-bold">Published:</span><br />{{ getReleaseDate }}</p>
               </div>
               <div class="column is-half">
                 <a
@@ -36,43 +36,43 @@
             <div class="columns is-multiline">
 
               <div class="column is-half">
-                <p>Issue Number: {{ comic.issueNumber }}</p>
+                <p><span class="has-text-weight-bold">Issue Number:</span> {{ comic.issueNumber }}</p>
               </div>
               <div class="column is-half">
-                <p>Pages: {{ comic.pageCount }}</p>
+                <p><span class="has-text-weight-bold">Pages:</span> {{ comic.pageCount }}</p>
               </div>
 
               <div
                 v-if="getWriterNames"
                 class="column is-half"
               >
-                <p>Writers:<br />{{ getWriterNames }}</p>
+                <p><span class="has-text-weight-bold">Writers:</span><br />{{ getWriterNames }}</p>
               </div>
               <div
                 v-if="getPencillerNames"
                 class="column is-half"
               >
-                <p>Pencillers:<br />{{ getPencillerNames }}</p>
+                <p><span class="has-text-weight-bold">Pencillers:</span><br />{{ getPencillerNames }}</p>
               </div>
 
               <div
                 v-if="getCoverArtistNames"
                 class="column is-half"
               >
-                <p>Cover Artist:<br />{{ getCoverArtistNames }}</p>
+                <p><span class="has-text-weight-bold">Cover Artist:</span><br />{{ getCoverArtistNames }}</p>
               </div>
               <div
                 v-if="getColoristNames"
                 class="column is-half"
               >
-                <p>Colorists:<br />{{ getColoristNames }}</p>
+                <p><span class="has-text-weight-bold">Colorists:</span><br />{{ getColoristNames }}</p>
               </div>
 
               <div
                 v-if="getCharacters"
                 class="column is-full"
               >
-                <p>Characters:<br />{{ getCharacters }}</p>
+                <p><span class="has-text-weight-bold">Characters:</span><br />{{ getCharacters }}</p>
               </div>
 
             </div>
