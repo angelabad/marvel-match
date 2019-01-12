@@ -37,13 +37,16 @@
                 <p v-if="getWriterNames" class="level-item">Writers:<br />{{ getWriterNames }}</p>
               </div>
               <div clasS="level-right">
-                <p v-if="getColoristNames" class="level-item">Colorists:<br />{{ getColoristNames }}</p>
+                <p v-if="getPencillerNames" class="level-item">Pencillers:<br />{{ getPencillerNames }}</p>
               </div>
             </div>
 
             <div class="level">
               <div class="level-left">
                  <p v-if="getCoverArtistNames" class="level-item">Cover Artist:<br />{{ getCoverArtistNames }}</p>
+              </div>
+              <div clasS="level-right">
+                <p v-if="getColoristNames" class="level-item">Colorists:<br />{{ getColoristNames }}</p>
               </div>
             </div>
 
@@ -92,14 +95,11 @@ export default {
     getColoristNames: function () {
       return this.getCreatorNames('colorist')
     },
-    getLettererNames: function () {
-      return this.getCreatorNames('letterer')
+    getPencillerNames: function () {
+      return this.getCreatorNames('penciller')
     },
     getCoverArtistNames: function () {
       return this.getCreatorNames('penciller (cover)')
-    },
-    getEditorNames: function () {
-      return this.getCreatorNames('editor')
     },
     getReleaseDate: function () {
       if (!this.comic.dates) return ''
