@@ -14,41 +14,45 @@
       </div>
       <div class="card-content has-background-black-ter">
         <div class="media">
-          <div class="media-content">
+          <div class="media-content has-text-white is-size-6">
             <h1 class="title is-spaced">{{comic.title}}</h1>
-            <h2 class="subtitle">Published: {{ getReleaseDate }}</h2>
-            <p class="is-3 has-text-white">Issue Number: {{ comic.issueNumber }}</p>
-            <p class="is-3 has-text-grey-light">Pages: {{ comic.pageCount }}</p>
-            <p class="is-3 has-text-white">Series: {{ comic.series.name }}</p>
-            <p
-              v-if="getWriterNames"
-              class="is-3 has-text-grey-light"
-            >Writers: {{ getWriterNames }}</p>
-            <p
-              v-if="getColoristNames"
-              class="is-3 has-text-white"
-            >Colorists: {{ getColoristNames }}</p>
-            <p
-              v-if="getLettererNames"
-              class="is-3 has-text-grey-light"
-            >Letterers: {{ getLettererNames }}</p>
-            <p
-              v-if="getCoverArtistNames"
-              class="is-3 has-text-white"
-            >Cover Artist: {{ getCoverArtistNames }}</p>
-            <p
-              v-if="getEditorNames"
-              class="is-3 has-text-grey-light"
-            >Editors: {{ getEditorNames }}</p>
-            <p
-              v-if="getCharacters"
-              class="is-3 has-text-white"
-            >Characters: {{ getCharacters }}</p>
-            <a
-              class="is-3"
-              :href="getMarvelUrl"
-              target="_blank"
-            >Go to Marvel</a>
+
+            <div class="level">
+              <p>Published:<br />{{ getReleaseDate }}</p>
+            </div>
+
+            <div class="level">
+              <div class="level-left">
+                <p class="level-item">Issue Number: {{ comic.issueNumber }}</p>
+              </div>
+              <div class="level-right">
+                <div class="level-item">
+                  <p class="level-item">Pages: {{ comic.pageCount }}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="level">
+              <div class="level-left">
+                <p v-if="getWriterNames" class="level-item">Writers:<br />{{ getWriterNames }}</p>
+              </div>
+              <div clasS="level-right">
+                <p v-if="getColoristNames" class="level-item">Colorists:<br />{{ getColoristNames }}</p>
+              </div>
+            </div>
+
+            <div class="level">
+              <div class="level-left">
+                 <p v-if="getCoverArtistNames" class="level-item">Cover Artist:<br />{{ getCoverArtistNames }}</p>
+              </div>
+            </div>
+
+            <p v-if="getCharacters" class="has-text-white">Characters:<br />{{ getCharacters }}</p>
+
+            <div class="section has-text-centered">
+              <a class="button is-medium is-black" :href="getMarvelUrl" target="_blank">Marvel Site</a>
+            </div>
+
           </div>
         </div>
 
@@ -58,6 +62,7 @@
           </p>
         </div>
       </div>
+
     </div>
 
   </div>
