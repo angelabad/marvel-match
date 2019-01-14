@@ -58,7 +58,7 @@
                 <figure class="image is-2by3 aa-card-image">
                   <img
                     @click="showComicDetails(comic)"
-                    v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
+                    v-bind:src="comic.thumbnail.path + '/portrait_uncanny.' + comic.thumbnail.extension | convertToHttps"
                     :alt="comic.title"
                   >
                 </figure>
