@@ -78,7 +78,7 @@
         </div>
       </div>
       <div v-else>
-        <section class="hero is-danger is-medium is-bold">
+        <section class="hero is-medium is-bold">
           <div class="hero-body">
             <div class="container">
               <h1 class="title has-text-black">
