@@ -18,7 +18,7 @@
           <div class="media">
             <div class="media-left">
               <img
-                v-bind:src="props.option.thumbnail.path + '.' + props.option.thumbnail.extension | convertToHttps"
+                v-bind:src="props.option.thumbnail.path + '/standard_medium.' + props.option.thumbnail.extension | convertToHttps"
                 width="32"
               >
             </div>
@@ -31,9 +31,9 @@
     <div v-if="hero">
       <div class="card">
         <div class="card-image">
-          <figure class="image is-4by3">
+          <figure class="image is-square">
             <img
-              v-bind:src="hero.thumbnail.path + '.' + hero.thumbnail.extension | convertToHttps"
+              v-bind:src="hero.thumbnail.path + '/standard_fantastic.' + hero.thumbnail.extension | convertToHttps"
               :alt="hero.name"
             >
           </figure>
