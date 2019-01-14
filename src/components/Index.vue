@@ -12,13 +12,15 @@
           />
         </div>
         <div class="column is-one-fifth has-vertically-aligned-content">
-          <div v-if="hero1Id && hero2Id">
-            <button
-              autofocus
-              class="button aa--marvel-button"
-              @click="callMatch(hero1Id, hero2Id)"
-            >Match</button>
-          </div>
+          <transition name="bounce">
+            <div v-if="hero1Id && hero2Id">
+              <button
+                autofocus
+                class="button aa--marvel-button"
+                @click="callMatch(hero1Id, hero2Id)"
+              >Match</button>
+            </div>
+          </transition>
         </div>
         <div class="column is-one-third">
           <SearchForm
@@ -94,6 +96,29 @@ export default {
 </style>
 
 <style scoped>
+.bounce-leave-active {
+  transition: opacity 0.5s;
+}
+.bounce-leave-to {
+  opacity: 0;
+}
+.bounce-enter-active {
+  animation: bounce-in 0.5s;
+}
+.bounce-leave-active {
+  animation: none;
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .column.has-vertically-aligned-content {
   /*
   display: flex;

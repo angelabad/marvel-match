@@ -28,27 +28,29 @@
       </b-autocomplete>
     </b-field>
 
-    <div v-if="hero">
-      <div class="card">
-        <div class="card-image">
-          <figure class="image is-square">
-            <img
-              v-bind:src="hero.thumbnail.path + '/standard_fantastic.' + hero.thumbnail.extension | convertToHttps"
-              :alt="hero.name"
-            >
-          </figure>
-        </div>
-        <div class="card-content">
-          <div class="media">
-            <div class="media-content">
-              <p class="title is-4 aa--marvel-title-red">{{ hero.name }}</p>
-            </div>
+    <transition name="fade">
+      <div v-if="hero">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-square">
+              <img
+                v-bind:src="hero.thumbnail.path + '/standard_fantastic.' + hero.thumbnail.extension | convertToHttps"
+                :alt="hero.name"
+              >
+            </figure>
           </div>
+          <div class="card-content">
+            <div class="media">
+              <div class="media-content">
+                <p class="title is-4 aa--marvel-title-red">{{ hero.name }}</p>
+              </div>
+            </div>
 
-          <p class="content aa--marvel-content-black">{{ hero.description | readMore }}</p>
+            <p class="content aa--marvel-content-black">{{ hero.description | readMore }}</p>
+          </div>
         </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -122,6 +124,14 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+}
 #SearchForm {
   background-color: white;
   padding: 20px;
