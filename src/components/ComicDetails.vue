@@ -194,6 +194,7 @@ p {
   flex-basis: 50ex;
   flex-grow: 0;
   flex-shrink: 1;
+  max-height: 90vh;
 }
 .card.is-horizontal .card-image {
   flex: 4;
@@ -208,12 +209,18 @@ p {
 }
 
 .card.is-horizontal .card-image .image img {
-  height: 100%;
+  height: 100% !important;
   object-fit: cover;
   object-position: center;
 }
 
 .card.is-horizontal .card-content {
+  overflow-y: auto;
   flex: 3;
+}
+
+::-webkit-scrollbar {
+    width: 0px;  /* remove scrollbar space */
+    background: transparent;  /* optional: just make scrollbar invisible */
 }
 </style>
