@@ -40,7 +40,10 @@
       </div>
     </section>
 
-    <mm-footer absolute=true v-if="descriptionVisible" />
+    <mm-footer
+      absolute=true
+      v-if="descriptionVisible"
+    />
 
   </div>
 </template>
