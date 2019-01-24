@@ -3,7 +3,7 @@
 // FOR GITLAB PAGES
 
 module.exports = {
-    baseUrl: process.env.NODE_ENV === 'production'
+    publicPath: process.env.NODE_ENV === 'production'
       ? '/marvel-match/'
       : '/',
     configureWebpack: {
