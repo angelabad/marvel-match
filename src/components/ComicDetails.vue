@@ -75,15 +75,13 @@
                 <p><span class="has-text-weight-bold">Characters:</span><br />{{ getCharacters }}</p>
               </div>
 
+              <div class="column is-full has-text-justified">
+                <span v-html="comic.description"></span>
+              </div>
+
             </div>
 
           </div>
-        </div>
-
-        <div class="content">
-          <p class="has-text-justified">
-            <span v-html="comic.description"></span>
-          </p>
         </div>
       </div>
 
