@@ -40,18 +40,22 @@
       </div>
     </section>
 
+    <mm-footer absolute=true v-if="descriptionVisible" />
+
   </div>
 </template>
 
 <script>
 import SearchForm from './SearchForm.vue'
 import MmHeader from './ui/MmHeader.vue'
+import MmFooter from './ui/MmFooter.vue'
 
 export default {
   name: 'Index',
   components: {
     SearchForm,
-    MmHeader
+    MmHeader,
+    MmFooter
   },
   data: function () {
     return {
