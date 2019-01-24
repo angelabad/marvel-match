@@ -31,7 +31,7 @@
       </div>
       <div
         class="container"
-        v-show="descriptionVisible"
+        v-if="descriptionVisible"
       >
         <div class="notification is-size-3 has-text-danger has-text-weight-bold">
           See all the places your favorite Marvel Superheroes appear together.
