@@ -177,4 +177,7 @@ export default {
   border-top: 15px solid transparent;
   width: 0;
 }
+.aa--marvel-button:focus {
+  border: none !important;
+}
 </style>

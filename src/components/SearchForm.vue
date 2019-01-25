@@ -2,6 +2,7 @@
   <div id="SearchForm">
     <b-field>
       <b-autocomplete
+        class="aa--autocomplete"
         ref="autocomplete"
         placeholder="Start typing..."
         field="name"
@@ -122,6 +123,14 @@ export default {
   }
 }
 </script>
+
+<style>
+.aa--autocomplete input:focus {
+  /* box-shadow: 0 0 0 0.125em rgba(red, 0.25) !important; */
+  box-shadow: none !important;
+  border-color: #eb2328 !important;
+}
+</style>
 
 <style scoped>
 .fade-enter-active,
