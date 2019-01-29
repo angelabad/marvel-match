@@ -122,6 +122,12 @@ export default {
   -o-background-size: cover;
   background-size: cover;
 }
+.title {
+  font-family: DIN Next W01 Regular,Trebuchet MS,Helvetica,Arial,sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 32px !important;
+}
 
 .bounce-leave-active {
   transition: opacity 0.5s;
