@@ -70,11 +70,6 @@ export default {
     }
   },
   mounted: function () {
-    // TODO: Añadir la clase con el background solo para esta pagian
-    // TODO: Mejorar la forma de hacer esto
-    // const el = document.body
-    const el = document.getElementById('app')
-    el.classList.add('body-background')
     this.$refs.form1.$refs.autocomplete.focus()
   },
   methods: {
@@ -90,17 +85,6 @@ export default {
   }
 }
 </script>
-
-<style>
-.body-background {
-  background-image: url("../assets/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 50vh;
-  margin-top: 0px !important;
-}
-</style>
 
 <style scoped>
 .bounce-leave-active {
@@ -125,14 +109,6 @@ export default {
   100% {
     transform: scale(1);
   }
-}
-.column.has-vertically-aligned-content {
-  /*
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  */
-  margin-top: 60vh;
 }
 .aa--marvel-button {
   height: 44px;
