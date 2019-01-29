@@ -1,8 +1,33 @@
 <template>
   <div id="Index">
 
-    <mm-header />
+    <section class="hero is-danger is-fullheight">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a class="navbar-item" href="/">
+                <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
 
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="column is-6 offset-3">
+            <h1 class="title">
+              MarvelMatch
+            </h1>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+<!--
+    <mm-header />
     <section class="container">
       <div class="columns is-centered">
         <div class="column is-one-third">
@@ -35,15 +60,15 @@
       >
         <div class="notification is-size-3 has-text-danger has-text-weight-bold">
           See all the places your favorite Marvel Superheroes appear together.
-          <!-- Enter two Superheroes to see everywhere they appear together. -->
+          Enter two Superheroes to see everywhere they appear together.
         </div>
       </div>
     </section>
-
     <mm-footer
       absolute=true
       v-if="descriptionVisible"
     />
+-->
 
   </div>
 </template>
@@ -87,6 +112,17 @@ export default {
 </script>
 
 <style scoped>
+.hero.is-danger {
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.5)
+    rgba(0, 0, 0, 0.5)
+  ), url('../assets/background-1.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 .bounce-leave-active {
   transition: opacity 0.5s;
 }
