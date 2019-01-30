@@ -6,8 +6,14 @@
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
-              <a class="navbar-item" href="/">
-                <img src="http://bulma.io/images/bulma-type-white.png" alt="Logo">
+              <a
+                class="navbar-item"
+                href="/"
+              >
+                <img
+                  src="../assets/marvel_logo.png"
+                  alt="Marvel Logo"
+                >
               </a>
             </div>
           </div>
@@ -16,17 +22,86 @@
 
       <div class="hero-body">
         <div class="container has-text-centered">
-          <div class="column is-6 offset-3">
+          <div class="column is-9 offset-3">
             <h1 class="title">
               MarvelMatch
             </h1>
+            <div class="box">
+              <div class="field is-horizontal">
+                <div class="field-body">
+                  <div class="field">
+                    <div class="field is-marginless">
+                      <p class="control is-expanded">
+                        <input
+                          class="input is-medium"
+                          type="tel"
+                          placeholder="Search superhero..."
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="field is-marginless">
+                      <p class="control is-expanded">
+                        <input
+                          class="input is-medium"
+                          type="tel"
+                          placeholder="Search superhero..."
+                        >
+                      </p>
+                    </div>
+                  </div>
+                  <div class="field">
+                    <div class="field is-marginless">
+                      <p class="control">
+                        <a class="button is-danger is-medium">
+                          Match
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--
+            <div class="box">
+              <div class="field is-grouped">
+                <p class="control is-expanded">
+                  <input
+                    class="input is-medium"
+                    type="text"
+                    placeholder="Enter your email"
+                  >
+                </p>
+                <p class="control is-expanded">
+                  <input
+                    class="input is-medium"
+                    type="text"
+                    placeholder="Enter your email"
+                  >
+                </p>
+                <p class="control">
+                  <a class="button is-info is-medium">
+                    Match
+                  </a>
+                </p>
+              </div>
+            </div>
+            -->
           </div>
         </div>
       </div>
 
+      <footer class="aa-footer">
+        <div class="content has-text-centered is-size-7">
+          <p>
+            Coded with <span class="icon"><i class="fas fa-heart"></i></span> by <strong>Angel Abad</strong> | Data provided by Marvel. © 2019 Marvel.
+          </p>
+        </div>
+      </footer>
     </section>
 
-<!--
+    <!--
     <mm-header />
     <section class="container">
       <div class="columns is-centered">
@@ -112,18 +187,19 @@ export default {
 </script>
 
 <style scoped>
+.box {
+  background-color: rgba(0, 0, 0, 0.4);
+}
 .hero.is-danger {
-  background: linear-gradient(
-    rgba(0, 0, 0, 0.5)
-    rgba(0, 0, 0, 0.5)
-  ), url('../assets/background-1.jpg') no-repeat center center fixed;
+  background: linear-gradient(rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.5)),
+    url("../assets/background-1.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
 }
 .title {
-  font-family: DIN Next W01 Regular,Trebuchet MS,Helvetica,Arial,sans-serif;
+  font-family: DIN Next W01 Regular, Trebuchet MS, Helvetica, Arial, sans-serif;
   font-weight: 700;
   font-size: 42px;
   line-height: 32px !important;
