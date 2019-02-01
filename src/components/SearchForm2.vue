@@ -1,55 +1,64 @@
 <template>
   <div id="SearchForm2">
-      <b-autocomplete
-        ref="autocomplete"
-        placeholder="Start typing..."
-        field="name"
-        v-model="name"
-        size="is-medium"
-        :data="searchResults"
-        :loading="isFetching"
-        :keep-first="true"
-        @keyup.native.down.stop="null"
-        @keyup.native.up.stop="null"
-        @keyup.native="handleSearch"
-        @select="option => showHero(option.id)"
-      >
-        <template slot-scope="props">
-          <div class="media">
-            <div class="media-left">
-              <img
-                v-bind:src="props.option.thumbnail.path + '/standard_medium.' + props.option.thumbnail.extension | convertToHttps"
-                width="32"
-              >
-            </div>
-            <div class="media-content">{{ props.option.name }}</div>
-          </div>
-        </template>
-      </b-autocomplete>
 
-    <transition name="fade">
-      <div v-if="hero">
-        <div class="card">
-          <div class="card-image">
-            <figure class="image is-square">
-              <img
-                v-bind:src="hero.thumbnail.path + '/standard_fantastic.' + hero.thumbnail.extension | convertToHttps"
-                :alt="hero.name"
-              >
-            </figure>
-          </div>
-          <div class="card-content">
-            <div class="media">
-              <div class="media-content">
-                <p class="title is-4 aa--marvel-title-red">{{ hero.name }}</p>
-              </div>
-            </div>
+    <div
+      v-if="hero"
+      class="notification"
+    >
+      <button
+        @click="deleteHero"
+        class="delete"
+      ></button>
+      <article class="media">
 
-            <p class="content aa--marvel-content-black">{{ hero.description | readMore }}</p>
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <img
+              v-bind:src="hero.thumbnail.path + '/standard_medium.' + hero.thumbnail.extension | convertToHttps"
+              :alt="hero.name"
+            >
+          </figure>
+        </div>
+        <div class="media-content">
+          <div class="content">
+            <p class="break-text">
+              <strong>{{ hero.name }}</strong>
+              <br>
+              {{ hero.description }}
+            </p>
           </div>
         </div>
-      </div>
-    </transition>
+      </article>
+    </div>
+
+    <b-autocomplete
+      v-else
+      ref="autocomplete"
+      placeholder="Start typing..."
+      field="name"
+      v-model="name"
+      size="is-medium"
+      :data="searchResults"
+      :loading="isFetching"
+      :keep-first="true"
+      @keyup.native.down.stop="null"
+      @keyup.native.up.stop="null"
+      @keyup.native="handleSearch"
+      @select="option => showHero(option.id)"
+    >
+      <template slot-scope="props">
+        <div class="media">
+          <div class="media-left">
+            <img
+              v-bind:src="props.option.thumbnail.path + '/standard_medium.' + props.option.thumbnail.extension | convertToHttps"
+              width="32"
+            >
+          </div>
+          <div class="media-content">{{ props.option.name }}</div>
+        </div>
+      </template>
+    </b-autocomplete>
+
   </div>
 </template>
 
@@ -117,6 +126,12 @@ export default {
       var regExp = /([a-zA-Z0-9_]+ ?[a-zA-Z0-9_]+)( ?(\(([^)]+)\)))?/
       var matches = regExp.exec(name)
       return matches
+    },
+    deleteHero: function () {
+      this.hero = null
+      this.name = null
+      this.$nextTick(() => this.$refs.autocomplete.focus())
+      this.$emit('clearParentHero', null)
     }
   }
 }
@@ -131,6 +146,18 @@ export default {
 </style>
 
 <style scoped>
+p.break-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  line-height: 24px; /* fallback */
+  max-height: 72px; /* fallback */
+  -webkit-line-clamp: 3; /* number of lines to show */
+  -webkit-box-orient: vertical;
+}
+.notification {
+  background-color: rgba(0, 0, 0, 0.4);
+}
 .fade-enter-active,
 .fade-leave-active {
   transition: opacity 0.5s;
@@ -139,5 +166,4 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
-
 </style>
