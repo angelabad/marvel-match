@@ -156,12 +156,4 @@ p.break-text {
 .notification {
   background-color: rgba(0, 0, 0, 0.4);
 }
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
-}
 </style>
