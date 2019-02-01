@@ -8,7 +8,7 @@
             <div class="navbar-brand">
               <a
                 class="navbar-item"
-                href="/"
+                :href="publicPath"
               >
                 <img
                   src="../assets/marvel_logo.png"
@@ -82,6 +82,7 @@ export default {
   },
   data: function () {
     return {
+      publicPath: process.env.BASE_URL,
       hero1Id: null,
       hero2Id: null
     }
