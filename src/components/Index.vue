@@ -79,8 +79,6 @@ export default {
   },
   data: function () {
     return {
-      // This is modified in SearchForm
-      descriptionVisible: true,
       hero1Id: null,
       hero2Id: null
     }
