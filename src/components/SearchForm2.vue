@@ -33,6 +33,7 @@
 
     <b-autocomplete
       v-else
+      class="aa-autocomplete"
       ref="autocomplete"
       placeholder="Start typing..."
       field="name"
