@@ -23,9 +23,12 @@
       <div class="hero-body">
         <div class="container has-text-centered">
           <div class="column is-6 offset-3">
-            <h1 class="title">
+            <h1 class="title has-text-right">
               MarvelMatch
             </h1>
+            <h2 class="subtitle has-text-right">
+              See all the places your favorite Marvel Superheroes appear together.
+            </h2>
           </div>
           <div class="columns is-vcentered">
             <div class="column is-6 offset-3">
