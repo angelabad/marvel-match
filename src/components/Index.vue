@@ -22,142 +22,59 @@
 
       <div class="hero-body">
         <div class="container has-text-centered">
-          <div class="column is-9 offset-3">
+          <div class="column is-6 offset-3">
             <h1 class="title">
               MarvelMatch
             </h1>
-            <div class="box">
-              <div class="field is-horizontal">
-                <div class="field-body">
-                  <div class="field">
-                    <div class="field is-marginless">
-                      <p class="control is-expanded">
-                        <input
-                          class="input is-medium"
-                          type="tel"
-                          placeholder="Search superhero..."
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <div class="field is-marginless">
-                      <p class="control is-expanded">
-                        <input
-                          class="input is-medium"
-                          type="tel"
-                          placeholder="Search superhero..."
-                        >
-                      </p>
-                    </div>
-                  </div>
-                  <div class="field">
-                    <div class="field is-marginless">
-                      <p class="control">
-                        <a class="button is-danger is-medium">
-                          Match
-                        </a>
-                      </p>
-                    </div>
-                  </div>
+          </div>
+          <div class="columns is-vcentered">
+            <div class="column is-6 offset-3">
+              <div class="box">
+                <div class="field">
+                  <SearchForm2
+                    ref="form1"
+                    v-on:sendHero="hero => { this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus() }"
+                    v-on:clearParentHero="() => { hero1Id = null }"
+                  />
+                </div>
+                <div class="field">
+                  <SearchForm2
+                    ref="form2"
+                    v-on:sendHero="hero => this.hero2Id = hero"
+                    v-on:clearParentHero="() => { hero2Id = null }"
+                  />
                 </div>
               </div>
             </div>
-            <!--
-            <div class="box">
-              <div class="field is-grouped">
-                <p class="control is-expanded">
-                  <input
-                    class="input is-medium"
-                    type="text"
-                    placeholder="Enter your email"
-                  >
-                </p>
-                <p class="control is-expanded">
-                  <input
-                    class="input is-medium"
-                    type="text"
-                    placeholder="Enter your email"
-                  >
-                </p>
-                <p class="control">
-                  <a class="button is-info is-medium">
-                    Match
-                  </a>
-                </p>
-              </div>
+            <div class="column is-2">
+              <transition name="bounce">
+                <div v-if="hero1Id && hero2Id">
+                  <button
+                    autofocus
+                    class="button aa--marvel-button"
+                    @click="callMatch(hero1Id, hero2Id)"
+                  >Match</button>
+                </div>
+              </transition>
             </div>
-            -->
           </div>
         </div>
       </div>
 
-      <footer class="aa-footer">
-        <div class="content has-text-centered is-size-7">
-          <p>
-            Coded with <span class="icon"><i class="fas fa-heart"></i></span> by <strong>Angel Abad</strong> | Data provided by Marvel. © 2019 Marvel.
-          </p>
-        </div>
-      </footer>
-    </section>
+      <mm-footer />
 
-    <!--
-    <mm-header />
-    <section class="container">
-      <div class="columns is-centered">
-        <div class="column is-one-third">
-          <SearchForm
-            ref="form1"
-            v-on:sendHero="hero => {this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus()}"
-          />
-        </div>
-        <div class="column is-one-fifth has-vertically-aligned-content">
-          <transition name="bounce">
-            <div v-if="hero1Id && hero2Id">
-              <button
-                autofocus
-                class="button aa--marvel-button"
-                @click="callMatch(hero1Id, hero2Id)"
-              >Match</button>
-            </div>
-          </transition>
-        </div>
-        <div class="column is-one-third">
-          <SearchForm
-            ref="form2"
-            v-on:sendHero="hero => this.hero2Id = hero"
-          />
-        </div>
-      </div>
-      <div
-        class="container"
-        v-if="descriptionVisible"
-      >
-        <div class="notification is-size-3 has-text-danger has-text-weight-bold">
-          See all the places your favorite Marvel Superheroes appear together.
-          Enter two Superheroes to see everywhere they appear together.
-        </div>
-      </div>
     </section>
-    <mm-footer
-      absolute=true
-      v-if="descriptionVisible"
-    />
--->
-
   </div>
 </template>
 
 <script>
-import SearchForm from './SearchForm.vue'
-import MmHeader from './ui/MmHeader.vue'
+import SearchForm2 from './SearchForm2.vue'
 import MmFooter from './ui/MmFooter.vue'
 
 export default {
   name: 'Index',
   components: {
-    SearchForm,
-    MmHeader,
+    SearchForm2,
     MmFooter
   },
   data: function () {
