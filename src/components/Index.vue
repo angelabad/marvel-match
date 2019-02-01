@@ -79,7 +79,6 @@ export default {
   },
   data: function () {
     return {
-      searchResultsVisible: false,
       // This is modified in SearchForm
       descriptionVisible: true,
       hero1Id: null,
