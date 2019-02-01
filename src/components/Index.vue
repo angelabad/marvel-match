@@ -1,80 +1,92 @@
 <template>
   <div id="Index">
 
-    <mm-header />
-
-    <section class="container">
-      <div class="columns is-centered">
-        <div class="column is-one-third">
-          <SearchForm
-            ref="form1"
-            v-on:sendHero="hero => {this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus()}"
-          />
-        </div>
-        <div class="column is-one-fifth has-vertically-aligned-content">
-          <transition name="bounce">
-            <div v-if="hero1Id && hero2Id">
-              <button
-                autofocus
-                class="button aa--marvel-button"
-                @click="callMatch(hero1Id, hero2Id)"
-              >Match</button>
+    <section class="hero is-danger is-fullheight">
+      <div class="hero-head">
+        <nav class="navbar">
+          <div class="container">
+            <div class="navbar-brand">
+              <a
+                class="navbar-item"
+                href="/"
+              >
+                <img
+                  src="../assets/marvel_logo.png"
+                  alt="Marvel Logo"
+                >
+              </a>
             </div>
-          </transition>
-        </div>
-        <div class="column is-one-third">
-          <SearchForm
-            ref="form2"
-            v-on:sendHero="hero => this.hero2Id = hero"
-          />
+          </div>
+        </nav>
+      </div>
+
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="column is-6 offset-3">
+            <h1 class="title has-text-right">
+              MarvelMatch
+            </h1>
+            <h2 class="subtitle has-text-right">
+              See all the places your favorite Marvel Superheroes appear together.
+            </h2>
+          </div>
+          <div class="columns is-vcentered">
+            <div class="column is-6 offset-3">
+              <div class="box">
+                <div class="field">
+                  <SearchForm2
+                    ref="form1"
+                    v-on:sendHero="hero => { this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus() }"
+                    v-on:clearParentHero="() => { hero1Id = null }"
+                  />
+                </div>
+                <div class="field">
+                  <SearchForm2
+                    ref="form2"
+                    v-on:sendHero="hero => this.hero2Id = hero"
+                    v-on:clearParentHero="() => { hero2Id = null }"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="column is-2">
+              <transition name="bounce">
+                <div v-if="hero1Id && hero2Id">
+                  <button
+                    autofocus
+                    class="button aa--marvel-button"
+                    @click="callMatch(hero1Id, hero2Id)"
+                  >Match</button>
+                </div>
+              </transition>
+            </div>
+          </div>
         </div>
       </div>
-      <div
-        class="container"
-        v-if="descriptionVisible"
-      >
-        <div class="notification is-size-3 has-text-danger has-text-weight-bold">
-          See all the places your favorite Marvel Superheroes appear together.
-          <!-- Enter two Superheroes to see everywhere they appear together. -->
-        </div>
-      </div>
+
+      <mm-footer />
+
     </section>
-
-    <mm-footer
-      absolute=true
-      v-if="descriptionVisible"
-    />
-
   </div>
 </template>
 
 <script>
-import SearchForm from './SearchForm.vue'
-import MmHeader from './ui/MmHeader.vue'
+import SearchForm2 from './SearchForm2.vue'
 import MmFooter from './ui/MmFooter.vue'
 
 export default {
   name: 'Index',
   components: {
-    SearchForm,
-    MmHeader,
+    SearchForm2,
     MmFooter
   },
   data: function () {
     return {
-      searchResultsVisible: false,
-      // This is modified in SearchForm
-      descriptionVisible: true,
       hero1Id: null,
       hero2Id: null
     }
   },
   mounted: function () {
-    // TODO: Añadir la clase con el background solo para esta pagian
-    // TODO: Mejorar la forma de hacer esto
-    // const el = document.body
-    const el = document.getElementById('app')
-    el.classList.add('body-background')
     this.$refs.form1.$refs.autocomplete.focus()
   },
   methods: {
@@ -91,18 +103,25 @@ export default {
 }
 </script>
 
-<style>
-.body-background {
-  background-image: url("../assets/background.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  height: 50vh;
-  margin-top: 0px !important;
-}
-</style>
-
 <style scoped>
+.box {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.hero.is-danger {
+  background: linear-gradient(rgba(0, 0, 0, 0.5) rgba(0, 0, 0, 0.5)),
+    url("../assets/background-1.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+.title {
+  font-family: DIN Next W01 Regular, Trebuchet MS, Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 42px;
+  line-height: 32px !important;
+}
+
 .bounce-leave-active {
   transition: opacity 0.5s;
 }
@@ -125,14 +144,6 @@ export default {
   100% {
     transform: scale(1);
   }
-}
-.column.has-vertically-aligned-content {
-  /*
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  */
-  margin-top: 60vh;
 }
 .aa--marvel-button {
   height: 44px;
