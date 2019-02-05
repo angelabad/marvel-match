@@ -34,14 +34,14 @@
             <div class="column is-6 offset-3">
               <div class="box">
                 <div class="field">
-                  <SearchForm2
+                  <SearchForm
                     ref="form1"
                     v-on:sendHero="hero => { this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus() }"
                     v-on:clearParentHero="() => { hero1Id = null }"
                   />
                 </div>
                 <div class="field">
-                  <SearchForm2
+                  <SearchForm
                     ref="form2"
                     v-on:sendHero="hero => this.hero2Id = hero"
                     v-on:clearParentHero="() => { hero2Id = null }"
@@ -71,13 +71,13 @@
 </template>
 
 <script>
-import SearchForm2 from './SearchForm2.vue'
+import SearchForm from './SearchForm.vue'
 import MmFooter from './ui/MmFooter.vue'
 
 export default {
   name: 'Index',
   components: {
-    SearchForm2,
+    SearchForm,
     MmFooter
   },
   data: function () {
