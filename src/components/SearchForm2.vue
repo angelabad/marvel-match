@@ -42,9 +42,7 @@
       :data="searchResults"
       :loading="isFetching"
       :keep-first="true"
-      @keyup.native.down.stop="null"
-      @keyup.native.up.stop="null"
-      @keyup.native="handleSearch"
+      @input="handleSearch"
       @select="option => showHero(option.id)"
     >
       <template slot-scope="props">
