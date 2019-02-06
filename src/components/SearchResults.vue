@@ -96,6 +96,7 @@
 import axios from 'axios'
 import ComicDetails from './ComicDetails.vue'
 import MmHeader from './ui/MmHeader.vue'
+import utils from '@/common/utils'
 
 export default {
   name: 'SearchResults',
@@ -208,11 +209,7 @@ export default {
         let i = 0
         for (i = 0; i <= hero.comicsAvailable; i += offset) {
           urlArray.push(
-            'https://gateway.marvel.com:443/v1/public/characters/' +
-            hero.id +
-            '/comics?limit=100&offset=' +
-            i +
-            '&apikey=***REMOVED***'
+            utils.getCharacterComics(hero.id, i)
           )
         }
 
