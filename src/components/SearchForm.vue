@@ -64,6 +64,7 @@
 <script>
 import axios from 'axios'
 import debunce from 'debounce'
+import utils from '@/common/utils'
 
 export default {
   name: 'SearchForm',
@@ -89,8 +90,7 @@ export default {
       }
       axios
         .get(
-          'https://gateway.marvel.com:443/v1/public/characters?apikey=***REMOVED***&orderBy=name&nameStartsWith=' +
-          this.name
+          utils.getCharacterStartsWith(this.name)
         )
         .then(response => (this.searchResults = response.data.data.results))
         .catch(error => console.log(error))
@@ -100,9 +100,7 @@ export default {
       this.searchResults = []
       axios
         .get(
-          'https://gateway.marvel.com:443/v1/public/characters/' +
-          id +
-          '?apikey=***REMOVED***'
+          utils.getCharacter(id)
         )
         // TODO: Es raro coger el primer dato del array aqui...
         // (this.hero = response.data.data.results[0])
