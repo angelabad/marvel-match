@@ -7,7 +7,9 @@ import VueMq from 'vue-mq'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 
-Vue.use(VueScrollTo)
+Vue.use(VueScrollTo, {
+  duration: 1500
+})
 Vue.use(VueMq)
 Vue.use(Buefy, {
   defaultIconPack: 'fa'
