@@ -47,7 +47,7 @@
             </div>
           </div>
         </div>
-        <div class="columns is-multiline is-mobile">
+        <div class="columns is-multiline is-mobile is-variable is-1-mobile is-3-tablet">
           <div
             v-for="comic in limitedComics"
             :key="comic.id"
