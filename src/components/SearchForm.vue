@@ -35,6 +35,7 @@
       v-else
       class="aa-autocomplete"
       ref="autocomplete"
+      id="autocomplete"
       placeholder="Start typing..."
       field="name"
       v-model="name"
@@ -78,6 +79,11 @@ export default {
   },
   methods: {
     handleSearch: debunce(function () {
+      // NOTE: When we are in portrait mobile scroll to the control when you type
+      if (this.$mq === 'sm') {
+        this.$scrollTo('#autocomplete')
+      }
+
       this.isFetching = true
 
       // If empty input delete all and send null to Index

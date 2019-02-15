@@ -2,9 +2,13 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+import VueScrollTo from 'vue-scrollto'
+import VueMq from 'vue-mq'
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
 
+Vue.use(VueScrollTo)
+Vue.use(VueMq)
 Vue.use(Buefy, {
   defaultIconPack: 'fa'
 })
