@@ -44,6 +44,7 @@
       :loading="isFetching"
       :keep-first="true"
       @input="handleSearch"
+      @focus="setScroll"
       @select="option => showHero(option.id)"
     >
       <template slot-scope="props">
@@ -81,7 +82,7 @@ export default {
     handleSearch: debunce(function () {
       // NOTE: When we are in portrait mobile scroll to the control when you type
       if (this.$mq === 'sm') {
-        this.$scrollTo('#autocomplete')
+        this.setScroll()
       }
 
       this.isFetching = true
@@ -132,6 +133,9 @@ export default {
       this.name = null
       this.$nextTick(() => this.$refs.autocomplete.focus())
       this.$emit('clearParentHero', null)
+    },
+    setScroll: function () {
+      this.$scrollTo('#autocomplete')
     }
   }
 }
