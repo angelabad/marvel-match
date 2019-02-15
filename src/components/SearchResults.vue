@@ -47,11 +47,11 @@
             </div>
           </div>
         </div>
-        <div class="columns is-multiline">
+        <div class="columns is-multiline is-mobile">
           <div
             v-for="comic in limitedComics"
             :key="comic.id"
-            class="column is-one-quarter"
+            class="column is-one-quarter-tablet is-one-third-mobile"
           >
             <div class="card is-shadowless">
               <div class="card-image">
