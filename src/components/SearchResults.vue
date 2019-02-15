@@ -32,50 +32,56 @@
         v-if="comics.length > 0"
         class="container"
       >
-        <div class="section">
-          <div class="level-right">
-            <div class="level-item">
-              <a
-                class="button"
-                @click="reverseOrder"
-              >
-                <span class="icon">
-                  <i class="fas fa-sort"></i>
-                </span>
-                <span>Order</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="columns is-multiline is-mobile is-variable is-1-mobile is-3-tablet">
-          <div
-            v-for="comic in limitedComics"
-            :key="comic.id"
-            class="column is-one-quarter-tablet is-one-third-mobile"
-          >
-            <div class="card is-shadowless">
-              <div class="card-image">
-                <figure class="image is-2by3 aa-card-image">
-                  <img
-                    @click="showComicDetails(comic)"
-                    v-bind:src="comic.thumbnail.path + '/portrait_uncanny.' + comic.thumbnail.extension | convertToHttps"
-                    :alt="comic.title"
+
+        <section class="section">
+          <div class="columns is-multiline is-mobile is-variable is-1-mobile is-3-tablet">
+
+            <div class="column is-full">
+              <div class="level-right">
+                <div class="level-item">
+                  <a
+                    class="button"
+                    @click="reverseOrder"
                   >
-                </figure>
+                    <span class="icon">
+                      <i class="fas fa-sort"></i>
+                    </span>
+                    <span>Order</span>
+                  </a>
+                </div>
               </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
-                    <a
+            </div>
+
+            <div
+              v-for="comic in limitedComics"
+              :key="comic.id"
+              class="column is-one-quarter-tablet is-one-third-mobile"
+            >
+              <div class="card is-shadowless">
+                <div class="card-image">
+                  <figure class="image is-2by3 aa-card-image">
+                    <img
                       @click="showComicDetails(comic)"
-                      class="title is-4 aa-card-title"
-                    >{{ comic.title }}</a>
+                      v-bind:src="comic.thumbnail.path + '/portrait_uncanny.' + comic.thumbnail.extension | convertToHttps"
+                      :alt="comic.title"
+                    >
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <a
+                        @click="showComicDetails(comic)"
+                        class="title is-4 aa-card-title"
+                      >{{ comic.title }}</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+
       </div>
       <div v-else>
         <section class="hero is-medium is-bold">
