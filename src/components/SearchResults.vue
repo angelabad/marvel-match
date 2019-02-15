@@ -264,6 +264,9 @@ export default {
 </script>
 
 <style>
+.section {
+  padding-top: 0 !important;
+}
 .aa-card-image {
   border: none !important;
   -webkit-transition: none;
