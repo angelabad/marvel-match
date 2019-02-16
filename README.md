@@ -1,4 +1,4 @@
-# marvel
+# MarvelMatch
 
 ## Project setup
 
