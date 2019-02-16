@@ -1,3 +1,6 @@
+# PROJECT FILES
+src/common/config.js
+
 .DS_Store
 node_modules
 /dist
