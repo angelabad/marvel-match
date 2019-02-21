@@ -264,8 +264,19 @@ export default {
 </script>
 
 <style>
+#SearchResults {
+  background-color: #22262A;
+  min-height: 100vh;
+}
 .section {
   padding-top: 0 !important;
+}
+.card {
+    background-color: #22262A !important;
+}
+.card-content {
+  padding: 0.5rem !important;
+  padding-top: 1rem !important;
 }
 .aa-card-image {
   border: none !important;
@@ -285,8 +296,11 @@ export default {
   font-family: "DIN Next W01 Regular" !important;
   font-weight: bold !important;
   font-size: 18px !important;
+  color: white !important;
 }
+/*
 .aa-card-title:hover {
-  color: #eb2328;
+  color: #eb2328 !important;
 }
+*/
 </style>

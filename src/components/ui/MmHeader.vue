@@ -1,5 +1,5 @@
 <template>
-  <header class="has-text-left aa-header">
+  <header class="has-text-centered">
     <router-link to="/">
       <svg
         width="130"
@@ -27,12 +27,3 @@
     </router-link>
   </header>
 </template>
-
-<style scoped>
-.aa-header {
-  position: relative;
-  height: 60px;
-  background-image: linear-gradient(#e62429, #e62429);
-  clip-path: polygon(0 100%, 0 0, 100% 0);
-}
-</style>
