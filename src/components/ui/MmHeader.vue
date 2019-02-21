@@ -27,3 +27,9 @@
     </router-link>
   </header>
 </template>
+
+<style scoped>
+header {
+  border-bottom: 1px solid gray !important;
+}
+</style>
