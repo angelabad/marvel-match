@@ -72,7 +72,7 @@
                     <div class="media-content">
                       <a
                         @click="showComicDetails(comic)"
-                        class="title is-4 aa-card-title"
+                        class="title is-size-7-mobile is-size-6-tablet aa-card-title"
                       >{{ comic.title }}</a>
                     </div>
                   </div>
@@ -269,7 +269,13 @@ export default {
   min-height: 100vh;
 }
 .section {
-  padding-top: 0 !important;
+  padding-top: 1rem !important;
+}
+@media only screen and (max-width: 768px)
+{
+  .card {
+    line-height: 1 !important;
+  }
 }
 .card {
     background-color: #22262A !important;
@@ -277,6 +283,10 @@ export default {
 .card-content {
   padding: 0.5rem !important;
   padding-top: 1rem !important;
+  padding-left: 0 !important;
+}
+.media-content {
+  overflow-y: hidden !important;
 }
 .aa-card-image {
   border: none !important;
@@ -293,9 +303,12 @@ export default {
   transform: translate(0, -6px);
 }
 .aa-card-title {
+  /*
   font-family: "DIN Next W01 Regular" !important;
   font-weight: bold !important;
   font-size: 18px !important;
+  line-height: .5 !important;
+  */
   color: white !important;
 }
 /*
