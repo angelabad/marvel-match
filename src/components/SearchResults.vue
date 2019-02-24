@@ -46,7 +46,7 @@
                 <div class="level-right is-marginless">
                   <div class="level-item">
                     <strong class="has-text-white">
-                      {{ total }} comics available
+                      {{ comics.length }} comics available
                     </strong>
 
                     <a
