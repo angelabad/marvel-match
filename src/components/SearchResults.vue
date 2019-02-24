@@ -43,13 +43,12 @@
                     {{ hero1.name }} - {{ hero2.name }}
                   </p>
                 </div>
-                <div class="level-right">
-                  <p class="level-item">
+                <div class="level-right is-marginless">
+                  <div class="level-item">
                     <strong class="has-text-white">
                       {{ total }} comics available
                     </strong>
-                  </p>
-                  <p class="level-item">
+
                     <a
                       class="button is-text has-text-white is-small is-outlined"
                       @click="reverseOrder"
@@ -58,11 +57,10 @@
                         <i class="fas fa-sort"></i>
                       </span>
                     </a>
-                  </p>
+                  </div>
                 </div>
               </div>
             </div>
-
             <div
               v-for="comic in limitedComics"
               :key="comic.id"
