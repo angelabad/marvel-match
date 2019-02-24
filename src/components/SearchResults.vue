@@ -37,17 +37,28 @@
           <div class="columns is-multiline is-mobile is-variable is-1-mobile is-3-tablet">
 
             <div class="column is-full">
-              <div class="level-right">
-                <div class="level-item">
-                  <a
-                    class="button"
-                    @click="reverseOrder"
-                  >
-                    <span class="icon">
-                      <i class="fas fa-sort"></i>
-                    </span>
-                    <span>Order</span>
-                  </a>
+              <div class="level">
+                <div class="level-left">
+                  <p class="level-item title has-text-white">
+                    {{ hero1.name }} - {{ hero2.name }}
+                  </p>
+                </div>
+                <div class="level-right">
+                  <p class="level-item">
+                    <strong class="has-text-white">
+                      {{ total }} comics available
+                    </strong>
+                  </p>
+                  <p class="level-item">
+                    <a
+                      class="button is-text has-text-white is-small is-outlined"
+                      @click="reverseOrder"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-sort"></i>
+                      </span>
+                    </a>
+                  </p>
                 </div>
               </div>
             </div>
@@ -265,20 +276,25 @@ export default {
 
 <style>
 #SearchResults {
-  background-color: #22262A;
+  background-color: #22262a;
   min-height: 100vh;
 }
 .section {
   padding-top: 1rem !important;
 }
-@media only screen and (max-width: 768px)
-{
+a.button {
+  text-decoration: none !important;
+}
+a.button:hover {
+  background: none !important;
+}
+@media only screen and (max-width: 768px) {
   .card {
     line-height: 1 !important;
   }
 }
 .card {
-    background-color: #22262A !important;
+  background-color: #22262a !important;
 }
 .card-content {
   padding: 0.5rem !important;
