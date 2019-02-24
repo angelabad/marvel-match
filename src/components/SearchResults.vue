@@ -32,50 +32,65 @@
         v-if="comics.length > 0"
         class="container"
       >
-        <div class="section">
-          <div class="level-right">
-            <div class="level-item">
-              <a
-                class="button"
-                @click="reverseOrder"
-              >
-                <span class="icon">
-                  <i class="fas fa-sort"></i>
-                </span>
-                <span>Order</span>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="columns is-multiline">
-          <div
-            v-for="comic in limitedComics"
-            :key="comic.id"
-            class="column is-one-quarter"
-          >
-            <div class="card is-shadowless">
-              <div class="card-image">
-                <figure class="image is-2by3 aa-card-image">
-                  <img
-                    @click="showComicDetails(comic)"
-                    v-bind:src="comic.thumbnail.path + '/portrait_uncanny.' + comic.thumbnail.extension | convertToHttps"
-                    :alt="comic.title"
-                  >
-                </figure>
-              </div>
-              <div class="card-content">
-                <div class="media">
-                  <div class="media-content">
+
+        <section class="section">
+          <div class="columns is-multiline is-mobile is-variable is-1-mobile is-3-tablet">
+
+            <div class="column is-full">
+              <div class="level">
+                <div class="level-left">
+                  <p class="level-item title has-text-white">
+                    {{ hero1.name }} - {{ hero2.name }}
+                  </p>
+                </div>
+                <div class="level-right is-marginless">
+                  <div class="level-item">
+                    <strong class="has-text-white">
+                      {{ total }} comics available
+                    </strong>
+
                     <a
+                      class="button is-text has-text-white is-small is-outlined"
+                      @click="reverseOrder"
+                    >
+                      <span class="icon">
+                        <i class="fas fa-sort"></i>
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div
+              v-for="comic in limitedComics"
+              :key="comic.id"
+              class="column is-one-quarter-tablet is-one-third-mobile"
+            >
+              <div class="card is-shadowless">
+                <div class="card-image">
+                  <figure class="image is-2by3 aa-card-image">
+                    <img
                       @click="showComicDetails(comic)"
-                      class="title is-4 aa-card-title"
-                    >{{ comic.title }}</a>
+                      v-bind:src="comic.thumbnail.path + '/portrait_uncanny.' + comic.thumbnail.extension | convertToHttps"
+                      :alt="comic.title"
+                    >
+                  </figure>
+                </div>
+                <div class="card-content">
+                  <div class="media">
+                    <div class="media-content">
+                      <a
+                        @click="showComicDetails(comic)"
+                        class="title is-size-7-mobile is-size-6-tablet aa-card-title"
+                      >{{ comic.title }}</a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
+
       </div>
       <div v-else>
         <section class="hero is-medium is-bold">
@@ -258,6 +273,35 @@ export default {
 </script>
 
 <style>
+#SearchResults {
+  background-color: #22262a;
+  min-height: 100vh;
+}
+.section {
+  padding-top: 1rem !important;
+}
+a.button {
+  text-decoration: none !important;
+}
+a.button:hover {
+  background: none !important;
+}
+@media only screen and (max-width: 768px) {
+  .card {
+    line-height: 1 !important;
+  }
+}
+.card {
+  background-color: #22262a !important;
+}
+.card-content {
+  padding: 0.5rem !important;
+  padding-top: 1rem !important;
+  padding-left: 0 !important;
+}
+.media-content {
+  overflow-y: hidden !important;
+}
 .aa-card-image {
   border: none !important;
   -webkit-transition: none;
@@ -273,11 +317,17 @@ export default {
   transform: translate(0, -6px);
 }
 .aa-card-title {
+  /*
   font-family: "DIN Next W01 Regular" !important;
   font-weight: bold !important;
   font-size: 18px !important;
+  line-height: .5 !important;
+  */
+  color: white !important;
 }
+/*
 .aa-card-title:hover {
-  color: #eb2328;
+  color: #eb2328 !important;
 }
+*/
 </style>
