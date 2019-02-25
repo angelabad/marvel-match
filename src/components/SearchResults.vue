@@ -32,10 +32,8 @@
         v-if="comics.length > 0"
         class="container"
       >
-
         <section class="section">
           <div class="columns is-multiline is-mobile is-variable is-1-mobile is-3-tablet">
-
             <div class="column is-full">
               <div class="level">
                 <div class="level-left">
@@ -61,8 +59,26 @@
                 </div>
               </div>
             </div>
+            <div class="column is-half has-text-white has-text-left">
+              Showing {{ (perPage * (current -1)) +1}} to {{ ((perPage * (current -1))) + perPage }}
+            </div>
+            <div class="column is-half">
+              <div class="container">
+              <b-pagination
+                :total="comics.length"
+                :current.sync="current"
+                :order="order"
+                :size="size"
+                :simple="isSimple"
+                :rounded="isRounded"
+                :per-page="perPage"
+              >
+              </b-pagination>
+              </div>
+            </div>
+
             <div
-              v-for="comic in limitedComics"
+              v-for="comic in computedComics"
               :key="comic.id"
               class="column is-one-quarter-tablet is-one-third-mobile"
             >
@@ -130,6 +146,13 @@ export default {
   },
   data: function () {
     return {
+      total2: 200,
+      current: 1,
+      perPage: 12,
+      order: 'is-right',
+      size: 'is-small',
+      isSimple: true,
+      isRounded: false,
       loading: false,
       total: 0,
       progress: 0,
@@ -141,6 +164,11 @@ export default {
   computed: {
     limitedComics: function () {
       return this.comics.slice(0, this.limitNumber)
+    },
+    computedComics: function () {
+      var first = this.perPage * (this.current - 1)
+      var last = first + this.perPage
+      return this.comics.slice(first, last)
     }
   },
   beforeCreate: function () {
@@ -273,6 +301,10 @@ export default {
 </script>
 
 <style>
+small.info {
+  display: none;
+}
+
 #SearchResults {
   background-color: #22262a;
   min-height: 100vh;
