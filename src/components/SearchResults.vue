@@ -59,10 +59,10 @@
                 </div>
               </div>
             </div>
-            <div class="column is-half has-text-white has-text-left">
-              Showing {{ (perPage * (current -1)) +1}} to {{ ((perPage * (current -1))) + perPage }}
+            <div class="column is-half has-text-white has-text-left pagination">
+              Showing {{ firstComicInPage }} to {{ lastComicInPage }}
             </div>
-            <div class="column is-half">
+            <div class="column is-half pagination">
               <div class="container">
               <b-pagination
                 :total="comics.length"
@@ -165,10 +165,16 @@ export default {
     limitedComics: function () {
       return this.comics.slice(0, this.limitNumber)
     },
+    firstComicInPage: function () {
+      var page = (this.perPage * (this.current - 1)) + 1
+      return page
+    },
+    lastComicInPage: function () {
+      var page = (this.perPage * (this.current - 1)) + this.perPage
+      return page
+    },
     computedComics: function () {
-      var first = this.perPage * (this.current - 1)
-      var last = first + this.perPage
-      return this.comics.slice(first, last)
+      return this.comics.slice(this.firstComicInPage - 1, this.lastComicInPage)
     }
   },
   beforeCreate: function () {
@@ -303,6 +309,11 @@ export default {
 <style>
 small.info {
   display: none;
+}
+
+.pagination {
+  padding-top: 0 !important;
+  padding-bottom: 0.1rem !important;
 }
 
 #SearchResults {
