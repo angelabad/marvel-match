@@ -178,10 +178,6 @@ export default {
   },
   mounted: function () {
     this.loading = true
-    // TODO: Remove body-background specific style for backgrounds
-    // TODO: Mejorar los diferentes estilos en paginas distintas
-    const el = document.getElementById('app')
-    el.classList.remove('body-background')
 
     let rawcomics
 
