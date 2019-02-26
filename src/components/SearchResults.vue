@@ -146,7 +146,6 @@ export default {
   },
   data: function () {
     return {
-      total2: 200,
       current: 1,
       perPage: 12,
       order: 'is-right',
@@ -156,15 +155,10 @@ export default {
       loading: false,
       total: 0,
       progress: 0,
-      comics: [],
-      limitNumber: 12,
-      bottom: false
+      comics: []
     }
   },
   computed: {
-    limitedComics: function () {
-      return this.comics.slice(0, this.limitNumber)
-    },
     firstComicInPage: function () {
       var page = (this.perPage * (this.current - 1)) + 1
       return page
@@ -181,11 +175,6 @@ export default {
     if (!this.$route.params.hero1 || !this.$route.params.hero2) {
       this.$router.replace({ name: 'index' })
     }
-  },
-  created: function () {
-    window.addEventListener('scroll', () => {
-      this.bottom = this.bottomVisible()
-    })
   },
   mounted: function () {
     this.loading = true
@@ -231,23 +220,9 @@ export default {
       this.loading = false
     })
   },
-  watch: {
-    bottom: function (bottom) {
-      if (bottom) {
-        this.limitNumber += 4
-      }
-    }
-  },
   methods: {
     reverseOrder: function () {
       this.comics = this.comics.reverse()
-    },
-    bottomVisible: function () {
-      const scrollY = window.scrollY
-      const visible = document.documentElement.clientHeight
-      const pageHeight = document.documentElement.scrollHeight
-      const bottomOfPage = visible + scrollY >= pageHeight
-      return bottomOfPage || pageHeight < visible
     },
     getComics: function (hero) {
       // TODO: Mejorar control de errores
