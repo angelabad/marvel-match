@@ -186,7 +186,8 @@ export default {
     },
     lastComicInPage: function () {
       var page = (this.perPage * (this.current - 1)) + this.perPage
-      return page
+      // If page calculation is mayor that total comics, return total comics
+      return (page < this.comics.length) ? page : this.comics.length
     },
     computedComics: function () {
       return this.comics.slice(this.firstComicInPage - 1, this.lastComicInPage)
