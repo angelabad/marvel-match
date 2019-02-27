@@ -65,7 +65,6 @@
               Showing {{ firstComicInPage }} to {{ lastComicInPage }}
             </div>
             <div class="column is-half pagination">
-              <div class="container">
                 <b-pagination
                   :total="comics.length"
                   :current.sync="current"
@@ -76,7 +75,6 @@
                   :per-page="perPage"
                 >
                 </b-pagination>
-              </div>
             </div>
 
             <div
@@ -108,7 +106,6 @@
             </div>
 
             <div class="column is-full pagination">
-              <div class="container">
                 <b-pagination
                   :total="comics.length"
                   :current.sync="current"
@@ -119,7 +116,6 @@
                   :per-page="perPage"
                 >
                 </b-pagination>
-              </div>
             </div>
 
           </div>
@@ -300,6 +296,7 @@ export default {
 </script>
 
 <style>
+/* pagination */
 small.info {
   display: none;
 }
@@ -310,6 +307,7 @@ a.pagination-next:focus, a.pagination-previous:focus {
   padding-top: 0 !important;
   padding-bottom: 0.1rem !important;
 }
+/* end pagination */
 
 #SearchResults {
   background-color: #22262a;
