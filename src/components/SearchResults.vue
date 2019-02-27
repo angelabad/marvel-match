@@ -303,7 +303,9 @@ export default {
 small.info {
   display: none;
 }
-
+a.pagination-next:focus, a.pagination-previous:focus {
+  border-color: white !important;
+}
 .pagination {
   padding-top: 0 !important;
   padding-bottom: 0.1rem !important;
