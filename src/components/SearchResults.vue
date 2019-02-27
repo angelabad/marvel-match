@@ -138,6 +138,7 @@
         </section>
       </div>
     </div>
+    <mm-footer />
   </div>
 </template>
 
@@ -145,12 +146,14 @@
 import axios from 'axios'
 import ComicDetails from './ComicDetails.vue'
 import MmHeader from './ui/MmHeader.vue'
+import MmFooter from './ui/MmFooter.vue'
 import utils from '@/common/utils'
 
 export default {
   name: 'SearchResults',
   components: {
-    MmHeader
+    MmHeader,
+    MmFooter
   },
   props: {
     hero1: {
