@@ -9,7 +9,7 @@
 </template>
 
 <style scoped>
-a:visited strong {
+a strong, a:visited strong {
   color: white !important;
 }
 </style>
