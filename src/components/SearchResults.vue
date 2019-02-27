@@ -59,21 +59,23 @@
                 </div>
               </div>
             </div>
+
+            <!-- TODO: This code ir repeated at the bottom of page -->
             <div class="column is-half has-text-white has-text-left pagination">
               Showing {{ firstComicInPage }} to {{ lastComicInPage }}
             </div>
             <div class="column is-half pagination">
               <div class="container">
-              <b-pagination
-                :total="comics.length"
-                :current.sync="current"
-                :order="order"
-                :size="size"
-                :simple="isSimple"
-                :rounded="isRounded"
-                :per-page="perPage"
-              >
-              </b-pagination>
+                <b-pagination
+                  :total="comics.length"
+                  :current.sync="current"
+                  :order="order"
+                  :size="size"
+                  :simple="isSimple"
+                  :rounded="isRounded"
+                  :per-page="perPage"
+                >
+                </b-pagination>
               </div>
             </div>
 
@@ -104,6 +106,22 @@
                 </div>
               </div>
             </div>
+
+            <div class="column is-full pagination">
+              <div class="container">
+                <b-pagination
+                  :total="comics.length"
+                  :current.sync="current"
+                  :order="order"
+                  :size="size"
+                  :simple="isSimple"
+                  :rounded="isRounded"
+                  :per-page="perPage"
+                >
+                </b-pagination>
+              </div>
+            </div>
+
           </div>
         </section>
 
