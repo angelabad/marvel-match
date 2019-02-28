@@ -287,7 +287,7 @@ export default {
         },
         parent: this,
         component: ComicDetails,
-        hasModalCard: true,
+        hasModalCard: false,
         scroll: 'keep'
       })
     }
