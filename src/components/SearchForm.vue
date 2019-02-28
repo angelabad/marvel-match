@@ -43,7 +43,7 @@
       :data="searchResults"
       :loading="isFetching"
       :keep-first="true"
-      @input="handleSearch"
+      @typing="handleSearch"
       @focus="setScroll"
       @select="option => showHero(option.id)"
     >
