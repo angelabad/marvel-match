@@ -208,7 +208,6 @@ export default {
       return names.join(', ')
     },
     getMarvelUrl: function () {
-      // const resultado = inventario.find( fruta => fruta.nombre === 'cerezas' );
       const url = this.comic.urls.find(url => url.type === 'detail')
       if (url.length === 0) return ''
       return url.url
