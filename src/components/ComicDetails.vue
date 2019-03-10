@@ -5,7 +5,7 @@
       <section class="section">
         <div class="columns is-mobile is-multiline has-text-white">
           <div class="column is-half">
-            <figure class="image has-background-black-ter">
+            <figure class="image">
               <img
                 v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
                 :alt="comic.title"
