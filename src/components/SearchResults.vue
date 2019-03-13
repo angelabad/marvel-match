@@ -65,16 +65,16 @@
               Showing {{ firstComicInPage }} to {{ lastComicInPage }}
             </div>
             <div class="column is-half pagination">
-                <b-pagination
-                  :total="comics.length"
-                  :current.sync="current"
-                  :order="order"
-                  :size="size"
-                  :simple="isSimple"
-                  :rounded="isRounded"
-                  :per-page="perPage"
-                >
-                </b-pagination>
+              <b-pagination
+                :total="comics.length"
+                :current.sync="current"
+                :order="order"
+                :size="size"
+                :simple="isSimple"
+                :rounded="isRounded"
+                :per-page="perPage"
+              >
+              </b-pagination>
             </div>
 
             <div
@@ -106,16 +106,16 @@
             </div>
 
             <div class="column is-full pagination">
-                <b-pagination
-                  :total="comics.length"
-                  :current.sync="current"
-                  :order="order"
-                  :size="size"
-                  :simple="isSimple"
-                  :rounded="isRounded"
-                  :per-page="perPage"
-                >
-                </b-pagination>
+              <b-pagination
+                :total="comics.length"
+                :current.sync="current"
+                :order="order"
+                :size="size"
+                :simple="isSimple"
+                :rounded="isRounded"
+                :per-page="perPage"
+              >
+              </b-pagination>
             </div>
 
           </div>
@@ -197,7 +197,10 @@ export default {
   },
   mounted: function () {
     // Set axios Retry 5 times if fetch fails
-    axiosRetry(axios, { retries: 5 })
+    axiosRetry(axios, {
+      retries: 5,
+      retryDelay: axiosRetry.exponentialDelay
+    })
 
     this.loading = true
 
@@ -304,7 +307,8 @@ export default {
 small.info {
   display: none;
 }
-a.pagination-next:focus, a.pagination-previous:focus {
+a.pagination-next:focus,
+a.pagination-previous:focus {
   border-color: white !important;
 }
 .pagination {

@@ -81,7 +81,7 @@ export default {
   },
   mounted: function () {
     // Set axios Retry 5 times if fetch fails
-    axiosRetry(axios, { retries: 5 })
+    axiosRetry(axios, { retries: 5, retryDelay: axiosRetry.exponentialDelay })
   },
   methods: {
     handleSearch: debunce(function () {
