@@ -31,7 +31,7 @@
     "eslint-plugin-vue": "^5.2.2",
     "vue-mq": "^1.0.1",
     "vue-router": "^3.0.2",
-    "vue-scrollto": "^2.13.0",
+    "vue-scrollto": "^2.14.0",
     "vue-template-compiler": "^2.6.7"
   },
   "postcss": {
