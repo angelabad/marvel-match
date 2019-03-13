@@ -1,19 +1,17 @@
-import { API_URL, API_KEY } from './config.js'
-
 function getCharacterStartsWith (startsWith) {
-  const request = API_URL + 'public/characters?' + API_KEY + '&orderBy=name&nameStartsWith=' + startsWith
+  const request = process.env.VUE_APP_API_URL + 'public/characters?' + '&orderBy=name&nameStartsWith=' + startsWith
 
   return request
 }
 
 function getCharacter (characterId) {
-  const request = API_URL + 'public/characters/' + characterId + '?' + API_KEY
+  const request = process.env.VUE_APP_API_URL + 'public/characters/' + characterId
 
   return request
 }
 
 function getCharacterComics (characterId, offset) {
-  const request = API_URL + 'public/characters/' + characterId + '/comics?limit=100&offset=' + offset + '&' + API_KEY
+  const request = process.env.VUE_APP_API_URL + 'public/characters/' + characterId + '/comics?limit=100&offset=' + offset
 
   return request
 }
