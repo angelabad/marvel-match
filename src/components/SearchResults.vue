@@ -140,6 +140,7 @@
 
 <script>
 import axios from 'axios'
+import axiosRetry from 'axios-retry'
 import ComicDetails from './ComicDetails.vue'
 import MmHeader from './ui/MmHeader.vue'
 import MmFooter from './ui/MmFooter.vue'
@@ -195,6 +196,9 @@ export default {
     }
   },
   mounted: function () {
+    // Set axios Retry 5 times if fetch fails
+    axiosRetry(axios, { retries: 5 })
+
     this.loading = true
 
     let rawcomics

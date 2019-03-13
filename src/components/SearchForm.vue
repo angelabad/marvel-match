@@ -65,6 +65,7 @@
 
 <script>
 import axios from 'axios'
+import axiosRetry from 'axios-retry'
 import debunce from 'debounce'
 import utils from '@/common/utils'
 
@@ -77,6 +78,10 @@ export default {
       hero: null,
       isFetching: false
     }
+  },
+  mounted: function () {
+    // Set axios Retry 5 times if fetch fails
+    axiosRetry(axios, { retries: 5 })
   },
   methods: {
     handleSearch: debunce(function () {
