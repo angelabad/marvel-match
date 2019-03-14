@@ -173,7 +173,8 @@ export default {
       loading: false,
       total: 0,
       progress: 0,
-      comics: []
+      comics: [],
+      errored: false
     }
   },
   computed: {
@@ -237,11 +238,26 @@ export default {
 
         return dateA - dateB
       })
+    }).catch(error => {
+      console.log(error)
+      this.errored = true
+      this.showErrorDialog()
     }).finally(() => {
       this.loading = false
     })
   },
   methods: {
+    showErrorDialog: function () {
+      this.$dialog.alert({
+        message: 'Something\'s not good, please try again later!',
+        type: 'is-dark',
+        hasIcon: true,
+        icon: 'times-circle',
+        iconPack: 'fa',
+        comfirmText: 'Agree',
+        onConfirm: () => this.$router.replace({ name: 'index' })
+      })
+    },
     reverseOrder: function () {
       this.comics = this.comics.reverse()
     },
