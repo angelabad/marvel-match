@@ -44,7 +44,7 @@
                 <div class="field">
                   <SearchForm
                     ref="form2"
-                    v-on:sendHero="hero => this.hero2Id = hero"
+                    v-on:sendHero="hero => { this.hero2Id = hero; this.$nextTick(() => this.$scrollTo('#matchbutton'))}"
                     v-on:clearParentHero="() => { hero2Id = null }"
                     needsScroll=false
                   />
@@ -55,6 +55,7 @@
               <transition name="bounce">
                 <div v-if="hero1Id && hero2Id">
                   <button
+                    id="matchbutton"
                     autofocus
                     class="button aa--marvel-button"
                     @click="callMatch(hero1Id, hero2Id)"
