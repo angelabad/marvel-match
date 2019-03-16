@@ -44,7 +44,7 @@
       :loading="isFetching"
       :keep-first="true"
       @typing="handleSearch"
-      @focus="setScroll"
+      @focus="needsScroll ? setScroll : null"
       @select="option => showHero(option.id)"
     >
       <template slot-scope="props">
@@ -71,6 +71,8 @@ import utils from '@/common/utils'
 
 export default {
   name: 'SearchForm',
+  // TODO: this is a workaround for chrome keyboard over input
+  props: ['needsScroll'],
   data: function () {
     return {
       name: null,
