@@ -5,7 +5,13 @@ import router from './router'
 import VueScrollTo from 'vue-scrollto'
 import VueMq from 'vue-mq'
 import Buefy from 'buefy'
+import VueAnalytics from 'vue-analytics'
+
 import 'buefy/dist/buefy.css'
+
+Vue.config.productionTip = false
+
+const isProd = process.env.NODE_ENV === 'production'
 
 Vue.use(VueScrollTo, {
   duration: 1500
@@ -14,8 +20,17 @@ Vue.use(VueMq)
 Vue.use(Buefy, {
   defaultIconPack: 'fa'
 })
-
-Vue.config.productionTip = false
+Vue.use(VueAnalytics, {
+  id: 'UA-136350344-1',
+  router,
+  autoTracking: {
+    exception: true
+  },
+  debug: {
+    enabled: !isProd,
+    sendHitTask: isProd
+  }
+})
 
 Vue.filter('convertToHttps', function (value) {
   if (!value) return ''
