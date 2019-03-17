@@ -1,6 +1,4 @@
 # PROJECT FILES
-src/common/config.js
-
 .DS_Store
 node_modules
 /dist
@@ -22,3 +20,7 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+# Firebase
+.firebaserc
+.firebase
