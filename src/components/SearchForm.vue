@@ -92,6 +92,11 @@ export default {
         this.setScroll()
       }
 
+      // Ignore action if there arent at least 4 characters
+      if (this.name.length < 3) {
+        return 0
+      }
+
       this.isFetching = true
 
       // If empty input delete all and send null to Index
