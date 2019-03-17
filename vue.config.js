@@ -3,10 +3,12 @@
 // FOR GITLAB PAGES
 
 module.exports = {
+  /*
     publicPath: process.env.NODE_ENV === 'production'
       ? '/marvel-match/'
       : '/',
-    configureWebpack: {
-      devtool: 'source-map'
-    }
+  */
+  configureWebpack: {
+    devtool: 'source-map'
+  }
 }
