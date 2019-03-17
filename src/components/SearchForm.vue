@@ -36,7 +36,7 @@
       class="aa-autocomplete"
       ref="autocomplete"
       id="autocomplete"
-      placeholder="Start typing..."
+      placeholder="Start typing and wait..."
       field="name"
       v-model="name"
       size="is-medium"
