@@ -27,7 +27,7 @@
               MarvelMatch
             </h1>
             <h2 class="subtitle has-text-right">
-              See all the places your favorite Marvel Superheroes appear together.
+              See all the comics your favorite Marvel Superheroes appear together.
             </h2>
           </div>
           <div class="columns is-vcentered">
