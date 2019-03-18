@@ -95,7 +95,7 @@ export default {
   },
   methods: {
     callMatch: function () {
-      this.$router.replace({
+      this.$router.push({
         name: 'results',
         params: {
           hero1: this.hero1Id,
