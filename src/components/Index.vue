@@ -6,15 +6,15 @@
         <nav class="navbar">
           <div class="container">
             <div class="navbar-brand">
-              <a
+              <router-link
+                :to="{ name: 'index' }"
                 class="navbar-item"
-                :href="publicPath"
               >
                 <img
                   src="../assets/marvel_logo.png"
                   alt="Marvel Logo"
                 >
-              </a>
+              </router-link>
             </div>
           </div>
         </nav>
