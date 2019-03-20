@@ -1,8 +1,6 @@
 <template>
   <div id="SearchResults">
 
-    <mm-header />
-
     <div
       v-if="loading"
       class="container"
@@ -28,6 +26,9 @@
     </div>
 
     <div v-else>
+
+      <mm-header />
+
       <div
         v-if="comics.length > 0"
         class="container"
@@ -133,8 +134,10 @@
           </div>
         </section>
       </div>
+
+      <mm-footer />
+
     </div>
-    <mm-footer />
   </div>
 </template>
 
