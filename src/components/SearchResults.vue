@@ -380,17 +380,6 @@ a.button:hover {
   transform: translate(0, -6px);
 }
 .aa-card-title {
-  /*
-  font-family: "DIN Next W01 Regular" !important;
-  font-weight: bold !important;
-  font-size: 18px !important;
-  line-height: .5 !important;
-  */
   color: white !important;
 }
-/*
-.aa-card-title:hover {
-  color: #eb2328 !important;
-}
-*/
 </style>
