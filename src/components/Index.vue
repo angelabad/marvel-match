@@ -85,7 +85,6 @@ export default {
   },
   data: function () {
     return {
-      publicPath: process.env.BASE_URL,
       hero1Id: null,
       hero2Id: null
     }
