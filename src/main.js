@@ -2,6 +2,7 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 
+import VueMeta from 'vue-meta'
 import VueScrollTo from 'vue-scrollto'
 import VueMq from 'vue-mq'
 import Buefy from 'buefy'
@@ -13,6 +14,7 @@ Vue.config.productionTip = false
 
 const isProd = process.env.NODE_ENV === 'production'
 
+Vue.use(VueMeta)
 Vue.use(VueScrollTo, {
   duration: 1500
 })

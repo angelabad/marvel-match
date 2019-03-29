@@ -2,14 +2,14 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 import Index from '@/components/Index'
-import SearchResults from '@/components/SearchResults'
+import Match from '@/components/Match'
 import NotFound from '@/components/NotFound'
 
 Vue.use(Router)
 
 const routes = [
   { path: '/', name: 'index', component: Index },
-  { path: '/results', name: 'results', component: SearchResults, props: true },
+  { path: '/match/:hero1/:hero2', name: 'match', component: Match },
   { path: '*', component: NotFound }
 ]
 

@@ -1,5 +1,5 @@
 <template>
-  <div id="SearchResults">
+  <div id="Match">
 
     <div
       v-if="loading"
@@ -150,20 +150,19 @@ import MmFooter from './ui/MmFooter.vue'
 import utils from '@/common/utils'
 
 export default {
-  name: 'SearchResults',
+  name: 'Match',
+  metaInfo: function () {
+    return {
+      title: this.hero1.name + ' & ' + this.hero2.name,
+      titleTemplate: 'MarvelMatch: %s',
+      meta: [
+        { name: 'description', content: 'All Marvel comics where ' + this.hero1.name + ' & ' + this.hero2.name + ' appear together.' }
+      ]
+    }
+  },
   components: {
     MmHeader,
     MmFooter
-  },
-  props: {
-    hero1: {
-      type: Object,
-      required: true
-    },
-    hero2: {
-      type: Object,
-      required: true
-    }
   },
   data: function () {
     return {
@@ -176,6 +175,8 @@ export default {
       loading: false,
       total: 0,
       progress: 0,
+      hero1: [],
+      hero2: [],
       comics: [],
       errored: false
     }
@@ -208,46 +209,57 @@ export default {
 
     this.loading = true
 
-    let rawcomics
+    Promise.all([this.getHero(this.$route.params.hero1), this.getHero(this.$route.params.hero2)])
+      .then(heroesArray => {
+        this.hero1 = heroesArray[0]
+        this.hero2 = heroesArray[1]
+        Promise.all([this.getComics(heroesArray[0]), this.getComics(heroesArray[1])])
+          .then(
+            values => {
+              let rawcomics = values[0].filter(obj =>
+                values[1].find(o => o.id === obj.id)
+              )
+              return rawcomics
+            }
+          ).then(rawcomics => {
+            this.comics = rawcomics.map(rawcomic => {
+              var comic = {
+                id: rawcomic.id,
+                title: rawcomic.title,
+                description: rawcomic.description,
+                urls: rawcomic.urls,
+                thumbnail: rawcomic.thumbnail,
+                creators: rawcomic.creators,
+                characters: rawcomic.characters,
+                dates: rawcomic.dates,
+                issueNumber: rawcomic.issueNumber,
+                pageCount: rawcomic.pageCount,
+                series: rawcomic.series
+              }
+              return comic
+            })
+            this.comics.sort(function (a, b) {
+              // Get comics onsaleDate and convert to Date type
+              var dateA = new Date(a.dates.find(date => date.type === 'onsaleDate').date)
+              var dateB = new Date(b.dates.find(date => date.type === 'onsaleDate').date)
 
-    Promise.all([this.getComics(this.hero1), this.getComics(this.hero2)]).then(
-      values => {
-        rawcomics = values[0].filter(obj =>
-          values[1].find(o => o.id === obj.id)
-        )
-      }
-    ).then(() => {
-      this.comics = rawcomics.map(rawcomic => {
-        var comic = {
-          id: rawcomic.id,
-          title: rawcomic.title,
-          description: rawcomic.description,
-          urls: rawcomic.urls,
-          thumbnail: rawcomic.thumbnail,
-          creators: rawcomic.creators,
-          characters: rawcomic.characters,
-          dates: rawcomic.dates,
-          issueNumber: rawcomic.issueNumber,
-          pageCount: rawcomic.pageCount,
-          series: rawcomic.series
-        }
-
-        return comic
+              return dateA - dateB
+            })
+          })
+          .catch(error => {
+            console.log(error)
+            this.errored = true
+            this.showErrorDialog()
+          })
+          .finally(() => {
+            this.loading = false
+          })
       })
-      this.comics.sort(function (a, b) {
-        // Get comics onsaleDate and convert to Date type
-        var dateA = new Date(a.dates.find(date => date.type === 'onsaleDate').date)
-        var dateB = new Date(b.dates.find(date => date.type === 'onsaleDate').date)
-
-        return dateA - dateB
+      .catch(error => {
+        console.log(error)
+        this.errored = true
+        this.showErrorDialog()
       })
-    }).catch(error => {
-      console.log(error)
-      this.errored = true
-      this.showErrorDialog()
-    }).finally(() => {
-      this.loading = false
-    })
   },
   methods: {
     showErrorDialog: function () {
@@ -263,6 +275,26 @@ export default {
     },
     reverseOrder: function () {
       this.comics = this.comics.reverse()
+    },
+    // TODO: This function is duplicated in SearchForm -> showHero
+    getHero: function (id) {
+      return new Promise((resolve, reject) => {
+        let hero = []
+        axios.get(utils.getCharacter(id))
+          .then(response => {
+            hero = {
+              id: response.data.data.results[0].id,
+              name: response.data.data.results[0].name,
+              description: response.data.data.results[0].description,
+              thumbnail: response.data.data.results[0].thumbnail,
+              comicsAvailable: response.data.data.results[0].comics.available
+            }
+          })
+          .then(response => {
+            resolve(hero)
+          })
+          .catch(() => reject(new Error('Error getting superhero')))
+      })
     },
     getComics: function (hero) {
       // TODO: Mejorar control de errores
@@ -336,7 +368,7 @@ a.pagination-previous:focus {
 }
 /* end pagination */
 
-#SearchResults {
+#Match {
   background-color: #22262a;
   min-height: 100vh;
 }
