@@ -153,10 +153,10 @@ export default {
   name: 'Match',
   metaInfo: function () {
     return {
-      title: this.hero1.name + ' & ' + this.hero2.name,
+      title: this.hero1.name + ' and ' + this.hero2.name,
       titleTemplate: 'MarvelMatch: %s',
       meta: [
-        { name: 'description', content: 'All Marvel comics where ' + this.hero1.name + ' & ' + this.hero2.name + ' appear together.' }
+        { name: 'description', content: 'All Marvel comics where ' + this.hero1.name + ' and ' + this.hero2.name + ' appear together.' }
       ]
     }
   },
