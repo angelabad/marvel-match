@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+
+Sitemap: https://marvelmatch.com/sitemap.xml
