@@ -95,10 +95,10 @@ export default {
   methods: {
     callMatch: function () {
       this.$router.push({
-        name: 'results',
+        name: 'match',
         params: {
-          hero1: this.hero1Id,
-          hero2: this.hero2Id
+          hero1: this.hero1Id.id,
+          hero2: this.hero2Id.id
         }
       })
     }
