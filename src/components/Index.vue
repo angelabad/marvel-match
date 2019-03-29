@@ -79,6 +79,12 @@ import MmFooter from './ui/MmFooter.vue'
 
 export default {
   name: 'Index',
+  metaInfo: {
+    title: 'MarvelMatch - Marvel Superheroes Comics Match',
+    meta: [
+      { name: 'description', content: 'See all the comics your favorite Marvel Superheroes appear together.' }
+    ]
+  },
   components: {
     SearchForm,
     MmFooter

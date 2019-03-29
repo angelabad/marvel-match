@@ -151,6 +151,15 @@ import utils from '@/common/utils'
 
 export default {
   name: 'Match',
+  metaInfo: function () {
+    return {
+      title: this.hero1.name + ' & ' + this.hero2.name,
+      titleTemplate: 'MarvelMatch: %s',
+      meta: [
+        { name: 'description', content: 'All Marvel comics where ' + this.hero1.name + ' & ' + this.hero2.name + ' appear together.' }
+      ]
+    }
+  },
   components: {
     MmHeader,
     MmFooter
@@ -166,8 +175,8 @@ export default {
       loading: false,
       total: 0,
       progress: 0,
-      hero1: null,
-      hero2: null,
+      hero1: [],
+      hero2: [],
       comics: [],
       errored: false
     }
