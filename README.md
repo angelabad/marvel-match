@@ -21,3 +21,7 @@ yarn run serve
 ```
 yarn run build
 ```
+
+### Configure visual studio code
+
+https://alligator.io/vuejs/eslint-vue-vetur/
