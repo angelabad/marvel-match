@@ -195,11 +195,6 @@ export default {
       return this.comics.slice(this.firstComicInPage - 1, this.lastComicInPage)
     }
   },
-  beforeCreate: function () {
-    if (!this.$route.params.hero1 || !this.$route.params.hero2) {
-      this.$router.replace({ name: 'index' })
-    }
-  },
   mounted: function () {
     // Set axios Retry 5 times if fetch fails
     axiosRetry(axios, {
