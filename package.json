@@ -7,7 +7,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "eslint --ext .js,.vue src"
+    "lint": "eslint --ext .js,.vue src",
+    "testing": "yarn build --mode testing && firebase -P testing deploy"
   },
   "dependencies": {
     "vue": "^2.6.10"
