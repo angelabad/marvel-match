@@ -180,6 +180,9 @@ export default {
       return names.join(', ')
     }
   },
+  mounted: function () {
+    this.$ga.page('/details/' + this.comic.id)
+  },
   computed: {
     getWriterNames: function () {
       return this.getCreatorNames('writer')
