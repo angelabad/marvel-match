@@ -182,6 +182,18 @@ export default {
     }
   },
   computed: {
+    shareUrl: function () {
+      const image = this.$options.filters.convertToHttps(this.hero1.thumbnail.path + '/landscape_incredible.' + this.hero1.thumbnail.extension)
+
+      let url = process.env.VUE_APP_SOCIAL_SHARE_URL
+      url += '/?link=' + process.env.VUE_APP_URL + '/match/'
+      url += this.hero1.id + '/' + this.hero2.id
+      url += '&st=MarvelMatch: ' + this.hero1.name + ' vs ' + this.hero2.name
+      url += '&sd=See all the comics ' + this.hero1.name + ' and ' + this.hero2.name + ' appear together.'
+      url += '&si=' + image
+
+      return url
+    },
     firstComicInPage: function () {
       var page = (this.perPage * (this.current - 1)) + 1
       return page
