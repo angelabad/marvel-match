@@ -1,7 +1,12 @@
 {
   "hosting": {
+    "appAssociation": "AUTO",
     "public": "./dist",
     "rewrites": [
+      {
+        "source": "/linkshare/**",
+        "dynamicLinks": true
+      },
       {
         "source": "**",
         "destination": "/index.html"
