@@ -58,10 +58,6 @@
                           <network network="twitter">
                             <i class="fab fa-twitter-square fa-lg aa-social"></i>
                           </network>
-                          &nbsp;
-                          <network network="reddit">
-                            <i class="fab fa-reddit-square fa-lg aa-social"></i>
-                          </network>
                         </div>
                       </social-sharing>
                   </div>
