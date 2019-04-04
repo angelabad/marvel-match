@@ -7,6 +7,7 @@ import VueScrollTo from 'vue-scrollto'
 import VueMq from 'vue-mq'
 import Buefy from 'buefy'
 import VueAnalytics from 'vue-analytics'
+import VueSocialSharing from 'vue-social-sharing'
 
 import 'buefy/dist/buefy.css'
 
@@ -33,6 +34,7 @@ Vue.use(VueAnalytics, {
     sendHitTask: isProd
   }
 })
+Vue.use(VueSocialSharing)
 
 Vue.filter('convertToHttps', function (value) {
   if (!value) return ''
