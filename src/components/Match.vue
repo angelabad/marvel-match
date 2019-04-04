@@ -44,6 +44,25 @@
                 </div>
                 <div class="level-right is-marginless">
                   <div class="level-item">
+                    <social-sharing
+                        :url="shareUrl"
+                        :title="metaTitle"
+                        :hashtags="hashtags"
+                        inline-template
+                      >
+                        <div>
+                          <network network="facebook">
+                            <i class="fab fa-facebook-square fa-lg aa-social"></i>
+                          </network>
+                          &nbsp;
+                          <network network="twitter">
+                            <i class="fab fa-twitter-square fa-lg aa-social"></i>
+                          </network>
+                        </div>
+                      </social-sharing>
+                  </div>
+                  <div class="level-item">
+
                     <strong class="has-text-white">
                       {{ comics.length }} comics available
                     </strong>
@@ -153,10 +172,9 @@ export default {
   name: 'Match',
   metaInfo: function () {
     return {
-      title: this.hero1.name + ' and ' + this.hero2.name,
-      titleTemplate: 'MarvelMatch: %s',
+      title: this.metaTitle,
       meta: [
-        { name: 'description', content: 'All Marvel comics where ' + this.hero1.name + ' and ' + this.hero2.name + ' appear together.' }
+        { name: 'description', content: this.metaDescription }
       ]
     }
   },
@@ -182,6 +200,33 @@ export default {
     }
   },
   computed: {
+    metaTitle: function () {
+      let title = 'MarvelMatch: ' + this.hero1.name + ' and ' + this.hero2.name
+      return title
+    },
+    metaDescription: function () {
+      let description = 'See all the Marvel comics where ' + this.hero1.name + ' and ' + this.hero2.name + ' appear together.'
+      return description
+    },
+    shareUrl: function () {
+      const image = this.$options.filters.convertToHttps(this.hero1.thumbnail.path + '/landscape_incredible.' + this.hero1.thumbnail.extension)
+
+      let url = process.env.VUE_APP_SOCIAL_SHARE_URL
+      url += '/?link=' + process.env.VUE_APP_URL + '/match/'
+      url += this.hero1.id + '/' + this.hero2.id
+      url += '&st=' + this.metaTitle
+      url += '&sd=' + this.metaDescription
+      url += '&si=' + image
+
+      return encodeURI(url)
+    },
+    hashtags: function () {
+      let hashtags = ['marvel']
+      hashtags.push(this.hero1.name.toLowerCase().replace(/\s+/g, ''))
+      hashtags.push(this.hero2.name.toLowerCase().replace(/\s+/g, ''))
+
+      return hashtags.join()
+    },
     firstComicInPage: function () {
       var page = (this.perPage * (this.current - 1)) + 1
       return page
@@ -362,6 +407,13 @@ a.pagination-previous:focus {
   padding-bottom: 0.1rem !important;
 }
 /* end pagination */
+
+/* social buttons */
+.aa-social {
+  color: grey;
+  cursor: pointer;
+}
+/* end social buttons */
 
 #Match {
   background-color: #22262a;
