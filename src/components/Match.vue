@@ -201,7 +201,7 @@ export default {
   },
   computed: {
     metaTitle: function () {
-      let title = 'MarvelMatch: ' + this.hero1.name + ' and ' + this.hero2.name
+      let title = 'MarvelMatch: ' + this.hero1.name + ' vs ' + this.hero2.name
       return title
     },
     metaDescription: function () {
