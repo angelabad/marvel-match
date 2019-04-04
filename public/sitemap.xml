@@ -1,42 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-   <url>
-      <loc>https://marvelmatch.com/</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
-      <!-- spiderman - hulk -->
-      <loc>https://marvelmatch.com/match/1009610/1009351</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
-      <!-- wolverine - iron man -->
-      <loc>https://marvelmatch.com/match/1009718/1009368</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
-      <!-- daredevil - captain america -->
-      <loc>https://marvelmatch.com/match/1009262/1009220</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
-      <!-- deadpool - thor -->
-      <loc>https://marvelmatch.com/match/1009268/1009664</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
-      <!-- thanos - punisher -->
-      <loc>https://marvelmatch.com/match/1009652/1009515</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
-      <!-- Iron Fist - Jessica Jones -->
-      <loc>https://marvelmatch.com/match/1009367/1009378</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-   <url>
-      <!-- Colossus - Ghost Rider -->
-      <loc>https://marvelmatch.com/match/1009243/1009318</loc>
-      <changefreq>weekly</changefreq>
-   </url>
-</urlset> 
+  <url>
+    <loc>https://marvelmatch.com</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009368/1009220</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009243/1009318</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009610/1009351</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009610/1009718</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009718/1009368</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009262/1009220</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009262/1009351</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009262/1011357</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009268/1009664</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009367/1009378</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009652/1009515</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009227/1009312</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009227/1009318</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://marvelmatch.com/match/1009227/1010373</loc>
+    <lastmod>2019-04-04T08:27:24.411208836Z</lastmod>
+    <changefreq>weekly</changefreq>
+  </url>
+</urlset>
