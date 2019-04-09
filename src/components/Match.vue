@@ -210,14 +210,7 @@ export default {
       return description
     },
     shareUrl: function () {
-      const image = this.$options.filters.convertToHttps(this.hero1.thumbnail.path + '/landscape_incredible.' + this.hero1.thumbnail.extension)
-
-      let url = process.env.VUE_APP_SOCIAL_SHARE_URL
-      url += '/?link=' + process.env.VUE_APP_URL + '/match/'
-      url += this.hero1.id + '/' + this.hero2.id
-      url += '&st=' + this.metaTitle
-      url += '&sd=' + this.metaDescription
-      url += '&si=' + image
+      const url = process.env.VUE_APP_SOCIAL_SHARE_URL + '/match/' + this.hero1.id + '/' + this.hero2.id
 
       return encodeURI(url)
     },
