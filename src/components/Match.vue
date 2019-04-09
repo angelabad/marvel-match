@@ -223,9 +223,9 @@ export default {
     },
     hashtags: function () {
       let hashtags = ['marvel']
-      hashtags.push(this.hero1.name.toLowerCase().replace(/\s+/g, ''))
-      hashtags.push(this.hero2.name.toLowerCase().replace(/\s+/g, ''))
-
+      // Only use letters, numbers and underscore in twitter hashtags
+      hashtags.push(this.hero1.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, ''))
+      hashtags.push(this.hero2.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, ''))
       return hashtags.join()
     },
     firstComicInPage: function () {
