@@ -48,6 +48,7 @@
                         :url="shareUrl"
                         :title="metaTitle"
                         :hashtags="hashtags"
+                        twitter-user="matchmarvel"
                         inline-template
                       >
                         <div>
