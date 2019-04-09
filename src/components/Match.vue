@@ -331,10 +331,10 @@ export default {
               comicsAvailable: response.data.data.results[0].comics.available
             }
           })
-          .then(response => {
+          .then(() => {
             resolve(hero)
           })
-          .catch(() => reject(new Error('Error getting superhero')))
+          .catch((error) => reject(new Error('Error getting superhero: ' + error.message)))
       })
     },
     getComics: function (hero) {
