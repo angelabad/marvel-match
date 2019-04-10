@@ -9,11 +9,19 @@ import Buefy from 'buefy'
 import VueAnalytics from 'vue-analytics'
 import VueSocialSharing from 'vue-social-sharing'
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faFacebookSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
 import 'buefy/dist/buefy.css'
 
 Vue.config.productionTip = false
 
 const isProd = process.env.NODE_ENV === 'production'
+
+library.add(faFacebookSquare, faTwitterSquare, fas)
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(VueMeta)
 Vue.use(VueScrollTo, {
@@ -21,7 +29,7 @@ Vue.use(VueScrollTo, {
 })
 Vue.use(VueMq)
 Vue.use(Buefy, {
-  defaultIconPack: 'fa'
+  defaultIconPack: 'fas'
 })
 Vue.use(VueAnalytics, {
   id: 'UA-136350344-1',
