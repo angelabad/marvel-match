@@ -53,11 +53,11 @@
                       >
                         <div>
                           <network network="facebook">
-                            <i class="fab fa-facebook-square fa-lg aa-social"></i>
+                            <font-awesome-icon :icon="['fab', 'facebook-square']" size="lg" class="aa-social" />
                           </network>
                           &nbsp;
                           <network network="twitter">
-                            <i class="fab fa-twitter-square fa-lg aa-social"></i>
+                            <font-awesome-icon :icon="['fab', 'twitter-square']" size="lg" class="aa-social" />
                           </network>
                         </div>
                       </social-sharing>
