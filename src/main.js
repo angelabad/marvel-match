@@ -10,7 +10,7 @@ import VueAnalytics from 'vue-analytics'
 import VueSocialSharing from 'vue-social-sharing'
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
-import { faAngleRight, faAngleLeft, faSort } from '@fortawesome/free-solid-svg-icons'
+import { faAngleRight, faAngleLeft, faSort, faHeart } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
@@ -22,7 +22,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 // dom is for use normal <i class="fas fa-....."> in code
 dom.watch()
-library.add(faFacebookSquare, faTwitterSquare, faAngleRight, faAngleLeft, faSort)
+library.add(faFacebookSquare, faTwitterSquare, faAngleRight, faAngleLeft, faSort, faHeart)
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.use(VueMeta)
