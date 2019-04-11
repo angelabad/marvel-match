@@ -1,2 +1,7 @@
-* Create search results permalinks
-* Dynamic page title and descriptcion with vue-meta
+- 1.0.2
+  * Use our own permalink share service
+  * Upgrade vue framework
+  * Use recommended fontawesome config and libs 
+- 1.0.1
+  * Create search results permalinks
+  * Dynamic page title and descriptcion with vue-meta
