@@ -45,22 +45,30 @@
                 <div class="level-right is-marginless">
                   <div class="level-item">
                     <social-sharing
-                        :url="shareUrl"
-                        :title="metaTitle"
-                        :hashtags="hashtags"
-                        twitter-user="matchmarvel"
-                        inline-template
-                      >
-                        <div>
-                          <network network="facebook">
-                            <font-awesome-icon :icon="['fab', 'facebook-square']" size="lg" class="aa-social" />
-                          </network>
-                          &nbsp;
-                          <network network="twitter">
-                            <font-awesome-icon :icon="['fab', 'twitter-square']" size="lg" class="aa-social" />
-                          </network>
-                        </div>
-                      </social-sharing>
+                      :url="shareUrl"
+                      :title="metaTitle"
+                      :hashtags="hashtags"
+                      twitter-user="matchmarvel"
+                      inline-template
+                    >
+                      <div>
+                        <network network="facebook">
+                          <font-awesome-icon
+                            :icon="['fab', 'facebook-square']"
+                            size="lg"
+                            class="aa-social"
+                          />
+                        </network>
+                        &nbsp;
+                        <network network="twitter">
+                          <font-awesome-icon
+                            :icon="['fab', 'twitter-square']"
+                            size="lg"
+                            class="aa-social"
+                          />
+                        </network>
+                      </div>
+                    </social-sharing>
                   </div>
                   <div class="level-item">
 
@@ -105,12 +113,14 @@
             >
               <div class="card is-shadowless">
                 <div class="card-image">
-                  <figure class="image is-2by3 aa-card-image">
-                    <img
-                      @click="showComicDetails(comic)"
-                      v-bind:src="comic.thumbnail.path + '/portrait_uncanny.' + comic.thumbnail.extension | convertToHttps"
+                  <figure
+                    class="image is-2by3 aa-card-image"
+                    @click="showComicDetails(comic)"
+                  >
+                    <v-lazy-image
+                      :src="comic.thumbnail.path + '/portrait_uncanny.' + comic.thumbnail.extension | convertToHttps"
                       :alt="comic.title"
-                    >
+                    />
                   </figure>
                 </div>
                 <div class="card-content">
@@ -386,6 +396,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.v-lazy-image {
+  opacity: 0;
+  transition: opacity 2s;
+}
+.v-lazy-image-loaded {
+  opacity: 1;
+}
+</style>
 
 <style>
 /* pagination */

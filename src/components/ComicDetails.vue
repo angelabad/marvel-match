@@ -6,10 +6,11 @@
         <div class="columns is-mobile is-multiline has-text-white">
           <div class="column is-half">
             <figure class="image">
-              <img
-                v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
+              <v-lazy-image
+                :src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
+                :src-placeholder="comic.thumbnail.path + '/portrait_fantastic.' + comic.thumbnail.extension | convertToHttps"
                 :alt="comic.title"
-              >
+              />
             </figure>
           </div>
           <div class="column is-half">
@@ -89,11 +90,12 @@
         <div class="columns is-multiline has-text-white">
           <div class="column is-half">
             <figure class="image">
-              <img
-                v-bind:src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
+              <v-lazy-image
+                :src="comic.thumbnail.path + '.' + comic.thumbnail.extension | convertToHttps"
+                :src-placeholder="comic.thumbnail.path + '/portrait_uncanny.' + comic.thumbnail.extension | convertToHttps"
                 :alt="comic.title"
                 style="width: 100%; height: 80vh; object-fit: contain;"
-              >
+              />
             </figure>
           </div>
           <div class="column is-half">
@@ -218,6 +220,16 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.v-lazy-image {
+  filter: blur(10px);
+  transition: filter 0.7s;
+}
+.v-lazy-image-loaded {
+  filter: blur(0);
+}
+</style>
 
 <style >
 .modal-content {
