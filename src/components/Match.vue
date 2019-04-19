@@ -118,7 +118,7 @@
                     @click="showComicDetails(comic)"
                   >
                     <v-lazy-image
-                      :src="comic.thumbnail.path + '/portrait_uncanny.' + comic.thumbnail.extension | convertToHttps"
+                      :src="comic.thumbnail.path + '/' + imageSize + '.' + comic.thumbnail.extension | convertToHttps"
                       :alt="comic.title"
                     />
                   </figure>
@@ -211,6 +211,9 @@ export default {
     }
   },
   computed: {
+    imageSize: function () {
+      return this.$mq === 'sm' ? 'portrait_fantastic' : 'portrait_uncanny'
+    },
     metaTitle: function () {
       let title = 'MarvelMatch: ' + this.hero1.name + ' vs ' + this.hero2.name
       return title
