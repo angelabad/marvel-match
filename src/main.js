@@ -8,6 +8,7 @@ import VueMq from 'vue-mq'
 import Buefy from 'buefy'
 import VueAnalytics from 'vue-analytics'
 import VueSocialSharing from 'vue-social-sharing'
+import { VLazyImagePlugin } from 'v-lazy-image'
 
 import { library, dom } from '@fortawesome/fontawesome-svg-core'
 import { faAngleRight, faAngleLeft, faSort, faHeart } from '@fortawesome/free-solid-svg-icons'
@@ -45,6 +46,7 @@ Vue.use(VueAnalytics, {
   }
 })
 Vue.use(VueSocialSharing)
+Vue.use(VLazyImagePlugin)
 
 Vue.filter('convertToHttps', function (value) {
   if (!value) return ''
