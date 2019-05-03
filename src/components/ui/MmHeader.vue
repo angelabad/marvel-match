@@ -1,6 +1,6 @@
 <template>
   <header class="has-text-centered">
-    <router-link to="/">
+    <router-link to="/" aria-label="Go to homepage">
       <svg
         width="130"
         height="52"

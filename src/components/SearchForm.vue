@@ -1,5 +1,5 @@
 <template>
-  <div id="SearchForm2">
+  <div>
 
     <div
       v-if="hero"
@@ -40,6 +40,7 @@
       field="name"
       v-model="name"
       size="is-medium"
+      aria-label="Start typing superhero name..."
       :data="searchResults"
       :loading="isFetching"
       :keep-first="true"
