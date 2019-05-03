@@ -29,149 +29,151 @@
 
       <mm-header />
 
-      <div
-        v-if="comics.length > 0"
-        class="container"
-      >
-        <section class="section">
-          <div class="columns is-multiline is-mobile is-variable is-1-mobile is-3-tablet">
-            <div class="column is-full">
-              <div class="level">
-                <div class="level-left">
-                  <p class="level-item title has-text-white">
-                    {{ hero1.name }} - {{ hero2.name }}
-                  </p>
-                </div>
-                <div class="level-right is-marginless">
-                  <div class="level-item">
-                    <social-sharing
-                      :url="shareUrl"
-                      :title="metaTitle"
-                      :hashtags="hashtags"
-                      twitter-user="matchmarvel"
-                      inline-template
-                    >
-                      <div>
-                        <network network="facebook">
-                          <font-awesome-icon
-                            :icon="['fab', 'facebook-square']"
-                            size="lg"
-                            class="aa-social"
-                          />
-                        </network>
-                        &nbsp;
-                        <network network="twitter">
-                          <font-awesome-icon
-                            :icon="['fab', 'twitter-square']"
-                            size="lg"
-                            class="aa-social"
-                          />
-                        </network>
-                      </div>
-                    </social-sharing>
+      <main>
+        <div
+          v-if="comics.length > 0"
+          class="container"
+        >
+          <section class="section">
+            <div class="columns is-multiline is-mobile is-variable is-1-mobile is-3-tablet">
+              <div class="column is-full">
+                <div class="level">
+                  <div class="level-left">
+                    <p class="level-item title has-text-white">
+                      {{ hero1.name }} - {{ hero2.name }}
+                    </p>
                   </div>
-                  <div class="level-item">
+                  <div class="level-right is-marginless">
+                    <div class="level-item">
+                      <social-sharing
+                        :url="shareUrl"
+                        :title="metaTitle"
+                        :hashtags="hashtags"
+                        twitter-user="matchmarvel"
+                        inline-template
+                      >
+                        <div>
+                          <network network="facebook">
+                            <font-awesome-icon
+                              :icon="['fab', 'facebook-square']"
+                              size="lg"
+                              class="aa-social"
+                            />
+                          </network>
+                          &nbsp;
+                          <network network="twitter">
+                            <font-awesome-icon
+                              :icon="['fab', 'twitter-square']"
+                              size="lg"
+                              class="aa-social"
+                            />
+                          </network>
+                        </div>
+                      </social-sharing>
+                    </div>
+                    <div class="level-item">
 
-                    <strong class="has-text-white">
-                      {{ comics.length }} comics available
-                    </strong>
+                      <strong class="has-text-white">
+                        {{ comics.length }} comics available
+                      </strong>
 
-                    <a
-                      class="button is-text has-text-white is-small is-outlined"
-                      @click="reverseOrder"
-                    >
-                      <span class="icon">
-                        <i class="fas fa-sort"></i>
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- TODO: This code ir repeated at the bottom of page -->
-            <div class="column is-half has-text-white has-text-left pagination">
-              Showing {{ firstComicInPage }} to {{ lastComicInPage }}
-            </div>
-            <div class="column is-half pagination">
-              <b-pagination
-                :total="comics.length"
-                :current.sync="current"
-                :order="order"
-                :size="size"
-                :simple="isSimple"
-                :rounded="isRounded"
-                :per-page="perPage"
-                aria-next-label="Next page"
-                aria-previous-label="Previous page"
-                aria-page-label="Page"
-                aria-current-label="Current page"
-              >
-              </b-pagination>
-            </div>
-
-            <div
-              v-for="comic in computedComics"
-              :key="comic.id"
-              class="column is-one-quarter-tablet is-one-third-mobile"
-            >
-              <div class="card is-shadowless">
-                <div class="card-image">
-                  <figure
-                    class="image is-2by3 aa-card-image"
-                    @click="showComicDetails(comic)"
-                  >
-                    <v-lazy-image
-                      :src="comic.thumbnail.path + '/' + imageSize + '.' + comic.thumbnail.extension | convertToHttps"
-                      :alt="comic.title"
-                    />
-                  </figure>
-                </div>
-                <div class="card-content">
-                  <div class="media">
-                    <div class="media-content">
                       <a
-                        @click="showComicDetails(comic)"
-                        class="title is-size-7-mobile is-size-6-tablet aa-card-title"
-                      >{{ comic.title }}</a>
+                        class="button is-text has-text-white is-small is-outlined"
+                        @click="reverseOrder"
+                      >
+                        <span class="icon">
+                          <i class="fas fa-sort"></i>
+                        </span>
+                      </a>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <div class="column is-full pagination">
-              <b-pagination
-                :total="comics.length"
-                :current.sync="current"
-                :order="order"
-                :size="size"
-                :simple="isSimple"
-                :rounded="isRounded"
-                :per-page="perPage"
-                aria-next-label="Next page"
-                aria-previous-label="Previous page"
-                aria-page-label="Page"
-                aria-current-label="Current page"
+              <!-- TODO: This code ir repeated at the bottom of page -->
+              <div class="column is-half has-text-white has-text-left pagination">
+                Showing {{ firstComicInPage }} to {{ lastComicInPage }}
+              </div>
+              <div class="column is-half pagination">
+                <b-pagination
+                  :total="comics.length"
+                  :current.sync="current"
+                  :order="order"
+                  :size="size"
+                  :simple="isSimple"
+                  :rounded="isRounded"
+                  :per-page="perPage"
+                  aria-next-label="Next page"
+                  aria-previous-label="Previous page"
+                  aria-page-label="Page"
+                  aria-current-label="Current page"
+                >
+                </b-pagination>
+              </div>
+
+              <div
+                v-for="comic in computedComics"
+                :key="comic.id"
+                class="column is-one-quarter-tablet is-one-third-mobile"
               >
-              </b-pagination>
-            </div>
+                <div class="card is-shadowless">
+                  <div class="card-image">
+                    <figure
+                      class="image is-2by3 aa-card-image"
+                      @click="showComicDetails(comic)"
+                    >
+                      <v-lazy-image
+                        :src="comic.thumbnail.path + '/' + imageSize + '.' + comic.thumbnail.extension | convertToHttps"
+                        :alt="comic.title"
+                      />
+                    </figure>
+                  </div>
+                  <div class="card-content">
+                    <div class="media">
+                      <div class="media-content">
+                        <a
+                          @click="showComicDetails(comic)"
+                          class="title is-size-7-mobile is-size-6-tablet aa-card-title"
+                        >{{ comic.title }}</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
-          </div>
-        </section>
+              <div class="column is-full pagination">
+                <b-pagination
+                  :total="comics.length"
+                  :current.sync="current"
+                  :order="order"
+                  :size="size"
+                  :simple="isSimple"
+                  :rounded="isRounded"
+                  :per-page="perPage"
+                  aria-next-label="Next page"
+                  aria-previous-label="Previous page"
+                  aria-page-label="Page"
+                  aria-current-label="Current page"
+                >
+                </b-pagination>
+              </div>
 
-      </div>
-      <div v-else>
-        <section class="hero is-medium is-bold">
-          <div class="hero-body">
-            <div class="container">
-              <h1 class="title has-text-black">
-                No results found
-              </h1>
             </div>
-          </div>
-        </section>
-      </div>
+          </section>
+
+        </div>
+        <div v-else>
+          <section class="hero is-medium is-bold">
+            <div class="hero-body">
+              <div class="container">
+                <h1 class="title has-text-black">
+                  No results found
+                </h1>
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
 
       <mm-footer />
 
