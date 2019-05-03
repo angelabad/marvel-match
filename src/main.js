@@ -5,7 +5,9 @@ import router from './router'
 import VueMeta from 'vue-meta'
 import VueScrollTo from 'vue-scrollto'
 import VueMq from 'vue-mq'
-import Buefy from 'buefy'
+import Autocomplete from 'buefy/dist/components/autocomplete'
+import Modal from 'buefy/dist/components/modal'
+import Pagination from 'buefy/dist/components/pagination'
 import VueAnalytics from 'vue-analytics'
 import VueSocialSharing from 'vue-social-sharing'
 import { VLazyImagePlugin } from 'v-lazy-image'
@@ -31,9 +33,9 @@ Vue.use(VueScrollTo, {
   duration: 1500
 })
 Vue.use(VueMq)
-Vue.use(Buefy, {
-  defaultIconPack: 'fas'
-})
+Vue.use(Autocomplete)
+Vue.use(Modal)
+Vue.use(Pagination)
 Vue.use(VueAnalytics, {
   id: 'UA-136350344-1',
   router,
