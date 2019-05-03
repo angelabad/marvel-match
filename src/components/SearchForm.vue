@@ -1,5 +1,5 @@
 <template>
-  <div id="SearchForm2">
+  <div>
 
     <div
       v-if="hero"
