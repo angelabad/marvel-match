@@ -7,9 +7,9 @@ module.exports = {
             content: [
                 "./src/**/*.vue",
                 "./src/**/*.js",
-                "./node_modules/buefy/src/components/autocomplete/Autocomplete.vue",
-                "./node_modules/buefy/src/components/modal/Modal.vue",
-                "./node_modules/buefy/src/components/pagination/Pagination.vue"
+                "./node_modules/buefy/dist/components/autocomplete/*.js",
+                "./node_modules/buefy/dist/components/modal/*.js",
+                "./node_modules/buefy/dist/components/pagination/*.js"
             ],
             whitelist: ["html", "body"]
         })
