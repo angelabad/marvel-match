@@ -102,6 +102,10 @@
                 :simple="isSimple"
                 :rounded="isRounded"
                 :per-page="perPage"
+                aria-next-label="Next page"
+                aria-previous-label="Previous page"
+                aria-page-label="Page"
+                aria-current-label="Current page"
               >
               </b-pagination>
             </div>
@@ -145,6 +149,10 @@
                 :simple="isSimple"
                 :rounded="isRounded"
                 :per-page="perPage"
+                aria-next-label="Next page"
+                aria-previous-label="Previous page"
+                aria-page-label="Page"
+                aria-current-label="Current page"
               >
               </b-pagination>
             </div>
