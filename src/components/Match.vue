@@ -196,6 +196,9 @@ export default {
       title: this.metaTitle,
       meta: [
         { name: 'description', content: this.metaDescription }
+      ],
+      link: [
+        { rel: 'preconnect', href: 'https://i.annihil.us', crossorigin: 'crossorigin' }
       ]
     }
   },
