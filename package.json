@@ -8,9 +8,9 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "eslint --ext .js,.vue src",
-    "deploy": "yarn run deploy:testing",
-    "empty": "rm -rf dist/* && firebase -P testing deploy",
-    "deploy:testing": "yarn build --mode testing && firebase -P testing deploy",
+    "deploy": "yarn run deploy:staging",
+    "empty": "rm -rf dist/* && firebase -P staging deploy",
+    "deploy:staging": "yarn build --mode staging && firebase -P staging deploy",
     "deploy:production": "yarn build && firebase -P production deploy"
   },
   "dependencies": {
