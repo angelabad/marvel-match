@@ -21,8 +21,6 @@ import 'buefy/dist/buefy.css'
 
 Vue.config.productionTip = false
 
-const isProd = process.env.NODE_ENV === 'production'
-
 // dom is for use normal <i class="fas fa-....."> in code
 dom.watch()
 library.add(faFacebookSquare, faTwitterSquare, faAngleRight, faAngleLeft, faSort, faHeart)
@@ -43,8 +41,8 @@ Vue.use(VueAnalytics, {
     exception: true
   },
   debug: {
-    enabled: !isProd,
-    sendHitTask: isProd
+    enabled: false,
+    sendHitTask: process.env.VUE_APP_USE_GA === 'true'
   }
 })
 Vue.use(VueSocialSharing)
