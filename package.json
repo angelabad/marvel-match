@@ -17,9 +17,9 @@
     "vue": "^2.6.10"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.17",
-    "@fortawesome/free-brands-svg-icons": "^5.8.1",
-    "@fortawesome/free-solid-svg-icons": "^5.8.1",
+    "@fortawesome/fontawesome-svg-core": "^1.2.18",
+    "@fortawesome/free-brands-svg-icons": "^5.8.2",
+    "@fortawesome/free-solid-svg-icons": "^5.8.2",
     "@fortawesome/vue-fontawesome": "^0.1.6",
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "@vue/cli-plugin-babel": "^3.7.0",
@@ -28,7 +28,7 @@
     "axios": "^0.18.0",
     "axios-retry": "^3.1.2",
     "babel-eslint": "^10.0.1",
-    "buefy": "^0.7.5",
+    "buefy": "^0.7.6",
     "debounce": "^1.2.0",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
