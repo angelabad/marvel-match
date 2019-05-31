@@ -8699,10 +8699,10 @@ vm-browserify@0.0.4:
   dependencies:
     indexof "0.0.1"
 
-vue-analytics@^5.16.4:
-  version "5.16.4"
-  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.16.4.tgz#7f9e197cbc64afac96884a05214b17efaf8e9d09"
-  integrity sha512-M67cUqpPeyk2rftrvlx2uU+BQ/C4E8SkF2Ct9LizOYUoTccZtCCJwhMJfQ3XL8xep6p3K8KYz58FzRWvx5zlPw==
+vue-analytics@^5.17.0:
+  version "5.17.0"
+  resolved "https://registry.yarnpkg.com/vue-analytics/-/vue-analytics-5.17.0.tgz#c9530b82b9b4acd111c9cba7d249adf4089746b3"
+  integrity sha512-1Cn/v06cGjmGDfRlG2hc0RF0sc2rNC88shOeLGNIlllSFv5GDZ9kLXGTPB9z9I+WyvFewyUONPIdQnpOls6h6w==
 
 vue-eslint-parser@^2.0.3:
   version "2.0.3"
@@ -8773,10 +8773,10 @@ vue-scrollto@^2.15.0:
   dependencies:
     bezier-easing "2.1.0"
 
-vue-social-sharing@^2.4.3:
-  version "2.4.3"
-  resolved "https://registry.yarnpkg.com/vue-social-sharing/-/vue-social-sharing-2.4.3.tgz#fb69e8bfa1ea60da33e1d10a1c997401c25673be"
-  integrity sha512-UNAizFn8Y5KcTVZFhuleaowqREyUFfBbvcTfoRdvrpRFNCWvSNtLZHWdloEneX4hSKU7tF5TkUuX3ZMiAqqXEg==
+vue-social-sharing@^2.4.4:
+  version "2.4.4"
+  resolved "https://registry.yarnpkg.com/vue-social-sharing/-/vue-social-sharing-2.4.4.tgz#38362b17991865f133d64d5375a1c4e9c6bb482f"
+  integrity sha512-do0ig12rG173V14s+dz1B6K5I9BmMGZfcHMGnZHTKFaIoAWZVeIykEh+XnwaTpFYx2lW1om7XAj3qb08x9PVPQ==
   dependencies:
     vue "^2.2.4"
 
