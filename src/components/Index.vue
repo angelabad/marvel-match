@@ -47,6 +47,7 @@
                     v-on:sendHero="hero => { this.hero2Id = hero; this.$nextTick(() => this.$scrollTo('#matchbutton'))}"
                     v-on:clearParentHero="() => { hero2Id = null }"
                     needsScroll=false
+                    :disabled="hero1Id ? true : false"
                   />
                 </div>
               </div>
