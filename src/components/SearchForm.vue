@@ -41,6 +41,7 @@
       v-model="name"
       size="is-medium"
       aria-label="Start typing superhero name..."
+      :disabled="disabled == 0"
       :data="searchResults"
       :loading="isFetching"
       :keep-first="true"
@@ -73,7 +74,10 @@ import utils from '@/common/utils'
 export default {
   name: 'SearchForm',
   // TODO: this is a workaround for chrome keyboard over input
-  props: ['needsScroll'],
+  props: [
+    'needsScroll',
+    'disabled'
+  ],
   data: function () {
     return {
       name: null,
@@ -88,6 +92,7 @@ export default {
   },
   methods: {
     handleSearch: debunce(function () {
+      console.log('AAAA: ' + this.disabled)
       // NOTE: When we are in portrait mobile scroll to the control when you type
       if (this.$mq === 'sm') {
         this.setScroll()
