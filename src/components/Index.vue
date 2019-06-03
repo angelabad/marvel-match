@@ -46,7 +46,7 @@
                     ref="form2"
                     v-on:sendHero="hero => { this.hero2Id = hero; this.$nextTick(() => this.$scrollTo('#matchbutton'))}"
                     v-on:clearParentHero="() => { hero2Id = null }"
-                    :disabled="hero1Id ? true : false"
+                    :disabled="(hero1Id === null) ? true : false"
                   />
                 </div>
               </div>
