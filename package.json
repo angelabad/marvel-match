@@ -45,7 +45,7 @@
     "vue-mq": "^1.0.1",
     "vue-router": "^3.0.6",
     "vue-scrollto": "^2.15.0",
-    "vue-social-sharing": "^2.4.4",
+    "vue-social-sharing": "^2.4.5",
     "vue-template-compiler": "^2.6.10"
   },
   "browserslist": [
