@@ -166,6 +166,10 @@ export default {
 </script>
 
 <style>
+.disabled input {
+  background-color: lightgrey !important;
+}
+
 .aa-autocomplete input:focus {
   /* box-shadow: 0 0 0 0.125em rgba(red, 0.25) !important; */
   box-shadow: none !important;
