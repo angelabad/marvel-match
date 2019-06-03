@@ -73,11 +73,17 @@ import utils from '@/common/utils'
 
 export default {
   name: 'SearchForm',
-  // TODO: this is a workaround for chrome keyboard over input
-  props: [
-    'needsScroll',
-    'disabled'
-  ],
+  // TODO: needsScroll is a workaround for chrome keyboard over input
+  props: {
+    needsScroll: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: function () {
     return {
       name: null,
@@ -92,7 +98,6 @@ export default {
   },
   methods: {
     handleSearch: debunce(function () {
-      console.log('AAAA: ' + this.disabled)
       // NOTE: When we are in portrait mobile scroll to the control when you type
       if (this.$mq === 'sm') {
         this.setScroll()
