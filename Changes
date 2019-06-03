@@ -1,3 +1,6 @@
+- 1.0.4
+  * Disable second form until first one is filled
+  * Add staging config without analytics  
 - 1.0.2
   * Use our own permalink share service
   * Upgrade vue framework
