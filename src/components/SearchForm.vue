@@ -41,6 +41,8 @@
       v-model="name"
       size="is-medium"
       aria-label="Start typing superhero name..."
+      :class="{ disabled: disabled }"
+      :disabled="disabled == 1"
       :data="searchResults"
       :loading="isFetching"
       :keep-first="true"
@@ -72,8 +74,17 @@ import utils from '@/common/utils'
 
 export default {
   name: 'SearchForm',
-  // TODO: this is a workaround for chrome keyboard over input
-  props: ['needsScroll'],
+  // TODO: needsScroll is a workaround for chrome keyboard over input
+  props: {
+    needsScroll: {
+      type: Boolean,
+      default: false
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
   data: function () {
     return {
       name: null,
@@ -155,6 +166,10 @@ export default {
 </script>
 
 <style>
+.disabled input {
+  background-color: lightgrey !important;
+}
+
 .aa-autocomplete input:focus {
   /* box-shadow: 0 0 0 0.125em rgba(red, 0.25) !important; */
   box-shadow: none !important;
