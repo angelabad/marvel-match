@@ -38,7 +38,7 @@
                     ref="form1"
                     v-on:sendHero="hero => { this.hero1Id = hero; this.$refs.form2.$refs.autocomplete.focus() }"
                     v-on:clearParentHero="() => { hero1Id = null }"
-                    needsScroll=true
+                    :needsScroll=true
                   />
                 </div>
                 <div class="field">
@@ -46,7 +46,6 @@
                     ref="form2"
                     v-on:sendHero="hero => { this.hero2Id = hero; this.$nextTick(() => this.$scrollTo('#matchbutton'))}"
                     v-on:clearParentHero="() => { hero2Id = null }"
-                    needsScroll=false
                     :disabled="hero1Id ? true : false"
                   />
                 </div>
