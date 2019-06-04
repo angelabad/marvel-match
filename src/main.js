@@ -18,6 +18,7 @@ import { faFacebookSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 import 'buefy/dist/buefy.css'
+import './registerServiceWorker'
 
 Vue.config.productionTip = false
 
