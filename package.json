@@ -1,19 +1,20 @@
 {
-  "name": "marvel-match",
+  "name": "marvelmatch",
   "version": "0.1.0",
+  "private": true,
   "description": "Marvel Match",
   "author": "Angel Abad <angelabad@gmail.com>",
-  "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "eslint --ext .js,.vue src",
     "deploy": "yarn run deploy:staging",
-    "empty": "rm -rf dist/* && firebase -P staging deploy",
+    "deploy:production": "yarn build && firebase -P production deploy",
     "deploy:staging": "yarn build --mode staging && firebase -P staging deploy",
-    "deploy:production": "yarn build && firebase -P production deploy"
+    "empty": "rm -rf dist/* && firebase -P staging deploy"
   },
   "dependencies": {
+    "register-service-worker": "^1.6.2",
     "vue": "^2.6.10"
   },
   "devDependencies": {
@@ -24,6 +25,7 @@
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "@vue/cli-plugin-babel": "^3.8.0",
     "@vue/cli-plugin-eslint": "^3.8.0",
+    "@vue/cli-plugin-pwa": "^3.8.0",
     "@vue/cli-service": "^3.8.0",
     "axios": "^0.19.0",
     "axios-retry": "^3.1.2",
