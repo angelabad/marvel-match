@@ -175,7 +175,7 @@ export default {
       var writers = this.comic.creators.items.filter(creator => creator.role === role)
       if (writers.length === 0) return ''
 
-      let names = []
+      const names = []
       writers.forEach(writer => {
         names.push(writer.name)
       })
@@ -201,13 +201,13 @@ export default {
     getReleaseDate: function () {
       if (!this.comic.dates) return ''
       const result = this.comic.dates.find(date => date.type === 'onsaleDate')
-      let newDate = new Date(Date.parse(result.date))
+      const newDate = new Date(Date.parse(result.date))
       var options = { month: 'long', day: 'numeric', year: 'numeric' }
 
       return newDate.toLocaleDateString('en-US', options)
     },
     getCharacters: function () {
-      let names = []
+      const names = []
       this.comic.characters.items.forEach(character => names.push(character.name))
 
       return names.join(', ')

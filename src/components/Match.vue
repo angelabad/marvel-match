@@ -230,11 +230,11 @@ export default {
       return this.$mq === 'sm' ? 'portrait_fantastic' : 'portrait_uncanny'
     },
     metaTitle: function () {
-      let title = 'MarvelMatch: ' + this.hero1.name + ' vs ' + this.hero2.name
+      const title = 'MarvelMatch: ' + this.hero1.name + ' vs ' + this.hero2.name
       return title
     },
     metaDescription: function () {
-      let description = 'See all the Marvel comics where ' + this.hero1.name + ' and ' + this.hero2.name + ' appear together.'
+      const description = 'See all the Marvel comics where ' + this.hero1.name + ' and ' + this.hero2.name + ' appear together.'
       return description
     },
     shareUrl: function () {
@@ -243,7 +243,7 @@ export default {
       return encodeURI(url)
     },
     hashtags: function () {
-      let hashtags = ['marvel']
+      const hashtags = ['marvel']
       // Only use letters, numbers and underscore in twitter hashtags
       hashtags.push(this.hero1.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, ''))
       hashtags.push(this.hero2.name.toLowerCase().replace(/[^a-zA-Z0-9_]/g, ''))
@@ -278,7 +278,7 @@ export default {
         Promise.all([this.getComics(heroesArray[0]), this.getComics(heroesArray[1])])
           .then(
             values => {
-              let rawcomics = values[0].filter(obj =>
+              const rawcomics = values[0].filter(obj =>
                 values[1].find(o => o.id === obj.id)
               )
               return rawcomics
@@ -361,9 +361,9 @@ export default {
     getComics: function (hero) {
       // TODO: Mejorar control de errores
       return new Promise((resolve, reject) => {
-        let offset = 100
+        const offset = 100
 
-        let urlArray = []
+        const urlArray = []
         let i = 0
         for (i = 0; i <= hero.comicsAvailable; i += offset) {
           urlArray.push(
@@ -373,7 +373,7 @@ export default {
 
         this.total += urlArray.length
 
-        let comicsArray = []
+        const comicsArray = []
 
         var getUrls = () => urlArray.map(url => axios.get(url)
           .then(results => {

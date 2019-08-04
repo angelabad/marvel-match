@@ -51,7 +51,7 @@ Vue.use(VLazyImagePlugin)
 
 Vue.filter('convertToHttps', function (value) {
   if (!value) return ''
-  let url = new URL(value)
+  const url = new URL(value)
   url.protocol = 'https:'
   return url.href
 })
