@@ -8,6 +8,7 @@ import VueMq from 'vue-mq'
 import Autocomplete from 'buefy/dist/components/autocomplete'
 import Modal from 'buefy/dist/components/modal'
 import Pagination from 'buefy/dist/components/pagination'
+import Progress from 'buefy/dist/components/progress'
 import VueAnalytics from 'vue-analytics'
 import VueSocialSharing from 'vue-social-sharing'
 import { VLazyImagePlugin } from 'v-lazy-image'
@@ -35,6 +36,7 @@ Vue.use(VueMq)
 Vue.use(Autocomplete)
 Vue.use(Modal)
 Vue.use(Pagination)
+Vue.use(Progress)
 Vue.use(VueAnalytics, {
   id: 'UA-136350344-1',
   router,
