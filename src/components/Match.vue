@@ -12,11 +12,7 @@
             <p class="modal-card-title">Searching your superheroes!</p>
           </header>
           <section class="modal-card-body">
-            <progress
-              class="progress"
-              :value="progress"
-              :max="total"
-            />
+            <b-progress :value="progress" :max="total" size="is-medium"></b-progress>
           </section>
           <footer class="modal-card-foot">
             <p>Please be patient...</p>
