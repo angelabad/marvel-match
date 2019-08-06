@@ -401,7 +401,7 @@ export default {
       return result.url
     },
     showComicDetails: function (comic) {
-      this.$modal.open({
+      this.$buefy.modal.open({
         props: {
           comic: comic
         },
