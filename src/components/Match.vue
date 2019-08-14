@@ -108,6 +108,7 @@
                   aria-previous-label="Previous page"
                   aria-page-label="Page"
                   aria-current-label="Current page"
+                  @change="updatePage"
                 >
                 </b-pagination>
               </div>
@@ -156,6 +157,7 @@
                   aria-previous-label="Previous page"
                   aria-page-label="Page"
                   aria-current-label="Current page"
+                  @change="updatePage"
                 >
                 </b-pagination>
               </div>
@@ -326,6 +328,14 @@ export default {
       })
   },
   methods: {
+    updatePage: function (numPag) {
+      this.$router.push({
+        name: 'match',
+        params: {
+          page: numPag
+        }
+      })
+    },
     showErrorDialog: function () {
       this.$buefy.dialog.alert({
         message: 'Something\'s not good, please try again later!',
