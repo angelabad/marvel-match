@@ -9,7 +9,7 @@ Vue.use(Router)
 
 const routes = [
   { path: '/', name: 'index', component: Index },
-  { path: '/match/:hero1/:hero2', name: 'match', component: Match },
+  { path: '/match/:hero1/:hero2/:page?', name: 'match', component: Match },
   { path: '*', component: NotFound }
 ]
 
