@@ -269,6 +269,8 @@ export default {
       retryDelay: axiosRetry.exponentialDelay
     })
 
+    this.$route.params.page == null ? this.current = 1 : this.current = parseInt(this.$route.params.page)
+
     this.loading = true
 
     Promise.all([this.getHero(this.$route.params.hero1), this.getHero(this.$route.params.hero2)])
