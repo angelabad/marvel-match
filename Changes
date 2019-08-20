@@ -1,3 +1,16 @@
+- 1.1.1
+  * Fix minor errors
+  * Create urls with pagination current page, now you can permalink pagination.
+- 1.1.0
+  * Use api.marvelmatch.com proxy server instead of marvel.angelabad.me
+- 1.0.8
+  * Use buefy progress instead of bulma progresbar
+- 1.0.7
+  * Upgrade vue and buefy libraries
+- 1.0.6
+  * Convert page to PWA with workers, icons, etc..
+- 1.0.5
+  * Upgrade buefy to 0.7.8
 - 1.0.4
   * Disable second form until first one is filled
   * Add staging config without analytics  
