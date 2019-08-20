@@ -332,6 +332,17 @@ export default {
             this.showErrorDialog()
           })
           .finally(() => {
+            // Check if page number in url is higher than total pages
+            const totalPages = Math.ceil(this.comics.length / this.perPage)
+            if (this.current > totalPages) {
+              this.current = 1
+              this.$router.push({
+                params: {
+                  page: 1
+                }
+              })
+            }
+
             this.loading = false
           })
       })
