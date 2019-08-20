@@ -1,5 +1,6 @@
 - 1.1.1
   * Fix minor errors
+  * Update npm dependencies
   * Create urls with pagination current page, now you can permalink pagination.
 - 1.1.0
   * Use api.marvelmatch.com proxy server instead of marvel.angelabad.me
