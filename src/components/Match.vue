@@ -108,6 +108,7 @@
                   aria-previous-label="Previous page"
                   aria-page-label="Page"
                   aria-current-label="Current page"
+                  @change="updatePage"
                 >
                 </b-pagination>
               </div>
@@ -156,6 +157,7 @@
                   aria-previous-label="Previous page"
                   aria-page-label="Page"
                   aria-current-label="Current page"
+                  @change="updatePage"
                 >
                 </b-pagination>
               </div>
@@ -225,6 +227,20 @@ export default {
       errored: false
     }
   },
+  beforeRouteEnter: function (to, from, next) {
+    // Check if page is undefined or 0 and put 1 on url
+    if (to.params.page === undefined || to.params.page == 0) {
+      const page = 1
+      to.params.page = page.toString()
+      next(to)
+    // Go if page is number
+    } else if (Number.isInteger(parseInt(to.params.page))) {
+      next()
+    // Got error if inst a number
+    } else {
+      next({ name: 'notfound' })
+    }
+  },
   computed: {
     imageSize: function () {
       return this.$mq === 'sm' ? 'portrait_fantastic' : 'portrait_uncanny'
@@ -268,6 +284,8 @@ export default {
       retries: 5,
       retryDelay: axiosRetry.exponentialDelay
     })
+
+    this.$route.params.page == null ? this.current = 1 : this.current = parseInt(this.$route.params.page)
 
     this.loading = true
 
@@ -314,6 +332,17 @@ export default {
             this.showErrorDialog()
           })
           .finally(() => {
+            // Check if page number in url is higher than total pages
+            const totalPages = Math.ceil(this.comics.length / this.perPage)
+            if (this.current > totalPages) {
+              this.current = 1
+              this.$router.push({
+                params: {
+                  page: 1
+                }
+              })
+            }
+
             this.loading = false
           })
       })
@@ -324,6 +353,13 @@ export default {
       })
   },
   methods: {
+    updatePage: function (numPag) {
+      this.$router.push({
+        params: {
+          page: numPag
+        }
+      })
+    },
     showErrorDialog: function () {
       this.$buefy.dialog.alert({
         message: 'Something\'s not good, please try again later!',
