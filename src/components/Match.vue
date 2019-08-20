@@ -227,6 +227,20 @@ export default {
       errored: false
     }
   },
+  beforeRouteEnter: function (to, from, next) {
+    // Check if page is undefined or 0 and put 1 on url
+    if (to.params.page === undefined || to.params.page == 0) {
+      const page = 1
+      to.params.page = page.toString()
+      next(to)
+    // Go if page is number
+    } else if (Number.isInteger(parseInt(to.params.page))) {
+      next()
+    // Got error if inst a number
+    } else {
+      next({ name: 'notfound' })
+    }
+  },
   computed: {
     imageSize: function () {
       return this.$mq === 'sm' ? 'portrait_fantastic' : 'portrait_uncanny'
