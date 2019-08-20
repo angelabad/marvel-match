@@ -325,7 +325,7 @@ export default {
   },
   methods: {
     showErrorDialog: function () {
-      this.$dialog.alert({
+      this.$buefy.dialog.alert({
         message: 'Something\'s not good, please try again later!',
         type: 'is-dark',
         hasIcon: true,
