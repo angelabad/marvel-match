@@ -355,7 +355,6 @@ export default {
   methods: {
     updatePage: function (numPag) {
       this.$router.push({
-        name: 'match',
         params: {
           page: numPag
         }
