@@ -104,7 +104,8 @@ export default {
         name: 'match',
         params: {
           hero1: this.hero1Id.id,
-          hero2: this.hero2Id.id
+          hero2: this.hero2Id.id,
+          page: 1
         }
       })
     }
