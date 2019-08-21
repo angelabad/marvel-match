@@ -229,7 +229,7 @@ export default {
   },
   beforeRouteEnter: function (to, from, next) {
     // Check if page is undefined or 0 and put 1 on url
-    if (to.params.page === undefined || to.params.page == 0) {
+    if (to.params.page === undefined || parseInt(to.params.page) === 0) {
       const page = 1
       to.params.page = page.toString()
       next(to)
