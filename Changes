@@ -1,5 +1,6 @@
 - 1.1.1
   * Fix minor errors
+  * Fix parseInt comparssion in params.page
   * Update npm dependencies
   * Create urls with pagination current page, now you can permalink pagination.
 - 1.1.0
