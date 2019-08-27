@@ -126,7 +126,7 @@ export default {
         .then(response => (this.searchResults = response.data.data.results))
         .catch(error => console.log(error))
         .finally(() => (this.isFetching = false))
-    }, 500),
+    }, 120),
     showHero: function (id) {
       this.searchResults = []
       axios
