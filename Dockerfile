@@ -2,7 +2,7 @@
 FROM node:12-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
-RUN npm -g install yarn
+RUN npm -g update yarn
 RUN yarn install
 COPY . .
 RUN yarn build
