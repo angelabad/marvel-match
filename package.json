@@ -16,24 +16,24 @@
   "dependencies": {
     "core-js": "^3.6.5",
     "register-service-worker": "^1.7.1",
-    "vue": "^2.6.11"
+    "vue": "^2.6.12"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
-    "@fortawesome/vue-fontawesome": "^0.1.10",
+    "@fortawesome/vue-fontawesome": "^2.0.0",
     "@fullhuman/postcss-purgecss": "^2.3.0",
-    "@vue/cli-plugin-babel": "^4.4.6",
-    "@vue/cli-plugin-eslint": "^4.4.6",
-    "@vue/cli-plugin-pwa": "^4.4.6",
-    "@vue/cli-service": "^4.4.6",
-    "axios": "^0.19.2",
+    "@vue/cli-plugin-babel": "^4.5.6",
+    "@vue/cli-plugin-eslint": "^4.5.6",
+    "@vue/cli-plugin-pwa": "^4.5.6",
+    "@vue/cli-service": "^4.5.6",
+    "axios": "^0.21.0",
     "axios-retry": "^3.1.8",
     "babel-eslint": "^10.1.0",
-    "buefy": "^0.8.20",
+    "buefy": "^0.9.3",
     "debounce": "^1.2.0",
-    "eslint": "^7.5.0",
+    "eslint": "^7.9.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-friendly-formatter": "^4.0.1",
     "eslint-loader": "^4.0.2",
@@ -46,10 +46,10 @@
     "vue-analytics": "^5.22.1",
     "vue-meta": "^2.4.0",
     "vue-mq": "^1.0.1",
-    "vue-router": "^3.3.4",
-    "vue-scrollto": "^2.18.1",
+    "vue-router": "^3.4.3",
+    "vue-scrollto": "^2.18.2",
     "vue-social-sharing": "^2.4.7",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.12"
   },
   "browserslist": [
     "> 1%",
