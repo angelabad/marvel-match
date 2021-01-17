@@ -28,7 +28,7 @@
     "@vue/cli-plugin-eslint": "^4.5.6",
     "@vue/cli-plugin-pwa": "^4.5.6",
     "@vue/cli-service": "^4.5.6",
-    "axios": "^0.20.0",
+    "axios": "^0.21.0",
     "axios-retry": "^3.1.8",
     "babel-eslint": "^10.1.0",
     "buefy": "^0.9.3",
