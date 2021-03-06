@@ -8,7 +8,8 @@ pipeline {
     stage('Build') {
       steps {     
         container('node') {
-          sh 'npm install'
+          sh 'npm -g install yarn'
+          sh 'yarn'
         }  
       }
     }
