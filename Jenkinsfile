@@ -1,12 +1,12 @@
 pipeline {
+  agent { kubernetes }
   stages {
     stage('Build') {
-      container('node') {
-        steps {      
+      steps {     
+        container('node') {
           sh 'npm install'
         }
       }
     }
-
   }
 }
