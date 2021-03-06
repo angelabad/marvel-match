@@ -1,6 +1,6 @@
 pipeline {
-  stages {
-    node('python') {
+  node('python') {
+    stages {
       stage('Build') {
         steps {     
           container('node') {
