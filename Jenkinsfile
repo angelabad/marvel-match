@@ -1,17 +1,17 @@
 pipeline {
   agent { kubernetes {
-    node 'python'
-  } 
-        }
+      inheritFrom 'python'
+    } 
+  }
   
-    stages {
-      stage('Build') {
-        steps {     
-          container('node') {
-            sh 'npm install'
-          }
-        
+  stages {
+    stage('Build') {
+      steps {     
+        container('node') {
+          sh 'npm install'
+        }  
       }
     }
   }
+  
 }
