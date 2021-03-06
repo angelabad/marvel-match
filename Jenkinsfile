@@ -1,8 +1,8 @@
 pipeline {
   stages {
     stage('Build') {
-      steps {
-        container('node') {
+      container('node') {
+        steps {      
           sh 'npm install'
         }
       }
