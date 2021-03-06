@@ -1,6 +1,6 @@
 pipeline {
   agent {
-    kubernetes { label 'python' }
+    kubernetes { inheritFrom 'python' }
   }
   stages {
     stage('Build') {
