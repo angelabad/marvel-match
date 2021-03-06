@@ -2,8 +2,8 @@ pipeline {
   agent {
     kubernetes {} 
   }
-  node ('python') {
-    stages {
+  stages {
+    node ('python') {
       stage('Build') {
         steps {     
           container('node') {
