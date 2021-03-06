@@ -9,6 +9,7 @@ pipeline {
       steps {     
         container('node') {
           sh 'yarn'
+          sh 'yarn build'
         }  
       }
     }
