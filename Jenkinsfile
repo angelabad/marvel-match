@@ -1,14 +1,14 @@
 pipeline {
   agent {
-    kubernetes {
-      label 'python'
-    } 
+    kubernetes {} 
   }
-  stages {
-    stage('Build') {
-      steps {     
-        container('node') {
-          sh 'npm install'
+  node ('python') {
+    stages {
+      stage('Build') {
+        steps {     
+          container('node') {
+            sh 'npm install'
+          }
         }
       }
     }
