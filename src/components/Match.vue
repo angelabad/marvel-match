@@ -266,11 +266,11 @@ export default {
       return hashtags.join()
     },
     firstComicInPage: function () {
-      var page = (this.perPage * (this.current - 1)) + 1
+      const page = (this.perPage * (this.current - 1)) + 1
       return page
     },
     lastComicInPage: function () {
-      var page = (this.perPage * (this.current - 1)) + this.perPage
+      const page = (this.perPage * (this.current - 1)) + this.perPage
       // If page calculation is mayor that total comics, return total comics
       return (page < this.comics.length) ? page : this.comics.length
     },
@@ -303,7 +303,7 @@ export default {
             }
           ).then(rawcomics => {
             this.comics = rawcomics.map(rawcomic => {
-              var comic = {
+              const comic = {
                 id: rawcomic.id,
                 title: rawcomic.title,
                 description: rawcomic.description,
@@ -320,8 +320,8 @@ export default {
             })
             this.comics.sort(function (a, b) {
               // Get comics onsaleDate and convert to Date type
-              var dateA = new Date(a.dates.find(date => date.type === 'onsaleDate').date)
-              var dateB = new Date(b.dates.find(date => date.type === 'onsaleDate').date)
+              const dateA = new Date(a.dates.find(date => date.type === 'onsaleDate').date)
+              const dateB = new Date(b.dates.find(date => date.type === 'onsaleDate').date)
 
               return dateA - dateB
             })
@@ -411,7 +411,7 @@ export default {
 
         const comicsArray = []
 
-        var getUrls = () => urlArray.map(url => axios.get(url)
+        const getUrls = () => urlArray.map(url => axios.get(url)
           .then(results => {
             this.progress += 1
             results.data.data.results.forEach(element => {
