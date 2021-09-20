@@ -148,8 +148,8 @@ export default {
         .catch(() => error => console.log(error))
     },
     splitHeroName: function (name) {
-      var regExp = /([a-zA-Z0-9_]+ ?[a-zA-Z0-9_]+)( ?(\(([^)]+)\)))?/
-      var matches = regExp.exec(name)
+      const regExp = /([a-zA-Z0-9_]+ ?[a-zA-Z0-9_]+)( ?(\(([^)]+)\)))?/
+      const matches = regExp.exec(name)
       return matches
     },
     deleteHero: function () {

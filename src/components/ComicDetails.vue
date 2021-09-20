@@ -172,7 +172,7 @@ export default {
   props: ['comic'],
   methods: {
     getCreatorNames: function (role) {
-      var writers = this.comic.creators.items.filter(creator => creator.role === role)
+      const writers = this.comic.creators.items.filter(creator => creator.role === role)
       if (writers.length === 0) return ''
 
       const names = []
@@ -202,7 +202,7 @@ export default {
       if (!this.comic.dates) return ''
       const result = this.comic.dates.find(date => date.type === 'onsaleDate')
       const newDate = new Date(Date.parse(result.date))
-      var options = { month: 'long', day: 'numeric', year: 'numeric' }
+      const options = { month: 'long', day: 'numeric', year: 'numeric' }
 
       return newDate.toLocaleDateString('en-US', options)
     },
