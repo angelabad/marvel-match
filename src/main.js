@@ -10,7 +10,7 @@ import Modal from 'buefy/dist/components/modal'
 import Pagination from 'buefy/dist/components/pagination'
 import Progress from 'buefy/dist/components/progress'
 import Dialog from 'buefy/dist/components/dialog'
-import VueAnalytics from 'vue-analytics'
+import VueGtag from 'vue-gtag'
 import VueSocialSharing from 'vue-social-sharing'
 import { VLazyImagePlugin } from 'v-lazy-image'
 
@@ -39,17 +39,9 @@ Vue.use(Modal)
 Vue.use(Pagination)
 Vue.use(Progress)
 Vue.use(Dialog)
-Vue.use(VueAnalytics, {
-  id: 'UA-136350344-1',
-  router,
-  autoTracking: {
-    exception: true
-  },
-  debug: {
-    enabled: false,
-    sendHitTask: process.env.VUE_APP_USE_GA === 'true'
-  }
-})
+Vue.use(VueGtag, {
+  config: { id: 'UA-136350344-1' }
+}, router)
 Vue.use(VueSocialSharing)
 Vue.use(VLazyImagePlugin)
 
