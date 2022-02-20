@@ -1,3 +1,6 @@
+- 1.1.6
+  * Bumps follow-redirects from 1.14.4 to 1.14.8
+  * Bump url-parse from 1.5.3 to 1.5.7
 - 1.1.5
   * Use gtag instead of analytics for Google
   * Upgrade npm dependencies
